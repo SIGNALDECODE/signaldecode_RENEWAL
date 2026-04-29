@@ -64,7 +64,11 @@
   background: linear-gradient(180deg, #55759b 0%, #0e0f25 100%);
   box-shadow: var(--shadow-bar);
   transform-origin: bottom;
-  animation: barRise 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  transform: scaleY(0);
+}
+
+.section.play .barBlue {
+  animation: barRise 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 @keyframes barRise {
@@ -93,6 +97,9 @@
   align-items: center;
   margin-bottom: var(--sp-5);
   opacity: 0;
+}
+
+.section.play .callout {
   animation: calloutAppear 0.5s ease-out 1.2s forwards;
 }
 

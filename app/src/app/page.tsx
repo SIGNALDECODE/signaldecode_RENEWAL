@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Reveal from "@/components/Reveal";
 import Hero from "@/components/landing/Hero";
 import Overview from "@/components/landing/Overview";
 import ValueCards from "@/components/landing/ValueCards";
@@ -16,13 +17,19 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Overview />
+        <Reveal>
+          <Overview />
+        </Reveal>
         <ValueCards />
         <PhoneSlider />
         <Quotes />
-        <Partners />
+        <Reveal>
+          <Partners />
+        </Reveal>
         <SalesNumbers />
-        <Professional />
+        <Reveal>
+          <Professional />
+        </Reveal>
         <PerformanceChart />
       </main>
       <Footer />

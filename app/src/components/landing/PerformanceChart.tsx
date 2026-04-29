@@ -1,8 +1,33 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./PerformanceChart.module.css";
 
 export default function PerformanceChart() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setActive(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.6 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${active ? styles.play : ""}`}
+    >
       <div className={styles.panel}>
         <div className={styles.chart}>
           <div className={styles.barCol}>
