@@ -1,0 +1,67 @@
+.header {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: min(var(--container-xl), calc(100vw - 5rem));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) var(--sp-10);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(0.3rem);
+  border-radius: var(--r-md);
+  z-index: var(--z-header);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.logoIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  color: #1d212c;
+  letter-spacing: -0.5px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-15);
+  margin-left: var(--sp-6);
+}
+
+.nav a {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: #1d212c;
+  letter-spacing: -0.45px;
+  white-space: nowrap;
+}
+
+.cta {
+  width: 6.5rem;
+  padding: var(--sp-3);
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: -0.35px;
+}

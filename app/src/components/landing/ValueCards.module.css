@@ -1,0 +1,124 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: 56.875rem;
+  background: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.marquee {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-black), transparent);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-black), transparent);
+}
+
+.track {
+  display: flex;
+  gap: var(--sp-7);
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - var(--sp-3)));
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+  flex-shrink: 0;
+  width: 18.75rem;
+  height: 22.5rem;
+  padding: var(--sp-6);
+  background: rgba(20, 20, 22, 0.45);
+  backdrop-filter: blur(0.8rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-lg);
+  box-shadow: 0 16px 24px -16px rgba(0, 0, 0, 0.5);
+}
+
+.num {
+  font-family: var(--ff-en);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.imgBox {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgBox img {
+  width: 100%;
+  height: 100%;
+  max-width: 8.75rem;
+  max-height: 8.75rem;
+  object-fit: contain;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.cardTitle {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+}
+
+.cardDesc {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  line-height: 1.55;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.55);
+}

@@ -1,0 +1,59 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-12);
+  padding: 12rem var(--sp-6) 14rem;
+  background: var(--color-white);
+}
+
+.phone {
+  position: relative;
+  width: 15rem;
+  height: 22.5rem;
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.phone img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--r-full);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-6);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-family: var(--ff-en);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.title {
+  font-size: var(--fs-4xl);
+  font-weight: var(--fw-bold);
+  line-height: 1.214;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+.desc {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: 1.444;
+  letter-spacing: -0.025em;
+  color: var(--color-text-secondary);
+  text-transform: none;
+}
