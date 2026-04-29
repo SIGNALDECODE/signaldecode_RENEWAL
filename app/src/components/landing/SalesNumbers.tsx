@@ -11,6 +11,7 @@ export default function SalesNumbers() {
   const [digits, setDigits] = useState<string[]>(Array(N).fill("0"));
   const sectionRef = useRef<HTMLElement>(null);
   const startedRef = useRef(false);
+  
 
   useEffect(() => {
     const el = sectionRef.current;
