@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Reveal from "@/components/Reveal";
 import Hero from "@/components/landing/Hero";
 import Overview from "@/components/landing/Overview";
+import MorphImage from "@/components/landing/MorphImage";
 import ValueCards from "@/components/landing/ValueCards";
 import PhoneSlider from "@/components/landing/PhoneSlider";
 import Quotes from "@/components/landing/Quotes";
@@ -17,9 +18,11 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Reveal>
-          <Overview />
-        </Reveal>
+        <Overview />
+        <MorphImage
+          anchorSelector="[data-morph-anchor]"
+          endSelector="[data-morph-end]"
+        />
         <ValueCards />
         <PhoneSlider />
         <Quotes />

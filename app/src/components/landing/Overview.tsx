@@ -1,12 +1,38 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import styles from "./Overview.module.css";
 
 export default function Overview() {
+  const phoneRef = useRef<HTMLDivElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ph = phoneRef.current;
+    const cp = copyRef.current;
+    if (!ph || !cp) return;
+
+    const update = () => {
+      const rect = ph.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const cy = rect.top + rect.height / 2;
+      const p = Math.max(0, Math.min(1, (vh * 0.5 - cy) / (vh * 0.65)));
+      cp.style.opacity = `${1 - p}`;
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
     <section className={styles.section}>
-      <div className={styles.phone}>
-        <img src="/images/overview.jpg" alt="" />
-      </div>
-      <div className={styles.copy}>
+      <div ref={phoneRef} className={styles.phone} data-morph-anchor />
+      <div ref={copyRef} className={styles.copy}>
         <p className={styles.eyebrow}>OVERVIEW</p>
         <h2 className={styles.title}>
           Essential visuals, flawless performance

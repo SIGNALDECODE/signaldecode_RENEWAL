@@ -13,6 +13,17 @@
   backdrop-filter: blur(0.3rem);
   border-radius: var(--r-md);
   z-index: var(--z-header);
+  transition: top 0.3s ease, width 0.3s ease, max-width 0.3s ease,
+    background 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+}
+
+.header.scrolled {
+  top: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.85);
+  padding: var(--sp-5) var(--sp-10);
 }
 
 .left {

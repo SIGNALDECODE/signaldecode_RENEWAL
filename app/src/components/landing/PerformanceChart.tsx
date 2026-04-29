@@ -38,7 +38,7 @@ export default function PerformanceChart() {
 
           <div className={styles.barColCenter}>
             <div className={styles.callout}>
-              <span className={styles.calloutBubble}>압도적인 켐페인 퍼포먼스</span>
+              <span className={styles.calloutBubble}>압도적인 캠페인 퍼포먼스</span>
               <span className={styles.calloutArrow} />
             </div>
             <div className={`${styles.bar} ${styles.barBlue}`} style={{ height: "20rem" }} />

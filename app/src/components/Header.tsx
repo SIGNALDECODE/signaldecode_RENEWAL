@@ -1,11 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 
-const LOGO =
-  "https://www.figma.com/api/mcp/asset/95ec3519-2e24-4d33-85f1-a36793293040";
+const LOGO = "/icons/logo.png";
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.left}>
         <div className={styles.logo}>
           <img src={LOGO} alt="" className={styles.logoIcon} />
