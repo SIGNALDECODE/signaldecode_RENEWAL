@@ -1,11 +1,46 @@
 .section {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--sp-10);
-  padding: var(--sp-45) var(--sp-6) var(--sp-48);
+  padding: var(--sp-39) var(--sp-6) var(--sp-48);
   background: var(--color-primary-blue);
   width: 100%;
+}
+
+.coin {
+  position: absolute;
+  width: 14rem;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 18px 18px rgba(0, 0, 0, 0.28));
+  will-change: transform;
+}
+
+.coinTopRight {
+  top: -6rem;
+  right: 5rem;
+  animation: float 2.4s ease-in-out infinite;
+}
+
+.coinBottomLeft {
+  bottom: -6rem;
+  left: 5rem;
+  width: 12rem;
+  animation: float 2.8s ease-in-out infinite;
+  animation-delay: -1.2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-1.25rem) rotate(3deg);
+  }
 }
 
 .head {
@@ -35,7 +70,7 @@
 }
 
 .desc {
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   font-weight: var(--fw-regular);
   line-height: 1.444;
   letter-spacing: -0.025em;
