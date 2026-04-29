@@ -153,50 +153,50 @@
 
 .card[data-pos="-2"] {
   transform-origin: center center;
-  transform: translate3d(-18rem, 0, -24rem) rotateY(20deg) scale(0.78);
+  transform: translate3d(-16rem, 0, -36rem) rotateY(20deg) scale(0.7);
   z-index: 5;
-  opacity: 0.85;
-  filter: brightness(0.78);
+  opacity: 0.78;
+  filter: brightness(0.72) blur(0.5px);
 }
 
 .card[data-pos="2"] {
   transform-origin: center center;
-  transform: translate3d(18rem, 0, -24rem) rotateY(-20deg) scale(0.78);
+  transform: translate3d(16rem, 0, -36rem) rotateY(-20deg) scale(0.7);
   z-index: 5;
-  opacity: 0.85;
-  filter: brightness(0.78);
+  opacity: 0.78;
+  filter: brightness(0.72) blur(0.5px);
 }
 
 .card[data-pos="-3"] {
   transform-origin: center center;
-  transform: translate3d(-10rem, 0, -42rem) rotateY(14deg) scale(0.55);
+  transform: translate3d(-9rem, 0, -56rem) rotateY(14deg) scale(0.45);
   z-index: 3;
-  opacity: 0.6;
-  filter: brightness(0.62) blur(1px);
+  opacity: 0.5;
+  filter: brightness(0.58) blur(1.5px);
 }
 
 .card[data-pos="3"] {
   transform-origin: center center;
-  transform: translate3d(10rem, 0, -42rem) rotateY(-14deg) scale(0.55);
+  transform: translate3d(9rem, 0, -56rem) rotateY(-14deg) scale(0.45);
   z-index: 3;
-  opacity: 0.6;
-  filter: brightness(0.62) blur(1px);
+  opacity: 0.5;
+  filter: brightness(0.58) blur(1.5px);
 }
 
 .card[data-pos="-4"] {
   transform-origin: center center;
-  transform: translate3d(-3rem, 0, -58rem) rotateY(8deg) scale(0.4);
+  transform: translate3d(-3rem, 0, -76rem) rotateY(8deg) scale(0.32);
   z-index: 1;
-  opacity: 0.4;
-  filter: brightness(0.5) blur(1.5px);
+  opacity: 0.3;
+  filter: brightness(0.45) blur(2px);
 }
 
 .card[data-pos="4"] {
   transform-origin: center center;
-  transform: translate3d(3rem, 0, -58rem) rotateY(-8deg) scale(0.4);
+  transform: translate3d(3rem, 0, -76rem) rotateY(-8deg) scale(0.32);
   z-index: 1;
-  opacity: 0.4;
-  filter: brightness(0.5) blur(1.5px);
+  opacity: 0.45;
+  filter: brightness(0.45) blur(2px);
 }
 
 .card img {
