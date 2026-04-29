@@ -3,8 +3,14 @@
   flex-direction: column;
   align-items: center;
   gap: var(--sp-10);
-  padding: var(--sp-47) 0 var(--sp-25);
+  padding: var(--sp-47) 0 12rem;
   background: var(--color-white);
+  overflow: clip;
+}
+
+.noTransition,
+.noTransition * {
+  transition: none !important;
 }
 
 .head {
@@ -35,7 +41,7 @@
 }
 
 .desc {
-  font-size: var(--fs-md);
+  font-size: var(--fs-sm);
   font-weight: var(--fw-regular);
   line-height: 1.444;
   letter-spacing: -0.025em;
@@ -43,33 +49,25 @@
   text-transform: none;
 }
 
-.scroller {
+.viewport {
   width: 100%;
-  overflow-x: auto;
-  scrollbar-width: none;
+  overflow: hidden;
   margin-top: var(--sp-7);
+  --gap: 1rem;
+  --card-w: calc((100% - 5 * var(--gap)) / 5);
 }
 
-.scroller::-webkit-scrollbar {
-  display: none;
-}
-
-.cards {
+.track {
   display: flex;
-  gap: var(--sp-10);
-  padding: 0 calc((100vw - 83.75rem) / 2);
-}
-
-@media (max-width: 86.25rem) {
-  .cards {
-    padding: 0 var(--sp-6);
-  }
+  gap: var(--gap);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
 }
 
 .card {
   display: flex;
   flex-direction: column;
-  width: 25rem;
+  width: var(--card-w);
   flex-shrink: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--r-xl);
@@ -84,22 +82,22 @@
   background: var(--color-white);
 }
 
-.placeholder {
-  width: 12.5rem;
-  height: 5rem;
-  background: #d9d9d9;
+.logo {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
 }
 
 .body {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-7);
-  padding: var(--sp-6);
+  gap: var(--sp-5);
+  padding: var(--sp-5);
   background: var(--color-bg-soft);
 }
 
 .cardTitle {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-md);
   font-weight: var(--fw-medium);
   line-height: 1.4;
   letter-spacing: -0.025em;
@@ -129,31 +127,28 @@
   display: flex;
   align-items: center;
   gap: var(--sp-3);
+  margin-top: var(--sp-6);
 }
 
 .arrow {
-  width: 3.75rem;
-  height: 3.75rem;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--r-full);
   border: 1px solid var(--color-border);
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .arrowLight {
   background: var(--color-white);
+  color: #222;
 }
 
 .arrowDark {
   background: #222;
-}
-
-.arrow img {
-  width: 1.75rem;
-  height: 1.75rem;
-}
-
-.arrowLight img {
-  transform: rotate(180deg);
+  color: var(--color-white);
 }
