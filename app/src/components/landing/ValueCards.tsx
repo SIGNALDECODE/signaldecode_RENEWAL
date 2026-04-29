@@ -29,19 +29,18 @@ export default function ValueCards() {
   const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setActive(true);
-          io.disconnect();
-        }
-      },
-      { threshold: 0.4 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
+    const update = () => {
+      const anchor = document.querySelector<HTMLElement>("[data-morph-anchor]");
+      if (!anchor) return;
+      const rect = anchor.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const cy = rect.top + rect.height / 2;
+      const p = Math.max(0, Math.min(1, (vh * 0.3 - cy) / (vh * 0.65)));
+      setActive(p >= 1);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
 
   return (

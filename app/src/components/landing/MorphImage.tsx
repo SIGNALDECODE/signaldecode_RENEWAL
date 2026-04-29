@@ -42,7 +42,7 @@ export default function MorphImage({ anchorSelector, endSelector }: Props) {
       }
       el.style.opacity = "1";
 
-      const p = Math.max(0, Math.min(1, (vh * 0.3 - cy) / (vh * 0.65)));
+      const p = Math.max(0, Math.min(1, (vh * 0.45 - cy) / (vh * 0.7)));
 
       const w = Math.round(rect.width + (vw - rect.width) * p);
       const h = Math.round(rect.height + (vh - rect.height) * p);
