@@ -69,16 +69,38 @@
   flex-direction: column;
   align-items: center;
   gap: var(--sp-4);
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
 }
 
 .copyright {
   align-self: flex-end;
+  margin-right: var(--sp-6);
   font-size: var(--fs-md);
   font-weight: var(--fw-regular);
   line-height: 1.555;
   letter-spacing: -0.025em;
   color: var(--color-text-secondary);
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .bigText {
@@ -89,6 +111,5 @@
   text-transform: uppercase;
   letter-spacing: -0.025em;
   white-space: nowrap;
-  width: 100%;
-  text-align: center;
+  flex-shrink: 0;
 }

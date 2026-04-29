@@ -48,7 +48,14 @@ export default function Footer() {
           <p className={styles.copyright}>
             COPYRIGHT © 2020 SIGNALDECODE. ALL RIGHTS RESERVED.
           </p>
-          <p className={styles.bigText}>SIGNAL DECODE</p>
+          <div className={styles.marquee}>
+            <div className={styles.marqueeTrack}>
+              <span className={styles.bigText}>SIGNAL DECODE&nbsp;</span>
+              <span className={styles.bigText}>SIGNAL DECODE&nbsp;</span>
+              <span className={styles.bigText}>SIGNAL DECODE&nbsp;</span>
+              <span className={styles.bigText}>SIGNAL DECODE&nbsp;</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
