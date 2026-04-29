@@ -7,7 +7,7 @@ export default function PerformanceChart() {
         <div className={styles.chart}>
           <div className={styles.barCol}>
             <p className={styles.percent}>55%</p>
-            <div className={`${styles.bar} ${styles.barGray}`} style={{ height: "12.5rem" }} />
+            <div className={`${styles.bar} ${styles.barGray}`} style={{ height: "9rem" }} />
             <p className={styles.label}>기존전략</p>
           </div>
 
@@ -16,13 +16,13 @@ export default function PerformanceChart() {
               <span className={styles.calloutBubble}>압도적인 켐페인 퍼포먼스</span>
               <span className={styles.calloutArrow} />
             </div>
-            <div className={`${styles.bar} ${styles.barBlue}`} style={{ height: "25rem" }} />
+            <div className={`${styles.bar} ${styles.barBlue}`} style={{ height: "20rem" }} />
             <p className={styles.label}>당사 전략</p>
           </div>
 
           <div className={styles.barCol}>
             <p className={styles.percent}>75%</p>
-            <div className={`${styles.bar} ${styles.barGray}`} style={{ height: "17.5rem" }} />
+            <div className={`${styles.bar} ${styles.barGray}`} style={{ height: "12rem" }} />
             <p className={styles.label}>타사 평균</p>
           </div>
         </div>
