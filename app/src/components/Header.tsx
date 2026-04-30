@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import styles from "./Header.module.css";
 
 const LOGO = "/icons/logo.png";
@@ -20,13 +21,13 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.left}>
-        <div className={styles.logo}>
+        <Link href="/" className={styles.logo}>
           <img src={LOGO} alt="" className={styles.logoIcon} />
           <span className={styles.brand}>SIGNALDECODE</span>
-        </div>
+        </Link>
         <nav className={styles.nav}>
           <a href="#">회사소개</a>
-          <a href="#">마케팅서비스</a>
+          <Link href="/marketing/naver">마케팅서비스</Link>
           <a href="#">웹·개발</a>
           <a href="#">이벤트</a>
           <a href="#">고객지원</a>
