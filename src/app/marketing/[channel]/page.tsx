@@ -4,7 +4,8 @@ import Footer from "@/components/ui/Footer";
 import MarketingHero from "@/components/marketing/MarketingHero";
 import ServiceCards from "@/components/marketing/ServiceCards";
 import ChannelMenu from "@/components/marketing/ChannelMenu";
-import { CHANNELS, getChannel } from "@/data/channels";
+import { CHANNELS } from "@/data/channels";
+import { getChannel } from "@/lib/data";
 
 export function generateStaticParams() {
   return CHANNELS.map((c) => ({ channel: c.key }));

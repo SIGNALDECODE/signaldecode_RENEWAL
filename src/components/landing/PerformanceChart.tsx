@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./PerformanceChart.module.css";
+import styles from "./PerformanceChart.module.scss";
+import { performanceChart } from "@/data/landing/performanceChart";
 
 export default function PerformanceChart() {
   const sectionRef = useRef<HTMLElement>(null);
   const [active, setActive] = useState(false);
+  const { copy, bars } = performanceChart;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -31,39 +33,41 @@ export default function PerformanceChart() {
       <div className={styles.panel}>
         <div className={styles.chart}>
           <div className={styles.barCol}>
-            <p className={styles.percent}>55%</p>
-            <div className={`${styles.bar} ${styles.barGray}`} style={{ height: "9rem" }} />
-            <p className={styles.label}>기존전략</p>
+            <p className={styles.percent}>{bars.competitor.percent}</p>
+            <div
+              className={`${styles.bar} ${styles.barGray}`}
+              style={{ height: bars.competitor.height }}
+            />
+            <p className={styles.label}>{bars.competitor.label}</p>
           </div>
 
           <div className={styles.barColCenter}>
             <div className={styles.callout}>
-              <span className={styles.calloutBubble}>압도적인 캠페인 퍼포먼스</span>
+              <span className={styles.calloutBubble}>{bars.own.callout}</span>
               <span className={styles.calloutArrow} />
             </div>
-            <div className={`${styles.bar} ${styles.barBlue}`} style={{ height: "20rem" }} />
-            <p className={styles.label}>당사 전략</p>
+            <div
+              className={`${styles.bar} ${styles.barBlue}`}
+              style={{ height: bars.own.height }}
+            />
+            <p className={styles.label}>{bars.own.label}</p>
           </div>
 
           <div className={styles.barCol}>
-            <p className={styles.percent}>75%</p>
-            <div className={`${styles.bar} ${styles.barGray}`} style={{ height: "12rem" }} />
-            <p className={styles.label}>타사 평균</p>
+            <p className={styles.percent}>{bars.industry.percent}</p>
+            <div
+              className={`${styles.bar} ${styles.barGray}`}
+              style={{ height: bars.industry.height }}
+            />
+            <p className={styles.label}>{bars.industry.label}</p>
           </div>
         </div>
       </div>
 
       <div className={styles.copy}>
-        <p className={styles.eyebrow}>VALUE</p>
-        <h2 className={styles.title}>
-          수치로 증명하는 압도적인<br />캠페인 퍼포먼스
-        </h2>
-        <p className={styles.desc}>
-          단순한 광고 집행을 넘어, 실시간 데이터 분석을 통해 타사 대비 월등한
-          전환율(CVR)을 기록합니다. <br />
-          최적의 효율을 찾아내는 그로스 해킹 전략으로 귀사의 매출 곡선을
-          가파르게 상승시켜 보세요.
-        </p>
+        <p className={styles.eyebrow}>{copy.eyebrow}</p>
+        <h2 className={styles.title}>{copy.title}</h2>
+        <p className={styles.desc}>{copy.desc}</p>
       </div>
     </section>
   );

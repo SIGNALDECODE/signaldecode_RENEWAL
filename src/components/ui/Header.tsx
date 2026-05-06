@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "./Header.module.css";
-
-const LOGO = "/icons/logo.png";
+import styles from "./Header.module.scss";
+import { header } from "@/data/ui/header";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,18 +21,18 @@ export default function Header() {
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.left}>
         <Link href="/" className={styles.logo}>
-          <img src={LOGO} alt="" className={styles.logoIcon} />
-          <span className={styles.brand}>SIGNALDECODE</span>
+          <img src={header.logo.src} alt={header.logo.alt} className={styles.logoIcon} />
+          <span className={styles.brand}>{header.brand}</span>
         </Link>
         <nav className={styles.nav}>
-          <a href="#">회사소개</a>
-          <Link href="/marketing/naver">마케팅서비스</Link>
-          <a href="#">웹·개발</a>
-          <a href="#">이벤트</a>
-          <a href="#">고객지원</a>
+          {header.nav.map((item) => (
+            <Link key={item.label} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </div>
-      <button className={styles.cta}>문의하기</button>
+      <button className={styles.cta}>{header.cta.label}</button>
     </header>
   );
 }

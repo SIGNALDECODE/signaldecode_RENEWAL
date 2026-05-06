@@ -1,16 +1,5 @@
-import styles from "./ServiceCards.module.css";
-
-export type CardVariant = "phone" | "search" | "map";
-
-export type Card = {
-  tag: string;
-  title: string;
-  desc: string;
-  variant?: CardVariant;
-  searchTerm?: string;
-  brand?: string;
-  tint?: string;
-};
+import styles from "./ServiceCards.module.scss";
+import type { Card } from "@/types/channel";
 
 type Props = {
   kicker: string;

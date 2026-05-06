@@ -1,24 +1,6 @@
-import type { Card } from "@/components/marketing/ServiceCards";
+import type { Channel, ChannelKey } from "@/types/channel";
 
-export type ChannelKey =
-  | "naver"
-  | "google"
-  | "sns"
-  | "video"
-  | "influencer"
-  | "design"
-  | "business";
-
-export type Channel = {
-  key: ChannelKey;
-  label: string;
-  pillLabel: string;
-  brand: string;
-  kicker: string;
-  title: string;
-  tint?: string;
-  cards: Card[];
-};
+export type { Channel, ChannelKey };
 
 const NAVER_TINT = "rgba(3, 169, 77, 0.4)";
 const SNS_TINT = "rgba(238, 78, 52, 0.35)";
@@ -310,14 +292,3 @@ export const CHANNELS: Channel[] = [
   },
 ];
 
-export function getChannel(key: string): Channel | undefined {
-  return CHANNELS.find((c) => c.key === key);
-}
-
-export function getAdjacentChannels(key: ChannelKey) {
-  const idx = CHANNELS.findIndex((c) => c.key === key);
-  const total = CHANNELS.length;
-  const prev = CHANNELS[(idx - 1 + total) % total];
-  const next = CHANNELS[(idx + 1) % total];
-  return { prev, next };
-}

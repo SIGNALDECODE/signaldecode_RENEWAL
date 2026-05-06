@@ -1,28 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./ValueCards.module.css";
-
-const cards = [
-  {
-    num: "01",
-    img: "/icons/value1.png",
-    title: "Core (본질)",
-    desc: "단순한 감이 아닌 철저한 시장 분석과 정교한 데이터를 바탕으로, 타겟의 행동을 예측",
-  },
-  {
-    num: "02",
-    img: "/icons/value2.png",
-    title: "Visual (감각)",
-    desc: "단순한 감이 아닌 철저한 시장 분석과 정교한 데이터를 바탕으로, 타겟의 행동을 예측",
-  },
-  {
-    num: "03",
-    img: "/icons/value3.png",
-    title: "Logic (논리)",
-    desc: "단순한 감이 아닌 철저한 시장 분석과 정교한 데이터를 바탕으로, 타겟의 행동을 예측",
-  },
-];
+import styles from "./ValueCards.module.scss";
+import { valueCards } from "@/data/landing/valueCards";
 
 export default function ValueCards() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -46,7 +26,7 @@ export default function ValueCards() {
   return (
     <section ref={sectionRef} className={styles.section} data-morph-end>
       <div className={`${styles.cards} ${active ? styles.show : ""}`}>
-        {cards.map((c) => (
+        {valueCards.map((c) => (
           <div key={c.num} className={styles.card}>
             <p className={styles.num}>{c.num}</p>
             <div className={styles.imgBox}>

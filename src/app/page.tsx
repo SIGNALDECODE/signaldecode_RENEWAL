@@ -11,6 +11,7 @@ import SalesNumbers from "@/components/landing/SalesNumbers";
 import Professional from "@/components/landing/Professional";
 import PerformanceChart from "@/components/landing/PerformanceChart";
 import Footer from "@/components/ui/Footer";
+import { overviewMorphImage } from "@/data/landing/overview";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <MorphImage
           anchorSelector="[data-morph-anchor]"
           endSelector="[data-morph-end]"
+          src={overviewMorphImage}
         />
         <ValueCards />
         <PhoneSlider />

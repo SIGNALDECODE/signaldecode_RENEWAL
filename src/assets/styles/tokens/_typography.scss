@@ -1,0 +1,25 @@
+// Typography tokens
+
+// Font families
+$ff-sans: var(--ff-sans);
+$ff-en: var(--ff-en);
+
+// Font sizes (1rem = 16px)
+$fs-xs: var(--fs-xs);   // 14
+$fs-sm: var(--fs-sm);   // 16
+$fs-md: var(--fs-md);   // 18
+$fs-lg: var(--fs-lg);   // 20
+$fs-xl: var(--fs-xl);   // 22
+$fs-2xl: var(--fs-2xl); // 24
+$fs-3xl: var(--fs-3xl); // 30
+$fs-4xl: var(--fs-4xl); // 46
+$fs-5xl: var(--fs-5xl); // 56
+$fs-6xl: var(--fs-6xl); // 60
+$fs-7xl: var(--fs-7xl); // 80
+$fs-8xl: var(--fs-8xl); // 120
+
+// Font weights
+$fw-regular: var(--fw-regular);
+$fw-medium: var(--fw-medium);
+$fw-semibold: var(--fw-semibold);
+$fw-bold: var(--fw-bold);

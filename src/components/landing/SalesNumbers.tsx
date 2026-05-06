@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./SalesNumbers.module.css";
+import styles from "./SalesNumbers.module.scss";
+import { salesNumbers } from "@/data/landing/salesNumbers";
 
-const FINAL = "9999999".split("");
+const FINAL = salesNumbers.finalNumber.split("");
 const N = FINAL.length;
 const DURATION = 2200;
 
 export default function SalesNumbers() {
+  const { copy, coins } = salesNumbers;
   const [digits, setDigits] = useState<string[]>(Array(N).fill("0"));
   const sectionRef = useRef<HTMLElement>(null);
   const startedRef = useRef(false);
-  
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -50,25 +51,30 @@ export default function SalesNumbers() {
     return () => io.disconnect();
   }, []);
 
+  const desc = Array.isArray(copy.desc) ? copy.desc : [copy.desc];
+
   return (
     <section ref={sectionRef} className={styles.section}>
       <img
-        src="/images/bitcoin1.png"
+        src={coins.topRight}
         alt=""
         className={`${styles.coin} ${styles.coinTopRight}`}
       />
       <img
-        src="/images/bitcoin2.png"
+        src={coins.bottomLeft}
         alt=""
         className={`${styles.coin} ${styles.coinBottomLeft}`}
       />
       <div className={styles.head}>
-        <p className={styles.eyebrow}>SALES</p>
-        <h2 className={styles.title}>우리와 함께한 기업들이 올린 추가 매출</h2>
+        <p className={styles.eyebrow}>{copy.eyebrow}</p>
+        <h2 className={styles.title}>{copy.title}</h2>
         <p className={styles.desc}>
-          단순한 수치를 넘어 실질적인 비즈니스 성장으로 증명합니다.
-          <br />
-          검증된 전략이 만들어낸 압도적인 성과를 직접 확인하세요.
+          {desc.map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < desc.length - 1 && <br />}
+            </span>
+          ))}
         </p>
       </div>
 

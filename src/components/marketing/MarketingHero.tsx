@@ -1,4 +1,5 @@
-import styles from "./MarketingHero.module.css";
+import styles from "./MarketingHero.module.scss";
+import { marketingHero } from "@/data/marketing/hero";
 
 type Props = {
   channel: string;
@@ -7,13 +8,11 @@ type Props = {
 export default function MarketingHero({ channel }: Props) {
   return (
     <section className={styles.hero}>
-      <img src="/images/marketing_hero.png" alt="" className={styles.bg} />
+      <img src={marketingHero.bg} alt="" className={styles.bg} />
       <div className={styles.inner}>
         <div className={styles.text}>
-          <h1 className={styles.title}>Marketing Service</h1>
-          <p className={styles.subtitle}>
-            데이터 기반으로 유입부터 전환까지 설계합니다.
-          </p>
+          <h1 className={styles.title}>{marketingHero.title}</h1>
+          <p className={styles.subtitle}>{marketingHero.subtitle}</p>
         </div>
         <nav className={styles.crumb} aria-label="breadcrumb">
           <span className={styles.crumbHome} aria-hidden>
@@ -27,7 +26,7 @@ export default function MarketingHero({ channel }: Props) {
             </svg>
           </span>
           <span className={styles.crumbArrow} aria-hidden />
-          <span>마케팅 서비스</span>
+          <span>{marketingHero.breadcrumb.rootLabel}</span>
           <span className={styles.crumbArrow} aria-hidden />
           <span>{channel}</span>
         </nav>

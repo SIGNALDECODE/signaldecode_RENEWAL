@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./MorphImage.module.css";
+import styles from "./MorphImage.module.scss";
 
 interface Props {
   anchorSelector: string;
   endSelector: string;
+  src: string;
 }
 
-export default function MorphImage({ anchorSelector, endSelector }: Props) {
+export default function MorphImage({ anchorSelector, endSelector, src }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -68,7 +69,7 @@ export default function MorphImage({ anchorSelector, endSelector }: Props) {
 
   return (
     <div ref={ref} className={styles.morph}>
-      <img src="/images/overview.jpg" alt="" />
+      <img src={src} alt="" />
     </div>
   );
 }
