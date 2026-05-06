@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sL https://erichuguenin.com/ -A \"Mozilla/5.0\" -o /tmp/eric.html)",
+      "Read(//tmp/**)",
+      "Bash(npm install *)"
+    ]
+  }
+}

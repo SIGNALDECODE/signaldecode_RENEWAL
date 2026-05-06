@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./Overview.module.scss";
+import styles from "@/assets/styles/components/Overview.module.scss";
 import { overviewCopy } from "@/data/landing/overview";
 
 export default function Overview() {

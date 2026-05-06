@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "./Header.module.scss";
+import styles from "@/assets/styles/components/Header.module.scss";
 import { header } from "@/data/ui/header";
 
 export default function Header() {

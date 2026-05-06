@@ -1,4 +1,4 @@
-import styles from "./MarketingHero.module.scss";
+import styles from "@/assets/styles/components/MarketingHero.module.scss";
 import { marketingHero } from "@/data/marketing/hero";
 
 type Props = {

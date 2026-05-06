@@ -1,3 +1,9 @@
+export type HeroData = {
+  video: { src: string; type: string };
+  meta: string[];
+  brand: string;
+};
+
 export type SectionCopy = {
   eyebrow: string;
   title: string;

@@ -1,4 +1,4 @@
-import styles from "./Footer.module.scss";
+import styles from "@/assets/styles/components/Footer.module.scss";
 import { footer } from "@/data/ui/footer";
 import type { FooterField } from "@/types/ui";
 

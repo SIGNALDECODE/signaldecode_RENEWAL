@@ -93,11 +93,13 @@ src/
       _colors.scss, _typography.scss, _spacing.scss,
       _radius.scss, _shadows.scss, _layout.scss, _z-index.scss
       _index.scss          # @forward aggregator
+    components/            # 모든 컴포넌트 스코프 스타일 (*.module.scss)
+      {Component}.module.scss
   components/
     landing/               # 랜딩 페이지 섹션
     marketing/             # 마케팅 페이지 섹션
     ui/                    # Header / Footer / Reveal 등 공용
-    {Component}.tsx + {Component}.module.scss
+    {Component}.tsx        # styles는 @/assets/styles/components/*.module.scss 에서 import
   data/                    # 모든 UI 텍스트/콘텐츠
     channels.ts            # 마케팅 채널 카드 데이터
     landing/               # 섹션별 분리 (hero, overview, valueCards, ...)

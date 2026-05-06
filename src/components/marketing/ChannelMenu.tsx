@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import styles from "./ChannelMenu.module.scss";
+import styles from "@/assets/styles/components/ChannelMenu.module.scss";
 import { CHANNELS, type ChannelKey } from "@/data/channels";
 
 type Props = {

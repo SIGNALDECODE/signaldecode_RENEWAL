@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./PhoneSlider.module.scss";
+import styles from "@/assets/styles/components/PhoneSlider.module.scss";
 import { phoneSlider } from "@/data/landing/phoneSlider";
 import type { PhoneSliderModeKey } from "@/types/landing";
 

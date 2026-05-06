@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./MorphImage.module.scss";
+import styles from "@/assets/styles/components/MorphImage.module.scss";
 
 interface Props {
   anchorSelector: string;
