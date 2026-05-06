@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import styles from "./ChannelMenu.module.css";
-import { CHANNELS, type ChannelKey } from "./channels";
+import { CHANNELS, type ChannelKey } from "@/data/channels";
 
 type Props = {
   current: ChannelKey;

@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/ui/Header";
+import Footer from "@/components/ui/Footer";
 import MarketingHero from "@/components/marketing/MarketingHero";
 import ServiceCards from "@/components/marketing/ServiceCards";
 import ChannelMenu from "@/components/marketing/ChannelMenu";
-import { CHANNELS, getChannel } from "@/components/marketing/channels";
+import { CHANNELS, getChannel } from "@/data/channels";
 
 export function generateStaticParams() {
   return CHANNELS.map((c) => ({ channel: c.key }));

@@ -1,4 +1,4 @@
-import type { Card } from "./ServiceCards";
+import type { Card } from "@/components/marketing/ServiceCards";
 
 export type ChannelKey =
   | "naver"

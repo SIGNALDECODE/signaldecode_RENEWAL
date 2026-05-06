@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import Reveal from "@/components/Reveal";
+import Header from "@/components/ui/Header";
+import Reveal from "@/components/ui/Reveal";
 import Hero from "@/components/landing/Hero";
 import Overview from "@/components/landing/Overview";
 import MorphImage from "@/components/landing/MorphImage";
@@ -10,7 +10,7 @@ import Partners from "@/components/landing/Partners";
 import SalesNumbers from "@/components/landing/SalesNumbers";
 import Professional from "@/components/landing/Professional";
 import PerformanceChart from "@/components/landing/PerformanceChart";
-import Footer from "@/components/Footer";
+import Footer from "@/components/ui/Footer";
 
 export default function Home() {
   return (
