@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Texture } from "ogl";
 import styles from "@/assets/styles/components/Hero.module.scss";
 
-const FONT_PX = 230; // matches CSS 14.375rem display size
+const FONT_PX = 250; // matches CSS 14.375rem display size
 const FONT_FAMILY = '"Inter", "Pretendard", sans-serif';
 const FONT_WEIGHT = 700;
 const LETTER_SPACING_EM = -0.04;
