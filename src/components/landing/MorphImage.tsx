@@ -7,14 +7,19 @@ interface Props {
   anchorSelector: string;
   endSelector: string;
   src: string;
+  miniSrc: string;
 }
 
-export default function MorphImage({ anchorSelector, endSelector, src }: Props) {
+export default function MorphImage({ anchorSelector, endSelector, src, miniSrc }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  const miniRef = useRef<HTMLImageElement>(null);
+  const mainRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    const mini = miniRef.current;
+    const main = mainRef.current;
+    if (!el || !mini || !main) return;
 
     const update = () => {
       const anchor = document.querySelector<HTMLElement>(anchorSelector);
@@ -56,6 +61,10 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
       el.style.height = `${h}px`;
       el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
       el.style.borderRadius = `${radius}px`;
+
+      const fade = Math.max(0, Math.min(1, (p - 0.4) / 0.2));
+      mini.style.opacity = `${1 - fade}`;
+      main.style.opacity = `${fade}`;
     };
 
     update();
@@ -69,7 +78,8 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
 
   return (
     <div ref={ref} className={styles.morph}>
-      <img src={src} alt="" />
+      <img ref={miniRef} src={miniSrc} alt="" className={styles.mini} />
+      <img ref={mainRef} src={src} alt="" className={styles.main} />
     </div>
   );
 }

@@ -10,4 +10,5 @@ export const overviewCopy: SectionCopy = {
   ],
 };
 
-export const overviewMorphImage = "/images/overview.jpg";
+export const overviewMorphImage = "/images/overview.png";
+export const overviewMiniImage = "/images/overview_mini.png";
