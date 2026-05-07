@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .section {
   display: flex;
   align-items: center;
@@ -162,4 +164,74 @@
   line-height: 1;
   letter-spacing: -0.025em;
   color: var(--color-down);
+}
+
+@include tablet {
+  .section {
+    gap: var(--sp-12);
+    padding: var(--sp-25) var(--sp-10);
+  }
+  .copy {
+    width: 100%;
+    max-width: var(--content-sm);
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    font-size: var(--fs-3xl);
+  }
+  .panel {
+    width: 32rem;
+    height: 32rem;
+  }
+  .innerCard {
+    width: 24rem;
+  }
+}
+
+@include mobile {
+  .section {
+    gap: var(--sp-8);
+    padding: 5rem var(--sp-5);
+  }
+  .copy {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    font-size: var(--fs-2xl);
+  }
+  .eyebrow {
+    font-size: var(--fs-md);
+  }
+  .panel {
+    width: 100%;
+    max-width: 24rem;
+    height: auto;
+    aspect-ratio: 1;
+    padding: 3rem 0 0;
+  }
+  .innerCard {
+    width: 90%;
+  }
+  .row {
+    padding: var(--sp-4);
+  }
+  .rowFront {
+    margin: calc(var(--sp-4) * -1) calc(var(--sp-2) * -1) var(--sp-2);
+    padding: var(--sp-3) var(--sp-4);
+  }
+  .user {
+    width: auto;
+    gap: var(--sp-2);
+  }
+  .avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .tag {
+    padding: 0.4rem 0.75rem;
+    font-size: var(--fs-xs);
+  }
 }

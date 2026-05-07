@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .section {
   width: min(var(--container-xl), calc(100vw - 5rem));
   margin-inline: auto;
@@ -267,4 +269,44 @@
   color: var(--color-text-secondary);
   letter-spacing: -0.45px;
   line-height: 1.55;
+}
+
+@include tablet {
+  .section {
+    width: min(var(--container-xl), calc(100vw - 3rem));
+    padding: var(--sp-12) var(--sp-10) var(--sp-25);
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-8);
+  }
+  .title {
+    font-size: var(--fs-3xl);
+  }
+  .brand {
+    font-size: 2.25rem;
+  }
+}
+
+@include mobile {
+  .section {
+    width: 100%;
+    padding: 4rem var(--sp-5) 5rem;
+    gap: var(--sp-8);
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-6);
+  }
+  .title {
+    font-size: var(--fs-2xl);
+    text-align: center;
+  }
+  .brand {
+    font-size: 2rem;
+  }
+  .body {
+    padding: var(--sp-5);
+    gap: var(--sp-2);
+  }
 }

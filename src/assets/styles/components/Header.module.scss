@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .header {
   position: fixed;
   top: 2rem;
@@ -75,4 +77,142 @@
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
   letter-spacing: -0.35px;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.burger {
+  display: none;
+  position: relative;
+  width: 1.75rem;
+  height: 1.5rem;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  z-index: calc(var(--z-header) + 2);
+
+  span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #1d212c;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease;
+  }
+  span:nth-child(1) {
+    top: 0.25rem;
+  }
+  span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  span:nth-child(3) {
+    top: calc(100% - 0.25rem - 2px);
+  }
+}
+
+.burgerOpen {
+  span {
+    background: var(--color-white);
+  }
+  span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: calc(var(--z-header) + 1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlayNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-7);
+  padding: var(--sp-20) var(--sp-6);
+}
+
+.overlayLink {
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-semibold);
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+}
+
+@include tablet {
+  .header {
+    top: 1rem;
+    width: min(var(--container-xl), calc(100vw - 2rem));
+    padding: var(--sp-4) var(--sp-6);
+  }
+  .header.scrolled {
+    padding: var(--sp-4) var(--sp-6);
+  }
+  .nav {
+    gap: var(--sp-8);
+    margin-left: var(--sp-4);
+  }
+  .brand {
+    font-size: var(--fs-2xl);
+  }
+}
+
+@include mobile {
+  .header {
+    top: 0.75rem;
+    width: calc(100vw - 1.5rem);
+    padding: var(--sp-3) var(--sp-4);
+  }
+  .header.scrolled {
+    padding: var(--sp-3) var(--sp-4);
+  }
+  .nav {
+    display: none;
+  }
+  .left {
+    gap: var(--sp-3);
+  }
+  .logoIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .brand {
+    font-size: var(--fs-xl);
+  }
+  .cta {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  .overlayLink {
+    font-size: var(--fs-2xl);
+  }
 }

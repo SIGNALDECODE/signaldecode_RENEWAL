@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .hero {
   position: relative;
   width: 100%;
@@ -84,4 +86,38 @@
   border-top: 1.5px solid currentColor;
   border-right: 1.5px solid currentColor;
   transform: translate(-60%, -50%) rotate(45deg);
+}
+
+@include tablet {
+  .hero {
+    height: 36rem;
+  }
+  .inner {
+    width: min(var(--container-xl), calc(100vw - 3rem));
+    padding-left: var(--sp-6);
+    padding-bottom: var(--sp-25);
+    gap: var(--sp-8);
+  }
+  .title {
+    font-size: var(--fs-4xl);
+  }
+}
+
+@include mobile {
+  .hero {
+    height: 28rem;
+  }
+  .inner {
+    width: 100%;
+    padding-left: var(--sp-5);
+    padding-right: var(--sp-5);
+    padding-bottom: var(--sp-12);
+    gap: var(--sp-6);
+  }
+  .title {
+    font-size: var(--fs-3xl);
+  }
+  .subtitle {
+    font-size: var(--fs-sm);
+  }
 }

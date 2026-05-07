@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .footer {
   background: var(--color-bg-dark);
   padding: var(--sp-20) 0 var(--sp-10);
@@ -112,4 +114,54 @@
   letter-spacing: -0.025em;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+@include tablet {
+  .footer {
+    padding: var(--sp-16) 0 var(--sp-8);
+  }
+  .inner {
+    gap: var(--sp-25);
+  }
+  .cols {
+    gap: var(--sp-12);
+  }
+  .col {
+    min-width: 16rem;
+  }
+}
+
+@include mobile {
+  .footer {
+    padding: var(--sp-12) 0 var(--sp-6);
+  }
+  .inner {
+    padding: 0 var(--sp-5);
+    gap: var(--sp-16);
+  }
+  .cols {
+    gap: var(--sp-8);
+  }
+  .col {
+    min-width: 0;
+    width: 100%;
+    gap: var(--sp-5);
+  }
+  .colTitle {
+    font-size: var(--fs-md);
+  }
+  .row {
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+  .field {
+    min-width: 8rem;
+    margin-bottom: var(--sp-2);
+  }
+  .copyright {
+    align-self: center;
+    margin-right: 0;
+    font-size: var(--fs-sm);
+    text-align: center;
+  }
 }

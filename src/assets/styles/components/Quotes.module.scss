@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .section {
   display: flex;
   flex-direction: column;
@@ -83,4 +85,57 @@
 
 .bright .imgBox img {
   opacity: 1;
+}
+
+@include tablet {
+  .section {
+    padding: 8rem var(--sp-6);
+  }
+  .viewport {
+    height: 24rem;
+  }
+  .row {
+    height: 8rem;
+  }
+  .dim .text {
+    font-size: var(--fs-3xl);
+  }
+  .bright .text {
+    font-size: var(--fs-5xl);
+  }
+  .dim .imgBox {
+    width: 4rem;
+    height: 4rem;
+  }
+  .bright .imgBox {
+    width: 5.25rem;
+    height: 5.25rem;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 5rem var(--sp-4);
+  }
+  .viewport {
+    height: 18rem;
+  }
+  .row {
+    height: 6rem;
+    gap: var(--sp-3);
+  }
+  .dim .text {
+    font-size: var(--fs-xl);
+  }
+  .bright .text {
+    font-size: var(--fs-3xl);
+  }
+  .dim .imgBox {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .bright .imgBox {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
 }

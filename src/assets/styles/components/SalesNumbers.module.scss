@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .section {
   position: relative;
   display: flex;
@@ -120,5 +122,71 @@
   }
   .comma {
     font-size: var(--fs-7xl);
+  }
+}
+
+@include tablet {
+  .section {
+    padding: var(--sp-25) var(--sp-6) var(--sp-30);
+  }
+  .title {
+    font-size: var(--fs-3xl);
+  }
+  .tile {
+    width: 5rem;
+    height: 6.5rem;
+    font-size: var(--fs-5xl);
+  }
+  .comma {
+    font-size: var(--fs-5xl);
+  }
+  .coin {
+    width: 9rem;
+  }
+  .coinTopRight {
+    top: -3rem;
+    right: 2rem;
+  }
+  .coinBottomLeft {
+    bottom: -3rem;
+    left: 2rem;
+    width: 7rem;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: 5rem var(--sp-4) 6rem;
+    gap: var(--sp-7);
+  }
+  .title {
+    font-size: var(--fs-2xl);
+  }
+  .eyebrow {
+    font-size: var(--fs-md);
+  }
+  .numbers {
+    gap: 0.25rem;
+  }
+  .tile {
+    width: 2.75rem;
+    height: 3.75rem;
+    font-size: var(--fs-3xl);
+    border-radius: var(--r-md);
+  }
+  .comma {
+    font-size: var(--fs-3xl);
+  }
+  .coin {
+    width: 6rem;
+  }
+  .coinTopRight {
+    top: -1.75rem;
+    right: 1rem;
+  }
+  .coinBottomLeft {
+    bottom: -1.75rem;
+    left: 1rem;
+    width: 5rem;
   }
 }

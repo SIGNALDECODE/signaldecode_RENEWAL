@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .section {
   display: flex;
   align-items: center;
@@ -173,4 +175,69 @@
   letter-spacing: -0.025em;
   color: var(--color-text-secondary);
   text-transform: none;
+}
+
+@include tablet {
+  .section {
+    gap: var(--sp-12);
+    padding: var(--sp-10) var(--sp-10) var(--sp-25);
+  }
+  .copy {
+    width: 100%;
+    max-width: var(--content-sm);
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    font-size: var(--fs-3xl);
+  }
+  .panel {
+    width: 32rem;
+    height: 32rem;
+    padding: var(--sp-12) var(--sp-8);
+  }
+  .chart {
+    gap: var(--sp-7);
+  }
+}
+
+@include mobile {
+  .section {
+    gap: var(--sp-8);
+    padding: var(--sp-8) var(--sp-5) 5rem;
+  }
+  .copy {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .title {
+    font-size: var(--fs-2xl);
+  }
+  .eyebrow {
+    font-size: var(--fs-md);
+  }
+  .panel {
+    width: 100%;
+    max-width: 24rem;
+    height: auto;
+    aspect-ratio: 1;
+    padding: var(--sp-10) var(--sp-5);
+  }
+  .chart {
+    gap: var(--sp-5);
+  }
+  .barCol {
+    width: 2.75rem;
+  }
+  .barColCenter {
+    width: 3.25rem;
+  }
+  .calloutBubble {
+    padding: var(--sp-2) var(--sp-4);
+    font-size: var(--fs-sm);
+  }
+  .label {
+    font-size: var(--fs-xs);
+  }
 }

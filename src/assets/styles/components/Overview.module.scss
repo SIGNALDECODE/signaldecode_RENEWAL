@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .section {
   position: relative;
   display: flex;
@@ -48,4 +50,34 @@
   letter-spacing: -0.025em;
   color: var(--color-text-secondary);
   text-transform: none;
+}
+
+@include tablet {
+  .section {
+    padding: 8rem var(--sp-6) 9rem;
+  }
+  .title {
+    font-size: var(--fs-3xl);
+  }
+  .phone {
+    width: 12rem;
+    height: 18rem;
+  }
+}
+
+@include mobile {
+  .section {
+    gap: var(--sp-8);
+    padding: 5rem var(--sp-5) 6rem;
+  }
+  .title {
+    font-size: var(--fs-2xl);
+  }
+  .eyebrow {
+    font-size: var(--fs-md);
+  }
+  .phone {
+    width: 9rem;
+    height: 13.5rem;
+  }
 }

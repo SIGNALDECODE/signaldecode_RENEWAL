@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 .hero {
   --hero-h: 100dvh; // viewport-relative — fits one screen on any device
 
@@ -60,4 +62,27 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+@include tablet {
+  .meta {
+    padding: 0 var(--sp-8) var(--sp-6);
+  }
+  .brand {
+    height: 9rem;
+  }
+}
+
+@include mobile {
+  .meta {
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    padding: 0 var(--sp-5) var(--sp-5);
+  }
+  .metaItem {
+    font-size: var(--fs-xs);
+  }
+  .brand {
+    height: 5rem;
+  }
 }

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Texture } from "ogl";
 import styles from "@/assets/styles/components/Hero.module.scss";
 
-const FONT_PX = 250; // matches CSS 14.375rem display size
+const FONT_PX_RATIO = 1.087; // text height ≈ container height × this ratio
 const FONT_FAMILY = '"Inter", "Pretendard", sans-serif';
 const FONT_WEIGHT = 700;
 const LETTER_SPACING_EM = -0.04;
@@ -157,13 +157,27 @@ export default function BrandWave({ text }: { text: string }) {
       tctx.clearRect(0, 0, w, h);
       tctx.textAlign = "center";
       tctx.textBaseline = "middle";
-      tctx.font = `${FONT_WEIGHT} ${FONT_PX * dpr}px ${FONT_FAMILY}`;
-      // canvas 2d has no letter-spacing in older Safari; emulate manually
-      const lsPx = FONT_PX * dpr * LETTER_SPACING_EM;
+
       const chars = Array.from(text);
-      const widths = chars.map((c) => tctx.measureText(c).width);
-      const totalW =
-        widths.reduce((a, b) => a + b, 0) + lsPx * (chars.length - 1);
+      const measure = (px: number) => {
+        tctx.font = `${FONT_WEIGHT} ${px}px ${FONT_FAMILY}`;
+        const ls = px * LETTER_SPACING_EM;
+        const ws = chars.map((c) => tctx.measureText(c).width);
+        const total = ws.reduce((a, b) => a + b, 0) + ls * (chars.length - 1);
+        return { ws, ls, total };
+      };
+
+      // Start from height-based size, then shrink if it exceeds container width.
+      const maxWidth = w * 0.96;
+      let fontPxDpr = cssH * FONT_PX_RATIO * dpr;
+      let m = measure(fontPxDpr);
+      if (m.total > maxWidth) {
+        fontPxDpr *= maxWidth / m.total;
+        m = measure(fontPxDpr);
+      }
+      const lsPx = m.ls;
+      const widths = m.ws;
+      const totalW = m.total;
       const startX = w / 2 - totalW / 2;
       const endX = w / 2 + totalW / 2;
       const y = h / 2;
