@@ -62,7 +62,7 @@ export default function SalesNumbers() {
           {desc.map((line, i) => (
             <span key={i}>
               {line}
-              {i < desc.length - 1 && <br />}`ㅍ`
+              {i < desc.length - 1 && <br />}
             </span>
           ))}
         </p>
