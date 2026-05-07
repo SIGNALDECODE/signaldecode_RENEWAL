@@ -28,11 +28,11 @@ export default function Home() {
         />
         <ValueCards />
         <Integration />
-        <PhoneSlider />
         <Quotes />
         <Reveal>
           <Partners />
         </Reveal>
+        <PhoneSlider />
         <SalesNumbers />
         <Reveal>
           <Professional />

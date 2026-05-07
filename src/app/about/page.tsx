@@ -7,7 +7,6 @@ import AboutBusinessIntro from "@/components/about/AboutBusinessIntro";
 import AboutValuePillars from "@/components/about/AboutValuePillars";
 import AboutFeatureSections from "@/components/about/AboutFeatureSections";
 import AboutKeywords from "@/components/about/AboutKeywords";
-import AboutMegaphone from "@/components/about/AboutMegaphone";
 import AboutMarquee from "@/components/about/AboutMarquee";
 
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export default function AboutPage() {
         <AboutValuePillars />
         <AboutFeatureSections />
         <AboutKeywords />
-        <AboutMegaphone />
         <AboutMarquee />
       </main>
       <Footer />

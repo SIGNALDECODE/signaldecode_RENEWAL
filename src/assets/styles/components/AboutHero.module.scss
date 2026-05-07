@@ -1,76 +1,110 @@
 @use "tokens" as *;
 
+// Pixel-perfect mapping from Figma. The dark blue bg image spans 0-980, but the
+// next section (Tagline) doesn't start until y=1100, so the hero block effectively
+// occupies y=0-1100 with 120px of white space at the bottom.
+
 .section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  background: $color-primary;
-  color: $color-white;
+  aspect-ratio: 1920 / 1100;
+  background: $color-white;
   overflow: hidden;
+}
+
+// Background image — fills only the top 980/1100 = 89.0909%
+.bg {
+  position: absolute;
+  inset: 0 0 auto 0;
+  width: 100%;
+  height: 89.0909%;          // 980 / 1100
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+// "WHO WE ARE SIGNALDECODE" — Figma: x=-826, y=373, width=3573, fontSize=240 Inter Bold
+.giant {
+  position: absolute;
+  left: -43.0208%;             // -826 / 1920
+  top: 33.9091%;               // 373 / 1100
+  width: 186.1458%;            // 3573 / 1920
+  margin: 0;
+  font-family: $ff-en;
+  font-weight: 700;
+  font-size: 12.5vw;           // 240 / 1920
+  line-height: 1.21;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.9) 35%,
+    rgba(255, 255, 255, 0.4) 87%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+// Megaphone — Figma: x=641, y=161, w=637.58, h=641.89
+// Shadow: -30 / 18 / 20 / rgba(0,0,0,0.25)
+.megaphone {
+  position: absolute;
+  left: 33.3854%;              // 641 / 1920
+  top: 14.6364%;               // 161 / 1100
+  width: 33.2073%;             // 637.58 / 1920
+  height: 58.3536%;            // 641.89 / 1100
+  z-index: 2;
+  filter: drop-shadow(-1.5625vw 0.9375vw 1.0417vw rgba(0, 0, 0, 0.25));
+  pointer-events: none;
+}
+
+.megaphoneImg {
+  object-fit: contain;
+}
+
+// Copy block — x=273, y=790, width=1375, gap=24
+.copy {
+  position: absolute;
+  left: 14.2188%;              // 273 / 1920
+  top: 71.8182%;               // 790 / 1100
+  width: 71.6146%;             // 1375 / 1920
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: $sp-30 0 $sp-20;
-}
-
-.marquee {
-  display: flex;
-  gap: $sp-20;
-  white-space: nowrap;
-  font-family: $ff-en;
-  font-size: clamp(4rem, 14vw, 14rem);
-  font-weight: $fw-bold;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
-  color: $color-white;
-  animation: about-hero-scroll 30s linear infinite;
-  will-change: transform;
-  pointer-events: none;
-}
-
-@keyframes about-hero-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.spotlight {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.spotlightImg {
-  object-fit: contain;
-  object-position: center;
-  opacity: 0.85;
-  mix-blend-mode: screen;
-}
-
-.meta {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  gap: $sp-15;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0 $sp-20;
-  margin: 0;
-  font-family: $ff-en;
-  font-size: $fs-sm;
-  letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.75);
-}
-
-.badge {
-  position: relative;
-  z-index: 2;
+  gap: 1.25vw;                 // 24 / 1920
   text-align: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+// Pretendard Bold 36 / line-height 36 / letter-spacing -2.5% / #FFFFFF
+.title {
   margin: 0;
-  font-family: $ff-en;
-  font-size: clamp(2rem, 4vw, $fs-5xl);
-  font-weight: $fw-bold;
-  letter-spacing: 0.15em;
+  font-family: $ff-sans;
+  font-weight: 700;
+  font-size: 1.875vw;          // 36 / 1920
+  line-height: 1;
+  letter-spacing: -0.025em;
   color: $color-white;
+}
+
+// Pretendard Regular 20 / line-height 30 / letter-spacing -2.5% / rgba(255,255,255,0.8)
+.desc {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 400;
+  font-size: 1.0417vw;         // 20 / 1920
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 1024px) {
+  .giant { font-size: clamp(80px, 12.5vw, 240px); }
+  .title { font-size: clamp(18px, 1.875vw, 36px); }
+  .desc { font-size: clamp(13px, 1.0417vw, 20px); }
 }

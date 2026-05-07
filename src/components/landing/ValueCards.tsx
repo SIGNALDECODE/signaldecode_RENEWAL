@@ -21,9 +21,19 @@ export default function ValueCards() {
     let bufferEnd = 0;
     let exitFadeRange = 0;
 
+    const isMobile = () => window.innerWidth <= 767;
+
     const measure = () => {
-      const cardsWidth = cards.scrollWidth;
       const vh = window.innerHeight;
+      if (isMobile()) {
+        bufferStart = vh * 0.1;
+        bufferEnd = vh * 0.35;
+        exitFadeRange = vh * 0.25;
+        section.style.height = `${Math.round(vh * 1.5)}px`;
+        cards.style.transform = "";
+        return;
+      }
+      const cardsWidth = cards.scrollWidth;
       distance = Math.max(0, cardsWidth - window.innerWidth);
       bufferStart = vh * 0.25;
       bufferEnd = vh * 0.5;
@@ -35,19 +45,20 @@ export default function ValueCards() {
     const update = () => {
       const sRect = section.getBoundingClientRect();
       const pinned = sRect.top <= 0 && sRect.bottom > 0;
-      const advance = -sRect.top - bufferStart;
-      const progress =
-        distance > 0
-          ? Math.max(0, Math.min(1, advance / distance))
-          : 0;
       const exitOpacity =
         sRect.bottom < exitFadeRange
           ? Math.max(0, sRect.bottom / exitFadeRange)
           : 1;
-      cards.style.transform = `translate3d(${-progress * distance}px, 0, 0)`;
       track.style.opacity = `${exitOpacity}`;
       section.classList.toggle(styles.pinned, pinned);
       setActive(pinned);
+
+      if (isMobile()) return;
+
+      const advance = -sRect.top - bufferStart;
+      const progress =
+        distance > 0 ? Math.max(0, Math.min(1, advance / distance)) : 0;
+      cards.style.transform = `translate3d(${-progress * distance}px, 0, 0)`;
     };
 
     measure();

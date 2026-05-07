@@ -9,7 +9,7 @@ const N = FINAL.length;
 const DURATION = 2200;
 
 export default function SalesNumbers() {
-  const { copy, coins } = salesNumbers;
+  const { copy } = salesNumbers;
   const [digits, setDigits] = useState<string[]>(Array(N).fill("0"));
   const sectionRef = useRef<HTMLElement>(null);
   const startedRef = useRef(false);
@@ -55,16 +55,6 @@ export default function SalesNumbers() {
 
   return (
     <section ref={sectionRef} className={styles.section}>
-      <img
-        src={coins.topRight}
-        alt=""
-        className={`${styles.coin} ${styles.coinTopRight}`}
-      />
-      <img
-        src={coins.bottomLeft}
-        alt=""
-        className={`${styles.coin} ${styles.coinBottomLeft}`}
-      />
       <div className={styles.head}>
         <p className={styles.eyebrow}>{copy.eyebrow}</p>
         <h2 className={styles.title}>{copy.title}</h2>
@@ -72,7 +62,7 @@ export default function SalesNumbers() {
           {desc.map((line, i) => (
             <span key={i}>
               {line}
-              {i < desc.length - 1 && <br />}
+              {i < desc.length - 1 && <br />}`ㅍ`
             </span>
           ))}
         </p>

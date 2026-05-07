@@ -11,20 +11,18 @@ import type {
 } from "@/types/about";
 
 export const aboutHero: AboutHero = {
-  marqueeTop: "WHO WE ARE SIGNALDECODE",
-  meta: [
-    "BASED IN HAMILTION, ONTARIO",
-    "SPECIALIZING IN WEB DESIGN",
-    "15+ YEARS EXPERIENCE",
-  ],
-  badge: "CREATIVE STUDIO",
-  spotlight: "/images/about/hero-bg.png",
+  giantText: "WHO WE ARE SIGNALDECODE",
+  bg: "/images/about/hero-bg.png",
+  megaphone: "/images/about/megaphone-3881ae1.png",
+  title:
+    "데이터 기반의 통찰력으로 비즈니스 성장을 견인하는 풀스택 광고대행사 파트너입니다.",
+  desc: "단순한 광고 대행의 범주를 넘어, 시장과 소비자가 보내는 미세한 데이터 신호를 정교하게 분석하여 비즈니스의 핵심 가치를 도출합니다.",
 };
 
 export const aboutTagline: AboutTagline = {
   lines: [
-    { left: "Unlocking", right: "the Value" },
-    { left: "Within", right: "Every Signal" },
+    { left: "Unlocking", right: "the Value", bar: "/images/about/tagline-bar-1.png" },
+    { left: "Within", right: "Every Signal", bar: "/images/about/tagline-bar-2.png" },
   ],
   desc: "모든 비즈니스 신호 속에 숨겨진 가치를 발견하여, 지속 가능한 성장의 기회로 깨우다.",
 };

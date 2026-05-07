@@ -1,12 +1,13 @@
 export type AboutHero = {
-  marqueeTop: string;
-  meta: string[];
-  badge: string;
-  spotlight: string;
+  giantText: string;
+  bg: string;
+  megaphone: string;
+  title: string;
+  desc: string;
 };
 
 export type AboutTagline = {
-  lines: { left: string; right: string }[];
+  lines: { left: string; right: string; bar: string }[];
   desc: string;
 };
 

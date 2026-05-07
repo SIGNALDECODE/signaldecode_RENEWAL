@@ -1,48 +1,101 @@
 @use "tokens" as *;
 
+// Pixel-perfect mapping from Figma 1920 page coordinates.
+// Frame 2095587688: x=327, y=1100, width=1266, column gap=60.
+// Section spans y=1100 → y=1806 (706 tall). Content sits at top, white space below.
+// All sizing in vw so the design scales linearly with viewport width.
+
 .section {
+  position: relative;
+  width: 100%;
   background: $color-white;
-  padding: $sp-30 $sp-20;
+  padding-top: 4.1667vw;       // 80 / 1920
+  padding-bottom: 6.25vw;      // 120 / 1920
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $sp-12;
+  justify-content: center;
 }
 
+// Inner container — width=1266 / 1920 = 65.9375%, centered
+.inner {
+  width: 65.9375%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.125vw;                // 60 / 1920
+  align-items: center;
+}
+
+// Word rows block — column gap 28, fills horizontal
 .lines {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $sp-4;
+  gap: 1.4583vw;               // 28 / 1920
+  width: 100%;
 }
 
+// Each row — flex row, gap 32, alignItems center
 .line {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: $sp-6;
-  margin: 0;
+  gap: 1.6667vw;               // 32 / 1920
+
+  // Row 1: fill width, justify-content center (alignSelf: stretch)
+  &[data-mode="fill"] {
+    width: 100%;
+    justify-content: center;
+  }
+
+  // Row 2: hug content (default flex behavior)
+  &[data-mode="hug"] {
+    width: auto;
+  }
+}
+
+// Inter Bold 90 / line-height 90 / -2.5% / UPPER / #000
+.word {
   font-family: $ff-en;
-  font-style: italic;
-  font-weight: $fw-bold;
-  font-size: clamp(2.25rem, 6vw, 5.5rem);
-  line-height: 1.1;
-  color: $color-text-primary;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: 4.6875vw;         // 90 / 1920
+  line-height: 1;              // 90 / 90
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: $color-black;
+  white-space: nowrap;
 }
 
+// Bar — 196 × 114, border-radius 8, image fill
 .bar {
+  position: relative;
   display: inline-block;
-  width: clamp(40px, 6vw, 96px);
-  height: clamp(28px, 4vw, 56px);
-  background: $color-primary;
-  border-radius: $r-sm;
+  width: 10.2083vw;            // 196 / 1920
+  height: 5.9375vw;            // 114 / 1920
+  border-radius: 0.4167vw;     // 8 / 1920
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
+.barImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+// Pretendard Regular 20 / line-height 30 / -2.5% / center / #767676
 .desc {
   margin: 0;
+  font-family: $ff-sans;
+  font-weight: 400;
+  font-size: 1.0417vw;         // 20 / 1920
+  line-height: 1.5;            // 30 / 20
+  letter-spacing: -0.025em;
   text-align: center;
-  font-size: $fs-md;
   color: $color-text-secondary;
-  line-height: 1.6;
-  max-width: 720px;
+}
+
+@media (max-width: 1024px) {
+  .word { font-size: clamp(28px, 4.6875vw, 90px); }
+  .desc { font-size: clamp(13px, 1.0417vw, 20px); }
+  .bar {
+    width: clamp(70px, 10.2083vw, 196px);
+    height: clamp(40px, 5.9375vw, 114px);
+  }
 }

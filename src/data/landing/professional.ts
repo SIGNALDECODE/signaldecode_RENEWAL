@@ -2,30 +2,35 @@ import type { ProfessionalData } from "@/types/landing";
 
 export const professional: ProfessionalData = {
   copy: {
-    eyebrow: "PROFESSIONAL",
-    title: "데이터로 증명하는 퍼포먼스 마케팅 솔루션",
-    desc: "귀사의 비즈니스 성장을 가속화할 최적의 인재들을 엄선하여 데이터 기반의 리스트로 제공합니다. 복잡한 탐색 과정 없이 업종별 정교한 필터링 시스템을 활용합니다.",
+    eyebrow: "Impact",
+    title: "당신의 광고는 노이즈입니까,\n선명한 시그널입니까?",
+    desc: "수많은 광고 속 의미 없는 외침은 멈추고, 데이터 속에 숨겨진 승리의 신호를\n찾아내어 비즈니스의 확실한 성장을 증명합니다.",
   },
-  avatar: "/icons/avatar.png",
-  rows: [
-    { name: "퍼포먼스 마케터", sub: "BTC", tag: "음식점" },
+  items: [
     {
-      name: "글로벌 마케터",
-      sub: "BTC",
-      price: "$2,509.75",
-      delta: { value: "-5.5%", direction: "down" },
+      name: "시그널디코드",
+      sub: "SignalDecode",
+      badge: "압도적 노출",
+      logo: "/images/performance/signaldecode-mark.svg",
+      highlighted: true,
     },
     {
       name: "글로벌 마케터",
       sub: "BTC",
       price: "$2,509.75",
-      delta: { value: "+2.5%", direction: "up" },
+      logo: "/images/performance/avatar1.png",
     },
     {
       name: "글로벌 마케터",
       sub: "BTC",
       price: "$2,509.75",
-      delta: { value: "-4.6%", direction: "down" },
+      logo: "/images/performance/avatar2.png",
+    },
+    {
+      name: "글로벌 마케터",
+      sub: "BTC",
+      price: "$2,509.75",
+      logo: "/images/performance/avatar3.png",
     },
   ],
 };

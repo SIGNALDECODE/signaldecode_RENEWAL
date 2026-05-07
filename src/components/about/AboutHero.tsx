@@ -6,7 +6,7 @@ export default function AboutHero() {
   return (
     <section className={styles.section}>
       <Image
-        src={aboutHero.spotlight}
+        src={aboutHero.bg}
         alt=""
         fill
         priority
@@ -14,17 +14,25 @@ export default function AboutHero() {
         className={styles.bg}
       />
 
-      <p className={styles.giant} aria-label={aboutHero.marqueeTop}>
-        {aboutHero.marqueeTop}
+      <p className={styles.giant} aria-label={aboutHero.giantText}>
+        {aboutHero.giantText}
       </p>
 
-      <ul className={styles.meta}>
-        {aboutHero.meta.map((m) => (
-          <li key={m}>{m}</li>
-        ))}
-      </ul>
+      <div className={styles.megaphone}>
+        <Image
+          src={aboutHero.megaphone}
+          alt=""
+          fill
+          sizes="(max-width: 1024px) 60vw, 638px"
+          className={styles.megaphoneImg}
+          priority
+        />
+      </div>
 
-      <p className={styles.badge}>{aboutHero.badge}</p>
+      <div className={styles.copy}>
+        <h1 className={styles.title}>{aboutHero.title}</h1>
+        <p className={styles.desc}>{aboutHero.desc}</p>
+      </div>
     </section>
   );
 }

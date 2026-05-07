@@ -1,76 +1,140 @@
+@use "tokens" as *;
 @use "mixins" as *;
 
 .section {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  gap: var(--sp-20);
-  padding: var(--sp-15) var(--sp-20) var(--sp-39);
-  background: var(--color-white);
+  gap: 0;
+  padding: $sp-15 $sp-48 $sp-45;
+  background: $color-white;
   flex-wrap: wrap;
 }
 
+.copy {
+  flex: 1;
+  min-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $sp-9;
+  padding: $sp-20;
+}
+
+.copyBody {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+}
+
+.eyebrow {
+  font-family: $ff-en;
+  font-size: $fs-lg;
+  font-weight: $fw-medium;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: $fw-bold;
+  line-height: 1.318;
+  letter-spacing: -0.025em;
+  color: $color-text-primary;
+  white-space: pre-line;
+}
+
+.desc {
+  font-size: $fs-md;
+  font-weight: $fw-regular;
+  line-height: 1.444;
+  letter-spacing: -0.025em;
+  color: $color-text-secondary;
+  white-space: pre-line;
+}
+
 .panel {
-  width: 36rem;
-  height: 36rem;
-  background: var(--color-bg-soft);
-  border-radius: var(--r-xl);
+  width: 47.5rem;
+  height: 47.5rem;
+  background: $color-bg-soft;
+  border-radius: $r-xl;
+  flex-shrink: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: var(--sp-15) 3rem;
+  padding: $sp-15 $sp-12;
 }
 
 .chart {
   display: flex;
   align-items: flex-end;
-  gap: var(--sp-10);
+  gap: $sp-16;
 }
 
-.barCol {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--sp-2);
-  width: 4rem;
-}
-
+.barCol,
 .barColCenter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-2);
-  width: 4.75rem;
+  gap: $sp-2;
+  width: 5.75rem;
   position: relative;
 }
 
 .percent {
-  font-size: var(--fs-md);
-  font-weight: var(--fw-medium);
-  line-height: 1;
+  font-size: $fs-lg;
+  font-weight: $fw-regular;
+  line-height: 1.2;
   letter-spacing: -0.025em;
   color: #1d212c;
-  margin-bottom: var(--sp-3);
+  margin-bottom: $sp-3;
 }
 
 .bar {
   width: 100%;
-  border-radius: var(--r-md);
+  height: var(--bar-h);
+  border-radius: $r-md;
+  position: relative;
 }
 
 .barGray {
-  background: var(--color-bar-gray);
+  background: #dde1ec;
 }
 
 .barBlue {
-  background: linear-gradient(180deg, #55759b 0%, #0e0f25 100%);
-  box-shadow: var(--shadow-bar);
+  background: linear-gradient(
+    223deg,
+    #171a25 0%,
+    #294780 23%,
+    #5686e3 50%,
+    #5872a4 78%,
+    #171d24 100%
+  );
+  box-shadow: 8px 4px 4px 0 rgba(0, 0, 0, 0.2);
   transform-origin: bottom;
   transform: scaleY(0);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: $sp-5;
+}
+
+.barPercent {
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+  line-height: 1.384;
+  letter-spacing: -0.025em;
+  color: $color-white;
+  opacity: 0;
 }
 
 .section.play .barBlue {
   animation: barRise 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.section.play .barPercent {
+  animation: fadeIn 0.4s ease-out 1s forwards;
 }
 
 @keyframes barRise {
@@ -82,14 +146,20 @@
   }
 }
 
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .label {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
+  font-size: $fs-lg;
+  font-weight: $fw-medium;
   line-height: 1.5;
   letter-spacing: -0.025em;
   color: #1d212c;
   text-align: center;
-  margin-top: var(--sp-2);
+  margin-top: $sp-2;
 }
 
 .callout {
@@ -97,7 +167,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: var(--sp-5);
+  margin-bottom: $sp-5;
   opacity: 0;
 }
 
@@ -120,15 +190,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--sp-3) var(--sp-7);
-  background: var(--color-primary-blue);
-  color: var(--color-white);
-  border-radius: var(--r-full);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-medium);
+  padding: $sp-3 $sp-7;
+  background: $color-primary;
+  color: $color-white;
+  border-radius: $r-full;
+  font-size: $fs-lg;
+  font-weight: $fw-medium;
   line-height: 1.5;
   letter-spacing: -0.025em;
   white-space: nowrap;
+  box-shadow: 8px 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .calloutArrow {
@@ -140,104 +211,95 @@
   height: 0;
   border-left: 0.625rem solid transparent;
   border-right: 0.625rem solid transparent;
-  border-top: 0.625rem solid var(--color-primary-blue);
-}
-
-.copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--sp-6);
-  width: var(--content-sm);
-  text-transform: uppercase;
-}
-
-.eyebrow {
-  font-family: var(--ff-en);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-medium);
-  line-height: 1.4;
-  color: var(--color-primary);
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: var(--fw-bold);
-  line-height: 1.304;
-  letter-spacing: -0.025em;
-  color: var(--color-text-primary);
-}
-
-.desc {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-regular);
-  line-height: 1.444;
-  letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
-  text-transform: none;
+  border-top: 0.625rem solid $color-primary;
 }
 
 @include tablet {
   .section {
-    gap: var(--sp-12);
-    padding: var(--sp-10) var(--sp-10) var(--sp-25);
+    padding: $sp-15 $sp-10 $sp-30;
   }
   .copy {
+    min-width: 0;
     width: 100%;
-    max-width: var(--content-sm);
-    align-items: center;
     text-align: center;
+    align-items: center;
+    padding: $sp-12 $sp-8;
   }
   .title {
-    font-size: var(--fs-3xl);
+    font-size: $fs-3xl;
   }
   .panel {
-    width: 32rem;
-    height: 32rem;
-    padding: var(--sp-12) var(--sp-8);
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
+    aspect-ratio: 1;
+    padding: $sp-10 $sp-8;
   }
   .chart {
-    gap: var(--sp-7);
+    gap: $sp-10;
+  }
+  .barCol,
+  .barColCenter {
+    width: 4.5rem;
+  }
+  .bar {
+    height: calc(var(--bar-h) * 0.7);
+  }
+  .label {
+    white-space: nowrap;
   }
 }
 
 @include mobile {
   .section {
-    gap: var(--sp-8);
-    padding: var(--sp-8) var(--sp-5) 5rem;
+    padding: $sp-12 $sp-5 $sp-25;
   }
   .copy {
     width: 100%;
+    min-width: 0;
     align-items: center;
     text-align: center;
+    gap: $sp-6;
+    padding: $sp-8 $sp-2;
   }
   .title {
-    font-size: var(--fs-2xl);
+    font-size: $fs-2xl;
+    line-height: 1.4;
+  }
+  .desc {
+    font-size: $fs-sm;
   }
   .eyebrow {
-    font-size: var(--fs-md);
+    font-size: $fs-md;
   }
   .panel {
     width: 100%;
-    max-width: 24rem;
     height: auto;
     aspect-ratio: 1;
-    padding: var(--sp-10) var(--sp-5);
+    padding: $sp-6 $sp-3;
   }
   .chart {
-    gap: var(--sp-5);
+    gap: $sp-5;
   }
-  .barCol {
-    width: 2.75rem;
-  }
+  .barCol,
   .barColCenter {
-    width: 3.25rem;
+    width: 3.5rem;
+  }
+  .bar {
+    height: calc(var(--bar-h) * 0.55);
+  }
+  .barPercent {
+    font-size: $fs-md;
   }
   .calloutBubble {
-    padding: var(--sp-2) var(--sp-4);
-    font-size: var(--fs-sm);
+    padding: $sp-2 $sp-4;
+    font-size: $fs-sm;
   }
   .label {
-    font-size: var(--fs-xs);
+    font-size: $fs-sm;
+    white-space: nowrap;
+  }
+  .percent {
+    font-size: $fs-sm;
   }
 }

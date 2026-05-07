@@ -19,7 +19,7 @@ export default function PerformanceChart() {
           io.disconnect();
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.4 }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -36,7 +36,9 @@ export default function PerformanceChart() {
             <p className={styles.percent}>{bars.competitor.percent}</p>
             <div
               className={`${styles.bar} ${styles.barGray}`}
-              style={{ height: bars.competitor.height }}
+              style={
+                { "--bar-h": bars.competitor.height } as React.CSSProperties
+              }
             />
             <p className={styles.label}>{bars.competitor.label}</p>
           </div>
@@ -48,8 +50,12 @@ export default function PerformanceChart() {
             </div>
             <div
               className={`${styles.bar} ${styles.barBlue}`}
-              style={{ height: bars.own.height }}
-            />
+              style={
+                { "--bar-h": bars.own.height } as React.CSSProperties
+              }
+            >
+              <span className={styles.barPercent}>90%</span>
+            </div>
             <p className={styles.label}>{bars.own.label}</p>
           </div>
 
@@ -57,7 +63,9 @@ export default function PerformanceChart() {
             <p className={styles.percent}>{bars.industry.percent}</p>
             <div
               className={`${styles.bar} ${styles.barGray}`}
-              style={{ height: bars.industry.height }}
+              style={
+                { "--bar-h": bars.industry.height } as React.CSSProperties
+              }
             />
             <p className={styles.label}>{bars.industry.label}</p>
           </div>
@@ -66,8 +74,10 @@ export default function PerformanceChart() {
 
       <div className={styles.copy}>
         <p className={styles.eyebrow}>{copy.eyebrow}</p>
-        <h2 className={styles.title}>{copy.title}</h2>
-        <p className={styles.desc}>{copy.desc}</p>
+        <div className={styles.copyBody}>
+          <h2 className={styles.title}>{copy.title}</h2>
+          <p className={styles.desc}>{copy.desc}</p>
+        </div>
       </div>
     </section>
   );

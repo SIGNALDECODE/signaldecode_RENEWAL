@@ -49,13 +49,11 @@ export type QuoteRow = {
 export type PartnerCard = {
   title: string;
   desc: string;
-  tags: string[];
   logo: string;
 };
 
 export type PartnersData = {
   copy: SectionCopy;
-  logos: string[];
   cards: PartnerCard[];
 };
 
@@ -65,18 +63,18 @@ export type SalesData = {
   coins: { topRight: string; bottomLeft: string };
 };
 
-export type ProfessionalRow = {
+export type ProfessionalItem = {
   name: string;
   sub: string;
-  tag?: string;
   price?: string;
-  delta?: { value: string; direction: "up" | "down" };
+  badge?: string;
+  logo?: string;
+  highlighted?: boolean;
 };
 
 export type ProfessionalData = {
   copy: SectionCopy;
-  avatar: string;
-  rows: ProfessionalRow[];
+  items: ProfessionalItem[];
 };
 
 export type PerformanceChartData = {
