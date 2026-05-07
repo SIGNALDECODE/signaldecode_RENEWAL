@@ -58,7 +58,6 @@ export type PartnersData = {
 };
 
 export type SalesData = {
-  copy: SectionCopy;
   finalNumber: string;
   coins: { topRight: string; bottomLeft: string };
 };
