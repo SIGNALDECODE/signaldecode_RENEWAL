@@ -7,19 +7,50 @@ interface Props {
   anchorSelector: string;
   endSelector: string;
   src: string;
-  miniSrc: string;
 }
 
-export default function MorphImage({ anchorSelector, endSelector, src, miniSrc }: Props) {
+export default function MorphImage({ anchorSelector, endSelector, src }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const miniRef = useRef<HTMLImageElement>(null);
-  const mainRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const el = ref.current;
-    const mini = miniRef.current;
-    const main = mainRef.current;
-    if (!el || !mini || !main) return;
+    if (!el) return;
+
+    let lastP = 0;
+    let wasSettled = false;
+    let isAnimating = false;
+    let rafId: number | null = null;
+
+    const AUTO_SCROLL_MS = 1900;
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const cancelAnim = () => {
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      isAnimating = false;
+    };
+
+    const triggerAutoScroll = (targetY: number) => {
+      cancelAnim();
+      isAnimating = true;
+      const startY = window.scrollY;
+      const delta = targetY - startY;
+      const startTime = performance.now();
+
+      const step = (now: number) => {
+        const t = Math.min(1, (now - startTime) / AUTO_SCROLL_MS);
+        window.scrollTo(0, startY + delta * easeOutCubic(t));
+        if (t < 1) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          rafId = null;
+          isAnimating = false;
+        }
+      };
+      rafId = requestAnimationFrame(step);
+    };
 
     const update = () => {
       const anchor = document.querySelector<HTMLElement>(anchorSelector);
@@ -37,18 +68,48 @@ export default function MorphImage({ anchorSelector, endSelector, src, miniSrc }
 
       if (rect.top > vh) {
         el.style.opacity = "0";
+        lastP = 0;
+        wasSettled = false;
         return;
       }
-      if (end) {
-        const eRect = end.getBoundingClientRect();
-        if (eRect.bottom < 0) {
-          el.style.opacity = "0";
-          return;
+      const eRect = end ? end.getBoundingClientRect() : null;
+      if (eRect && eRect.bottom < 0) {
+        el.style.opacity = "0";
+        lastP = 1;
+        wasSettled = true;
+        return;
+      }
+      const exitFadeRange = vh * 0.25;
+      const exitOpacity =
+        eRect && eRect.bottom < exitFadeRange
+          ? Math.max(0, eRect.bottom / exitFadeRange)
+          : 1;
+      el.style.opacity = `${exitOpacity}`;
+
+      const isSettled = eRect ? eRect.top <= 0 : false;
+      const ENTRY_BUFFER = vh * 0.2;
+      const startY = window.scrollY + cy - vh * 0.45 + ENTRY_BUFFER;
+      const endY = eRect
+        ? window.scrollY + eRect.top
+        : window.scrollY + cy + vh * 0.25;
+      const p = Math.max(
+        0,
+        Math.min(1, (window.scrollY - startY) / (endY - startY)),
+      );
+
+      if (!isAnimating) {
+        const absAnchorCenter = window.scrollY + cy;
+        if (lastP <= 0 && p > 0 && !isSettled) {
+          const targetY = eRect
+            ? window.scrollY + eRect.top
+            : absAnchorCenter + vh * 0.25;
+          triggerAutoScroll(targetY);
+        } else if (wasSettled && !isSettled) {
+          triggerAutoScroll(absAnchorCenter - vh * 0.45);
         }
       }
-      el.style.opacity = "1";
-
-      const p = Math.max(0, Math.min(1, (vh * 0.45 - cy) / (vh * 0.7)));
+      lastP = p;
+      wasSettled = isSettled;
 
       const w = Math.round(rect.width + (vw - rect.width) * p);
       const h = Math.round(rect.height + (vh - rect.height) * p);
@@ -61,25 +122,31 @@ export default function MorphImage({ anchorSelector, endSelector, src, miniSrc }
       el.style.height = `${h}px`;
       el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
       el.style.borderRadius = `${radius}px`;
+    };
 
-      const fade = Math.max(0, Math.min(1, (p - 0.4) / 0.2));
-      mini.style.opacity = `${1 - fade}`;
-      main.style.opacity = `${fade}`;
+    let pendingFrame = false;
+    const onScroll = () => {
+      if (pendingFrame) return;
+      pendingFrame = true;
+      requestAnimationFrame(() => {
+        pendingFrame = false;
+        update();
+      });
     };
 
     update();
-    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", update);
     return () => {
-      window.removeEventListener("scroll", update);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", update);
+      cancelAnim();
     };
   }, [anchorSelector, endSelector]);
 
   return (
     <div ref={ref} className={styles.morph}>
-      <img ref={miniRef} src={miniSrc} alt="" className={styles.mini} />
-      <img ref={mainRef} src={src} alt="" className={styles.main} />
+      <img src={src} alt="" />
     </div>
   );
 }

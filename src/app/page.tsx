@@ -5,13 +5,14 @@ import Overview from "@/components/landing/Overview";
 import MorphImage from "@/components/landing/MorphImage";
 import ValueCards from "@/components/landing/ValueCards";
 import PhoneSlider from "@/components/landing/PhoneSlider";
+import Integration from "@/components/landing/Integration";
 import Quotes from "@/components/landing/Quotes";
 import Partners from "@/components/landing/Partners";
 import SalesNumbers from "@/components/landing/SalesNumbers";
 import Professional from "@/components/landing/Professional";
 import PerformanceChart from "@/components/landing/PerformanceChart";
 import Footer from "@/components/ui/Footer";
-import { overviewMorphImage, overviewMiniImage } from "@/data/landing/overview";
+import { overviewMorphImage } from "@/data/landing/overview";
 
 export default function Home() {
   return (
@@ -24,9 +25,9 @@ export default function Home() {
           anchorSelector="[data-morph-anchor]"
           endSelector="[data-morph-end]"
           src={overviewMorphImage}
-          miniSrc={overviewMiniImage}
         />
         <ValueCards />
+        <Integration />
         <PhoneSlider />
         <Quotes />
         <Reveal>

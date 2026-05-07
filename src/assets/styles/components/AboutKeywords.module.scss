@@ -1,0 +1,100 @@
+@use "tokens" as *;
+
+.section {
+  background: $color-white;
+  padding: $sp-30 $sp-20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-20;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-4;
+  max-width: 960px;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: $ff-en;
+  font-size: $fs-sm;
+  letter-spacing: 0.2em;
+  color: $color-primary-blue;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: $fw-bold;
+  color: $color-text-primary;
+  letter-spacing: -0.01em;
+}
+
+.lead {
+  margin: 0;
+  font-size: $fs-md;
+  line-height: 1.7;
+  color: $color-text-secondary;
+  white-space: pre-line;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $sp-6;
+  width: 100%;
+  max-width: 1320px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: $color-bg-soft;
+  border-radius: $r-lg;
+  padding: $sp-8;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+  border: 1px solid $color-border;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: $r-full;
+  background: $color-primary-blue;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+  color: $color-text-primary;
+}
+
+.desc {
+  margin: 0;
+  font-size: $fs-sm;
+  line-height: 1.7;
+  color: $color-text-secondary;
+  white-space: pre-line;
+}

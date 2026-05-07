@@ -1,18 +1,97 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "@/assets/styles/components/PhoneSlider.module.scss";
 import { phoneSlider } from "@/data/landing/phoneSlider";
 import type { PhoneSliderModeKey } from "@/types/landing";
+
+const DRAG_STEP = 240;
+
+const KF = [
+  { tx: 0, tz: 0, ry: 0, sc: 1, op: 1, br: 1, bl: 0, zi: 10 },
+  { tx: 34, tz: 0, ry: 45, sc: 0.92, op: 1, br: 1, bl: 0, zi: 8 },
+  { tx: 16, tz: -36, ry: -20, sc: 0.7, op: 0.78, br: 0.72, bl: 0.5, zi: 5 },
+  { tx: 9, tz: -56, ry: -14, sc: 0.45, op: 0.5, br: 0.58, bl: 1.5, zi: 3 },
+  { tx: 3, tz: -76, ry: -8, sc: 0.32, op: 0.3, br: 0.45, bl: 2, zi: 1 },
+] as const;
+
+type KFKey = keyof (typeof KF)[number];
+
+function lerp(d: number, key: KFKey) {
+  const a = Math.min(Math.abs(d), 4);
+  const lo = Math.floor(a);
+  const hi = Math.min(lo + 1, 4);
+  const t = a - lo;
+  return KF[lo][key] + (KF[hi][key] - KF[lo][key]) * t;
+}
+
+function originX(d: number) {
+  const a = Math.abs(d);
+  if (a >= 2 || d === 0) return 50;
+  if (d > 0) return d <= 1 ? 50 - 50 * d : 50 * (d - 1);
+  const ad = -d;
+  return ad <= 1 ? 50 + 50 * ad : 100 - 50 * (ad - 1);
+}
+
+function cardStyle(d: number, smooth: boolean): React.CSSProperties {
+  const s = d < 0 ? -1 : 1;
+  return {
+    transform: `translate3d(${s * lerp(d, "tx")}rem, 0, ${lerp(
+      d,
+      "tz"
+    )}rem) rotateY(${s * lerp(d, "ry")}deg) scale(${lerp(d, "sc")})`,
+    transformOrigin: `${originX(d)}% 50%`,
+    opacity: lerp(d, "op"),
+    filter: `brightness(${lerp(d, "br")}) blur(${lerp(d, "bl")}px)`,
+    zIndex: Math.round(lerp(d, "zi")),
+    transition: smooth ? undefined : "none",
+  };
+}
 
 export default function PhoneSlider() {
   const { copy, toggle, slides, more } = phoneSlider;
   const [index, setIndex] = useState(2);
   const [mode, setMode] = useState<PhoneSliderModeKey>("dev");
+  const [dragging, setDragging] = useState(false);
+  const [dragX, setDragX] = useState(0);
+  const startX = useRef(0);
+  const accumShift = useRef(0);
+  const moved = useRef(false);
   const len = slides.length;
 
   const prev = () => setIndex((i) => (i - 1 + len) % len);
   const next = () => setIndex((i) => (i + 1) % len);
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    e.currentTarget.setPointerCapture(e.pointerId);
+    startX.current = e.clientX;
+    accumShift.current = 0;
+    moved.current = false;
+    setDragging(true);
+    setDragX(0);
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX.current;
+    if (Math.abs(dx) > 4) moved.current = true;
+    const total = Math.round(dx / DRAG_STEP);
+    const delta = total - accumShift.current;
+    if (delta !== 0) {
+      accumShift.current = total;
+      setIndex((i) => (((i - delta) % len) + len) % len);
+    }
+    setDragX(dx - total * DRAG_STEP);
+  };
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!dragging) return;
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    }
+    setDragging(false);
+    setDragX(0);
+  };
 
   const offsetOf = (i: number) => {
     let d = i - index;
@@ -68,24 +147,34 @@ export default function PhoneSlider() {
           ‹
         </button>
 
-        <div className={styles.stage}>
+        <div
+          className={styles.stage}
+          onPointerDown={onPointerDown}
+          onPointerMove={onPointerMove}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+        >
           {slides.flatMap((src, i) => {
+            const frac = dragX / DRAG_STEP;
             const d = offsetOf(i);
             const dBack = d > 0 ? d - len : d < 0 ? d + len : null;
             const positions: { d: number; key: string }[] = [];
             if (Math.abs(d) <= 2) positions.push({ d, key: `f-${i}` });
             if (dBack !== null && Math.abs(dBack) <= 4)
               positions.push({ d: dBack, key: `b-${i}` });
-            return positions.map(({ d, key }) => (
-              <div
-                key={key}
-                className={styles.card}
-                data-pos={d}
-                onClick={() => setIndex(i)}
-              >
-                <img src={src} alt="" />
-              </div>
-            ));
+            return positions.map(({ d, key }) => {
+              const dCont = d + frac;
+              return (
+                <div
+                  key={key}
+                  className={styles.card}
+                  style={cardStyle(dCont, !dragging)}
+                  onClick={() => !moved.current && setIndex(i)}
+                >
+                  <img src={src} alt="" draggable={false} />
+                </div>
+              );
+            });
           })}
         </div>
 

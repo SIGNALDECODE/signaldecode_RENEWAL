@@ -4,6 +4,7 @@ export { hero } from "./landing/hero";
 export { overviewCopy, overviewMorphImage } from "./landing/overview";
 export { valueCards } from "./landing/valueCards";
 export { phoneSlider } from "./landing/phoneSlider";
+export { integration } from "./landing/integration";
 export { quotes } from "./landing/quotes";
 export { partners } from "./landing/partners";
 export { salesNumbers } from "./landing/salesNumbers";

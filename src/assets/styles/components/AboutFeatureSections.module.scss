@@ -1,0 +1,76 @@
+@use "tokens" as *;
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: $sp-30 $sp-20;
+  color: $color-white;
+  overflow: hidden;
+
+  &[data-align="left"] {
+    justify-content: flex-start;
+    .copy { margin-left: 5%; }
+  }
+  &[data-align="right"] {
+    justify-content: flex-end;
+    .copy { margin-right: 5%; }
+  }
+}
+
+.bg {
+  object-fit: cover;
+  z-index: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-6;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: $ff-en;
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+  letter-spacing: 0.15em;
+  color: $color-white;
+  opacity: 0.85;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: $fw-bold;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.desc {
+  margin: 0;
+  font-size: $fs-md;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+}

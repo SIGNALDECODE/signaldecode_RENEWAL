@@ -1,0 +1,842 @@
+    2   name: 시그널디코드 리뉴얼
+    7       name: Frame 1707484856
+   10   - id: 366:5856
+   11     name: 회사소개
+   12     type: FRAME
+   16       - id: 366:5859
+   17         name: Rectangle 33626
+   18         type: RECTANGLE
+   21       - id: 379:963
+   22         name: Frame 2095587659
+   23         type: INSTANCE
+   28         componentId: 379:962
+   30           - id: I379:963;122:8776
+   31             name: Frame 1707484855
+   32             type: FRAME
+   35               - id: I379:963;362:4680
+   36                 name: _?덉씠??1
+   37                 type: IMAGE-SVG
+   40               - id: I379:963;122:8784
+   41                 name: Frame 1707484853
+   42                 type: FRAME
+   45                   - id: I379:963;122:8786
+   46                     name: 회사소개
+   47                     type: TEXT
+   49                     text: 회사소개
+   50                     textStyle: headline5
+   52                   - id: I379:963;379:960
+   53                     name: 마케팅서비스
+   54                     type: TEXT
+   56                     text: 마케팅서비스
+   57                     textStyle: headline5
+   59                   - id: I379:963;122:8787
+   60                     name: 웹·개발
+   61                     type: TEXT
+   63                     text: 웹·개발
+   64                     textStyle: headline5
+   66                   - id: I379:963;388:2575
+   67                     name: 영상제작
+   68                     type: TEXT
+   70                     text: 영상제작
+   71                     textStyle: headline5
+   73                   - id: I379:963;122:8788
+   74                     name: 이벤트
+   75                     type: TEXT
+   77                     text: 이벤트
+   78                     textStyle: headline5
+   80                   - id: I379:963;122:8789
+   81                     name: 고객지원
+   82                     type: TEXT
+   84                     text: 고객지원
+   85                     textStyle: headline5
+   87           - id: I379:963;122:8790
+   88             name: Frame 1707484854
+   89             type: FRAME
+   94               - id: I379:963;122:8791
+   95                 name: 문의하기
+   96                 type: TEXT
+   98                 text: 문의하기
+   99                 textStyle: button2
+  101       - id: 366:5931
+  102         name: Group 1707481621
+  103         type: GROUP
+  106           - id: 366:5932
+  107             name: Rectangle 33344
+  108             type: RECTANGLE
+  111           - id: 366:5933
+  112             name: Frame 2095587616
+  113             type: FRAME
+  116               - id: 366:5934
+  117                 name: Frame 2095587615
+  118                 type: FRAME
+  121                   - id: 366:5935
+  122                     name: Frame 1707486355
+  123                     type: FRAME
+  126                       - id: 366:5936
+  127                         name: Frame 1707486354
+  128                         type: FRAME
+  131                           - id: 366:5937
+  132                             name: Frame 1707486348
+  133                             type: FRAME
+  136                               - id: 366:5938
+  137                                 name: New Source
+  138                                 type: TEXT
+  140                                 text: New Source
+  141                                 textStyle: title3
+  143                               - id: 366:5939
+  144                                 name: Frame 1707486347
+  145                                 type: FRAME
+  148                                   - id: 366:5940
+  149                                     name: Frame 1707486345
+  150                                     type: FRAME
+  153                                       - id: 366:5941
+  154                                         name: Adress
+  155                                         type: TEXT
+  157                                         text: Adress
+  158                                         textStyle: style_RXKL64
+  160                                       - id: 366:5942
+  161                                         name: 서울특별시 마포구 잔다리로 44, 6층(서교동, 센터원빌딩)
+  162                                         type: TEXT
+  164                                         text: 서울특별시 마포구 잔다리로 44, 6층\(서교동, 센터원빌딩\)
+  165                                         textStyle: caption2
+  167                                   - id: 366:5943
+  168                                     name: Frame 1707486346
+  169                                     type: FRAME
+  172                                       - id: 366:5944
+  173                                         name: E-mail
+  174                                         type: TEXT
+  176                                         text: E-mail
+  177                                         textStyle: style_RXKL64
+  179                                       - id: 366:5945
+  180                                         name: signaldecode@signal-decode.com
+  181                                         type: TEXT
+  183                                         text: signaldecode@signal-decode.com
+  184                                         textStyle: caption2
+  186                           - id: 366:5946
+  187                             name: Frame 1707486352
+  188                             type: FRAME
+  191                               - id: 366:5947
+  192                                 name: Info
+  193                                 type: TEXT
+  195                                 text: Info
+  196                                 textStyle: title3
+  198                               - id: 366:5948
+  199                                 name: Frame 1707486351
+  200                                 type: FRAME
+  203                                   - id: 366:5949
+  204                                     name: Frame 1707486349
+  205                                     type: FRAME
+  208                                       - id: 366:5950
+  209                                         name: Frame 1707486345
+  210                                         type: FRAME
+  213                                           - id: 366:5951
+  214                                             name: 대표
+  215                                             type: TEXT
+  217                                             text: 대표
+  218                                             textStyle: style_RXKL64
+  220                                           - id: 366:5952
+  221                                             name: 손재현
+  222                                             type: TEXT
+  224                                             text: 손재현
+  225                                             textStyle: caption2
+  227                                       - id: 366:5953
+  228                                         name: Frame 1707486347
+  229                                         type: FRAME
+  232                                           - id: 366:5954
+  233                                             name: Phone
+  234                                             type: TEXT
+  236                                             text: Phone
+  237                                             textStyle: style_RXKL64
+  239                                           - id: 366:5955
+  240                                             name: 02-322-7779
+  241                                             type: TEXT
+  243                                             text: 02-322-7779
+  244                                             textStyle: caption2
+  246                                   - id: 366:5956
+  247                                     name: Frame 1707486350
+  248                                     type: FRAME
+  251                                       - id: 366:5957
+  252                                         name: Frame 1707486346
+  253                                         type: FRAME
+  256                                           - id: 366:5958
+  257                                             name: 사업자번호
+  258                                             type: TEXT
+  260                                             text: 사업자번호
+  261                                             textStyle: style_RXKL64
+  263                                           - id: 366:5959
+  264                                             name: 397-88-03608
+  265                                             type: TEXT
+  267                                             text: 397-88-03608
+  268                                             textStyle: caption2
+  270                                       - id: 366:5960
+  271                                         name: Frame 1707486348
+  272                                         type: FRAME
+  275                                           - id: 366:5961
+  276                                             name: 업무시간
+  277                                             type: TEXT
+  279                                             text: 업무시간
+  280                                             textStyle: style_RXKL64
+  282                                           - id: 366:5962
+  283                                             name: 10:00 - 19:00
+  284                                             type: TEXT
+  286                                             text: ' 10:00 - 19:00'
+  287                                             textStyle: caption2
+  289                   - id: 366:5963
+  290                     name: Frame 2095587614
+  291                     type: FRAME
+  298                       - id: 366:5964
+  299                         name: 회사소개서 다운
+  300                         type: TEXT
+  302                         text: 회사소개서 다운
+  303                         textStyle: style_SPRW8O
+  305                       - id: 366:5965
+  306                         name: Layer_1
+  307                         type: IMAGE-SVG
+  310               - id: 366:5968
+  311                 name: Frame 1707486357
+  312                 type: FRAME
+  315                   - id: 366:5969
+  316                     name: Frame 1707486356
+  317                     type: FRAME
+  320                       - id: 366:5970
+  321                         name: COPYRIGHT © 2020 SIGNALDECODE. ALL RIGHTS RESERVED.
+  322                         type: TEXT
+  324                         text: COPYRIGHT © 2020 SIGNALDECODE. ALL RIGHTS RESERVED.
+  325                         textStyle: body1
+  327                   - id: 366:5971
+  328                     name: signal decode signal dec
+  329                     type: TEXT
+  331                     text: signal decode signal dec
+  332                     textStyle: style_V9ZXE0
+  334       - id: 366:6179
+  335         name: Frame 2095587653
+  336         type: FRAME
+  339           - id: 366:6172
+  340             name: Frame 2095587614
+  341             type: FRAME
+  344               - id: 366:6173
+  345                 name: OVERVIEW
+  346                 type: TEXT
+  348                 text: OVERVIEW
+  349                 textStyle: style_CBEPCV
+  351               - id: 366:6174
+  352                 name: Frame 1707487876
+  353                 type: FRAME
+  356                   - id: 366:6175
+  357                     name: 광고부터 웹 개발까지, 끊김 없는 최적의 브랜드 경험을 설계
+  358                     type: TEXT
+  360                     text: 광고부터 웹 개발까지, 끊김 없는 최적의 브랜드 경험을 설계
+  361                     textStyle: style_MN1O70
+  363                   - id: 366:6176
+  364                     name: 각 분야 전문가들의 기획과 기술력을 결합하여, 단순한 제작을 넘어 비즈니스의 실질적인 성과를 만듭니다.
+  365                     type: TEXT
+  367                     text: 각 분야 전문가들의 기획과 기술력을 결합하여, 단순한 제작을 넘어 비즈니스의 실질적인 성과를 만듭니다.
+  368                     textStyle: style_AU0QNJ
+  370           - id: 366:6177
+  371             name: Rectangle 33349
+  372             type: RECTANGLE
+  376       - id: 366:4798
+  377         name: Rectangle 33627
+  378         type: RECTANGLE
+  381       - id: 366:5143
+  382         name: Rectangle 33628
+  383         type: RECTANGLE
+  386       - id: 366:5174
+  387         name: Rectangle 33629
+  388         type: RECTANGLE
+  391       - id: 402:3489
+  392         name: Frame 2095587695
+  393         type: FRAME
+  396           - id: 366:6279
+  397             name: Frame 2095587655
+  398             type: FRAME
+  401               - id: 366:5826
+  402                 name: Frame 1707487853
+  403                 type: FRAME
+  409                   - id: 366:5827
+  410                     name: Frame 1707487852
+  411                     type: FRAME
+  414                       - id: 376:841
+  415                         name: 3d-icon-glass-abstract-object (3) 1
+  416                         type: RECTANGLE
+  419                   - id: 366:5829
+  420                     name: Frame 1707487849
+  421                     type: FRAME
+  424                       - id: 366:5830
+  425                         name: AESTHETIC
+  426                         type: TEXT
+  428                         text: AESTHETIC
+  429                         textStyle: style_4K0OTO
+  431                       - id: 366:5831
+  432                         name: 브랜드 본질을 담은 하이엔드 비주얼
+  433                         type: TEXT
+  435                         text: 브랜드 본질을 담은 하이엔드 비주얼
+  436                         textStyle: style_CTLGPW
+  438               - id: 366:5832
+  439                 name: Frame 1707487588
+  440                 type: FRAME
+  443                   - id: 366:5833
+  444                     name: 절제된 미학, 본질의 시각화.
+  445                     type: TEXT
+  447                     text: 절제된 미학, 본질의 시각화.
+  448                     textStyle: style_XDJ4CW
+  450                   - id: 366:5834
+  451                     name: 단순히 정보를 전달하는 웹사이트의 기능을 넘어, 브랜드가 가진 고유한 서사와 본질을 깊이 있게 통찰합니다. 보는 이의 시선을 압도하고 브랜드의 품격을 완성하는 독보적인 미학적 결과물을 구현합니다.
+  452                     type: TEXT
+  454                     text: 단순히 정보를 전달하는 웹사이트의 기능을 넘어, 브랜드가 가진 고유한 서사와 본질을 깊이 있게 통찰합니다. 보는 이의 시선을 압도하고 브랜드의 품격을 완성하는 독보적인 미학적 결과물을 구현합니다.
+  455                     textStyle: style_HOH3UO
+  457           - id: 379:2520
+  458             name: Frame 2095587681
+  459             type: FRAME
+  462               - id: 379:2527
+  463                 name: Frame 1707487588
+  464                 type: FRAME
+  467                   - id: 379:2528
+  468                     name: 현상을 관통하는 예리한 시선.
+  469                     type: TEXT
+  471                     text: 현상을 관통하는 예리한 시선.
+  472                     textStyle: style_XDJ4CW
+  474                   - id: 379:2529
+  475                     name: 타겟 고객의 행동 패턴을 철저히 분석한 마케팅의 정교한 전략적 설계와, 이를 직관적으로 경험하게 만드는 감각적인 디자인 기술이 하나로 융합됩니다. 나아가 시장의 판도를 바꾸는 영향력 있는 브랜드 파워를 창출합니다.
+  476                     type: TEXT
+  478                     text: 타겟 고객의 행동 패턴을 철저히 분석한 마케팅의 정교한 전략적 설계와, 이를 직관적으로 경험하게 만드는 감각적인 디자인 기술이 하나로 융합됩니다. 나아가 시장의 판도를 바꾸는 영향력 있는 브랜드 파워를 창출합니다.
+  479                     textStyle: style_HOH3UO
+  481               - id: 379:2521
+  482                 name: Frame 1707487853
+  483                 type: FRAME
+  489                   - id: 379:2522
+  490                     name: Frame 1707487852
+  491                     type: FRAME
+  494                       - id: 379:2523
+  495                         name: 3d-icon-glass-abstract-object (3) 1
+  496                         type: RECTANGLE
+  499                   - id: 379:2524
+  500                     name: Frame 1707487849
+  501                     type: FRAME
+  504                       - id: 379:2525
+  505                         name: STRATEGY
+  506                         type: TEXT
+  508                         text: STRATEGY
+  509                         textStyle: style_4K0OTO
+  511                       - id: 379:2526
+  512                         name: 시장을 움직이는 전략적 디자인
+  513                         type: TEXT
+  515                         text: 시장을 움직이는 전략적 디자인
+  516                         textStyle: style_CTLGPW
+  518           - id: 379:2530
+  519             name: Frame 2095587682
+  520             type: FRAME
+  523               - id: 379:2531
+  524                 name: Frame 1707487853
+  525                 type: FRAME
+  531                   - id: 379:2532
+  532                     name: Frame 1707487852
+  533                     type: FRAME
+  536                       - id: 379:2533
+  537                         name: 3d-icon-glass-abstract-object (3) 1
+  538                         type: RECTANGLE
+  541                   - id: 379:2534
+  542                     name: Frame 1707487849
+  543                     type: FRAME
+  546                       - id: 379:2535
+  547                         name: GROWTH
+  548                         type: TEXT
+  550                         text: GROWTH
+  551                         textStyle: style_4K0OTO
+  553                       - id: 379:2536
+  554                         name: 기술력을 통한 무한한 비즈니스 확장
+  555                         type: TEXT
+  557                         text: 기술력을 통한 무한한 비즈니스 확장
+  558                         textStyle: style_CTLGPW
+  560               - id: 379:2537
+  561                 name: Frame 1707487588
+  562                 type: FRAME
+  565                   - id: 379:2538
+  566                     name: 한계를 넘어 도약하는 무한한 궤적.
+  567                     type: TEXT
+  569                     text: 한계를 넘어 도약하는 무한한 궤적.
+  570                     textStyle: style_XDJ4CW
+  572                   - id: 379:2539
+  573                     name: 트렌드를 선도하는 유연하고 견고한 아키텍처와, 타협하지 않는 최상의 기술적 완성도를 바탕으로 강력한 디지털 생태계를 구축합니다. 변화하는 시장 환경에 유연하게 대응하며 끊임없이 확장하고 성장할 수 있도록 지원합니다.
+  574                     type: TEXT
+  576                     text: 트렌드를 선도하는 유연하고 견고한 아키텍처와, 타협하지 않는 최상의 기술적 완성도를 바탕으로 강력한 디지털 생태계를 구축합니다. 변화하는 시장 환경에 유연하게 대응하며 끊임없이 확장하고 성장할 수 있도록 지원합니다.
+  577                     textStyle: style_HOH3UO
+  579       - id: 376:3096
+  580         name: Mask group
+  581         type: GROUP
+  584           - id: 376:3097
+  585             name: WHO WE ARE SIGNALDECODE
+  586             type: TEXT
+  588             text: WHO WE ARE SIGNALDECODE
+  589             textStyle: style_SPMSD2
+  591           - id: 376:3098
+  592             name: Rectangle 33387
+  593             type: RECTANGLE
+  596           - id: 376:3099
+  597             name: BASED IN HAMILTION, ONTARIO
+  598             type: TEXT
+  600             text: BASED IN HAMILTION, ONTARIO
+  601             textStyle: style_SGK2L2
+  603           - id: 376:3100
+  604             name: 15+ YEARS EXPERIENCE
+  605             type: TEXT
+  607             text: 15+ YEARS EXPERIENCE
+  608             textStyle: style_SGK2L2
+  610           - id: 376:3101
+  611             name: SPECIALIZING IN WEB DESIGN
+  612             type: TEXT
+  614             text: SPECIALIZING IN WEB DESIGN
+  615             textStyle: style_SGK2L2
+  617           - id: 376:3102
+  618             name: CREATIVE STUDIO
+  619             type: TEXT
+  621             text: CREATIVE STUDIO
+  622             textStyle: style_ZBMF8Q
+  624       - id: 379:2344
+  625         name: Rectangle 33634
+  626         type: RECTANGLE
+  629       - id: 379:2486
+  630         name: Frame 2095587680
+  631         type: FRAME
+  634           - id: 366:6180
+  635             name: Frame 2095587614
+  636             type: FRAME
+  639               - id: 366:6181
+  640                 name: keyword
+  641                 type: TEXT
+  643                 text: keyword
+  644                 textStyle: style_CBEPCV
+  646               - id: 366:6182
+  647                 name: Frame 1707487876
+  648                 type: FRAME
+  651                   - id: 366:6183
+  652                     name: 종합광고대행사 스케일을 바꾸는 통합 솔루션
+  653                     type: TEXT
+  655                     text: 종합광고대행사 스케일을 바꾸는 통합 솔루션
+  656                     textStyle: style_MN1O70
+  658                   - id: 366:6184
+  659                     name: 시장을 읽는 정교한 전략과 이를 현실로 구현하는 독보적인 기술력이 만나, 비즈니스의 새로운 가능성을 설계합니다.
+  660                     type: TEXT
+  662                     text: 시장을 읽는 정교한 전략과 이를 현실로 구현하는 독보적인 기술력이 만나, 비즈니스의\n새로운 가능성을 설계합니다.
+  663                     textStyle: style_AU0QNJ
+  665           - id: 379:2481
+  666             name: Frame 2095587679
+  667             type: FRAME
+  670               - id: 379:2443
+  671                 name: Frame 2095587677
+  672                 type: FRAME
+  675                   - id: 379:2382
+  676                     name: Frame 2095587662
+  677                     type: FRAME
+  682                       - id: 379:2383
+  683                         name: Frame 1707481260
+  684                         type: IMAGE-SVG
+  687                       - id: 379:2391
+  688                         name: Frame 1707486611
+  689                         type: FRAME
+  692                           - id: 379:2392
+  693                             name: 솔루션 (Solution)
+  694                             type: TEXT
+  696                             text: 솔루션 \(Solution\)
+  697                             textStyle: title 3
+  699                           - id: 379:2393
+  700                             name: 비즈니스의 막막한 한계를 넘어서는 가장 명쾌한 정답을 설계합니다.
+  701                             type: TEXT
+  703                             text: 비즈니스의 막막한 한계를 넘어서는 가장 명쾌한\n정답을 설계합니다.
+  704                             textStyle: body 4
+  706                   - id: 379:2419
+  707                     name: Frame 2095587665
+  708                     type: FRAME
+  713                       - id: 379:2420
+  714                         name: Frame 1707481260
+  715                         type: IMAGE-SVG
+  718                       - id: 379:2428
+  719                         name: Frame 1707486611
+  720                         type: FRAME
+  723                           - id: 379:2429
+  724                             name: 캠페인 (Campaign)
+  725                             type: TEXT
+  727                             text: 캠페인 \(Campaign\)
+  728                             textStyle: title 3
+  730                           - id: 379:2430
+  731                             name: 영상에서 웹까지, 단 하나의 메시지로 브랜드의 일관된 흐름을 만듭니다.
+  732                             type: TEXT
+  734                             text: 영상에서 웹까지, 단 하나의 메시지로 브랜드의 일관된\n흐름을 만듭니다.
+  735                             textStyle: body 4
+  737                   - id: 379:2431
+  738                     name: Frame 2095587666
+  739                     type: FRAME
+  744                       - id: 379:2432
+  745                         name: Frame 1707481260
+  746                         type: IMAGE-SVG
+  749                       - id: 379:2440
+  750                         name: Frame 1707486611
+  751                         type: FRAME
+  754                           - id: 379:2441
+  755                             name: 크리에이티브 (Creative)
+  756                             type: TEXT
+  758                             text: 크리에이티브 \(Creative\)
+  759                             textStyle: title 3
+  761                           - id: 379:2442
+  762                             name: 시선을 사로잡는 감각과 마음을 움직이는 아이디어로 시장의 판도를 바꿉니다.
+  763                             type: TEXT
+  765                             text: 시선을 사로잡는 감각과 마음을 움직이는 아이디어로\n시장의 판도를 바꿉니다.
+  766                             textStyle: body 4
+  768               - id: 379:2444
+  769                 name: Frame 2095587678
+  770                 type: FRAME
+  773                   - id: 379:2445
+  774                     name: Frame 2095587662
+  775                     type: FRAME
+  780                       - id: 379:2446
+  781                         name: Frame 1707481260
+  782                         type: IMAGE-SVG
+  785                       - id: 379:2454
+  786                         name: Frame 1707486611
+  787                         type: FRAME
+  790                           - id: 379:2455
+  791                             name: 퍼포먼스 (Performance)
+  792                             type: TEXT
+  794                             text: 퍼포먼스 \(Performance\)
+  795                             textStyle: title 3
+  797                           - id: 379:2456
+  798                             name: 단순한 노출을 넘어, 데이터로 증명되는 실질적인 비즈니스 성장을 실현합니다.
+  799                             type: TEXT
+  801                             text: 단순한 노출을 넘어, 데이터로 증명되는 실질적인\n비즈니스 성장을 실현합니다.
+  802                             textStyle: body 4
+  804                   - id: 379:2457
+  805                     name: Frame 2095587665
+  806                     type: FRAME
+  811                       - id: 379:2458
+  812                         name: Frame 1707481260
+  813                         type: IMAGE-SVG
+  816                       - id: 379:2466
+  817                         name: Frame 1707486611
+  818                         type: FRAME
+  821                           - id: 379:2467
+  822                             name: 브랜딩 (Branding)
+  823                             type: TEXT
+  825                             text: 브랜딩 \(Branding\)
+  826                             textStyle: title 3
+  828                           - id: 379:2468
+  829                             name: 디테일한 사용자 경험 속에 브랜드 고유의 철학과 가치를 깊게 각인시킵니다.
+  830                             type: TEXT
+  832                             text: 디테일한 사용자 경험 속에 브랜드 고유의 철학과 가치를\n깊게 각인시킵니다.
+  833                             textStyle: body 4
+  835                   - id: 379:2469
+  836                     name: Frame 2095587666
+  837                     type: FRAME
+  842                       - id: 379:2470
+  843                         name: Frame 1707481260
+  844                         type: IMAGE-SVG
+  847                       - id: 379:2478
+  848                         name: Frame 1707486611
+  849                         type: FRAME
+  852                           - id: 379:2479
+  853                             name: 파트너십 (Partnership)
+  854                             type: TEXT
+  856                             text: 파트너십 \(Partnership\)
+  857                             textStyle: title 3
+  859                           - id: 379:2480
+  860                             name: 클라이언트의 성공을 우리 최고의 성과로 믿고 함께 달리는 든든한 러닝메이트가 됩니다.
+  861                             type: TEXT
+  863                             text: 클라이언트의 성공을 우리 최고의 성과로 믿고 함께 달리는\n든든한 러닝메이트가 됩니다.
+  864                             textStyle: body 4
+  866       - id: 388:2569
+  867         name: Frame 2095587688
+  868         type: FRAME
+  871           - id: 388:2564
+  872             name: Frame 2095587687
+  873             type: FRAME
+  876               - id: 388:2560
+  877                 name: Frame 2095587685
+  878                 type: FRAME
+  881                   - id: 388:2552
+  882                     name: Unlocking
+  883                     type: TEXT
+  885                     text: Unlocking
+  886                     textStyle: style_B9M2VE
+  888                   - id: 388:2559
+  889                     name: Rectangle 33635
+  890                     type: RECTANGLE
+  894                   - id: 388:2558
+  895                     name: the Value
+  896                     type: TEXT
+  898                     text: the Value
+  899                     textStyle: style_B9M2VE
+  901               - id: 388:2563
+  902                 name: Frame 2095587686
+  903                 type: FRAME
+  906                   - id: 388:2556
+  907                     name: Within
+  908                     type: TEXT
+  910                     text: Within
+  911                     textStyle: style_B9M2VE
+  913                   - id: 388:2561
+  914                     name: Rectangle 33635
+  915                     type: RECTANGLE
+  919                   - id: 388:2562
+  920                     name: Every Signal
+  921                     type: TEXT
+  923                     text: Every Signal
+  924                     textStyle: style_B9M2VE
+  926           - id: 388:2565
+  927             name: 모든 비즈니스 신호 속에 숨겨진 가치를 발견하여, 지속 가능한 성장의 기회로 깨우다.
+  928             type: TEXT
+  930             text: 모든 비즈니스 신호 속에 숨겨진 가치를 발견하여, 지속 가능한 성장의 기회로 깨우다.
+  931             textStyle: body 3
+  933       - id: 393:2780
+  934         name: SIGNAL DECODE SIGNAL DECODE
+  935         type: TEXT
+  937         text: SIGNAL DECODE SIGNAL DECODE
+  938         textStyle: style_WS7M94
+  940       - id: 393:2782
+  941         name: Vector 1760
+  942         type: IMAGE-SVG
+  946       - id: 396:3753
+  947         name: Frame 2095587693
+  948         type: FRAME
+  951           - id: 396:3747
+  952             name: Frame 2095587614
+  953             type: FRAME
+  956               - id: 396:3748
+  957                 name: Business Description
+  958                 type: TEXT
+  960                 text: Business Description
+  961                 textStyle: style_CBEPCV
+  963               - id: 396:3749
+  964                 name: Frame 1707487876
+  965                 type: FRAME
+  968                   - id: 396:3750
+  969                     name: 시그널 코드의 사업소개
+  970                     type: TEXT
+  972                     text: 시그널 코드의 사업소개
+  973                     textStyle: style_MN1O70
+  975           - id: 396:3752
+  976             name: Group 1707481628
+  977             type: GROUP
+  980               - id: 393:2762
+  981                 name: Group 1707481625
+  982                 type: GROUP
+  985                   - id: 388:2572
+  986                     name: Ellipse 2677
+  987                     type: ELLIPSE
+  990                   - id: 388:2761
+  991                     name: Frame 2095587690
+  992                     type: FRAME
+  995                       - id: 388:2758
+  996                         name: Frame 2095587689
+  997                         type: FRAME
+ 1000                           - id: 388:2756
+ 1001                             name: 마케팅
+ 1002                             type: TEXT
+ 1004                             text: 마케팅
+ 1005                             textStyle: style_LBE0JK
+ 1007                           - id: 388:2755
+ 1008                             name: '01'
+ 1009                             type: TEXT
+ 1011                             text: '01'
+ 1012                             textStyle: style_HOH3UO
+ 1014                       - id: 388:2759
+ 1015                         name: 복잡한 마케팅 고민을 명쾌한 비주얼과 데이터 기반의 고효율 솔루션으로 해결해 드립니다.
+ 1016                         type: TEXT
+ 1018                         text: 복잡한 마케팅 고민을 명쾌한 비주얼과 데이터 기반의 고효율 솔루션으로 해결해 드립니다.
+ 1019                         textStyle: style_QGQX8O
+ 1021               - id: 393:2763
+ 1022                 name: Group 1707481626
+ 1023                 type: GROUP
+ 1026                   - id: 393:2764
+ 1027                     name: Ellipse 2677
+ 1028                     type: ELLIPSE
+ 1031                   - id: 393:2765
+ 1032                     name: Frame 2095587690
+ 1033                     type: FRAME
+ 1036                       - id: 393:2766
+ 1037                         name: Frame 2095587689
+ 1038                         type: FRAME
+ 1041                           - id: 393:2767
+ 1042                             name: 영상제작
+ 1043                             type: TEXT
+ 1045                             text: 영상제작
+ 1046                             textStyle: style_LBE0JK
+ 1048                           - id: 393:2768
+ 1049                             name: '02'
+ 1050                             type: TEXT
+ 1052                             text: '02'
+ 1053                             textStyle: style_HOH3UO
+ 1055                       - id: 393:2769
+ 1056                         name: 영상이 끝난 뒤 사용자의 행동이나 감정 변화를 이끌어낼 수 있다는 전문성을 어필합니다.
+ 1057                         type: TEXT
+ 1059                         text: 영상이 끝난 뒤 사용자의 행동이나 감정 변화를 이끌어낼 수 있다는 전문성을 어필합니다.
+ 1060                         textStyle: style_QGQX8O
+ 1062               - id: 393:2770
+ 1063                 name: Group 1707481627
+ 1064                 type: GROUP
+ 1067                   - id: 393:2771
+ 1068                     name: Ellipse 2677
+ 1069                     type: ELLIPSE
+ 1072                   - id: 393:2772
+ 1073                     name: Frame 2095587690
+ 1074                     type: FRAME
+ 1077                       - id: 393:2773
+ 1078                         name: Frame 2095587689
+ 1079                         type: FRAME
+ 1082                           - id: 393:2774
+ 1083                             name: 웹·개발
+ 1084                             type: TEXT
+ 1086                             text: 웹·개발
+ 1087                             textStyle: style_LBE0JK
+ 1089                           - id: 393:2775
+ 1090                             name: '03'
+ 1091                             type: TEXT
+ 1093                             text: '03'
+ 1094                             textStyle: style_HOH3UO
+ 1096                       - id: 393:2776
+ 1097                         name: 여러 곳에 맡길 필요 없이 한 곳에서 고퀄리티의 통합 브랜딩이 가능하다는 편의성을 강조합니다.
+ 1098                         type: TEXT
+ 1100                         text: 여러 곳에 맡길 필요 없이 한 곳에서 고퀄리티의\n통합 브랜딩이 가능하다는 편의성을 강조합니다.
+ 1101                         textStyle: style_QGQX8O
+ 1103       - id: 402:3478
+ 1104         name: Rectangle 33636
+ 1105         type: RECTANGLE
+ 1108       - id: 402:3480
+ 1109         name: Rectangle 33638
+ 1110         type: RECTANGLE
+ 1113       - id: 402:3479
+ 1114         name: Rectangle 33637
+ 1115         type: RECTANGLE
+ 1118       - id: 366:5147
+ 1119         name: Frame 2095587649
+ 1120         type: FRAME
+ 1123           - id: 366:5148
+ 1124             name: Frame 2095587645
+ 1125             type: FRAME
+ 1128               - id: 366:5149
+ 1129                 name: Frame 2095587644
+ 1130                 type: FRAME
+ 1133                   - id: 366:5238
+ 1134                     name: _寃⑸━_紐⑤뱶
+ 1135                     type: IMAGE-SVG
+ 1138                   - id: 366:5171
+ 1139                     name: Video
+ 1140                     type: TEXT
+ 1142                     text: 'Video '
+ 1143                     textStyle: style_WI4PKI
+ 1145               - id: 366:5172
+ 1146                 name: 시선을 넘어 행동으로, 비디오 어포던스 구현
+ 1147                 type: TEXT
+ 1149                 text: 시선을 넘어 행동으로, 비디오 어포던스 구현
+ 1150                 textStyle: style_NK41NV
+ 1152           - id: 366:5173
+ 1153             name: 사용자가 매뉴얼 없이도 웹사이트의 모든 기능을 본능적으로 이해하고 사용할 수 있도록 최적의 행동 유도성을 설계합니다. 우리는 시각적 대비, 물리적 특성의 모사, 그리고 심리적 흐름을 고려한 디자인 장치들을 정교하게 배치하여, 고객이 디지털 공간에서 길을 잃지 않고 비즈니스가 의도한 목표 지점까지 물 흐르듯 도달하게 만듭니다.
+ 1154             type: TEXT
+ 1156             text: 사용자가 매뉴얼 없이도 웹사이트의 모든 기능을 본능적으로 이해하고 사용할 수 있도록 최적의 행동 유도성을 설계합니다. 우리는 시각적 대비, 물리적 특성의 모사, 그리고 심리적 흐름을 고려한 디자인 장치들을 정교하게 배치하여, 고객이 디지털 공간에서 길을 잃지 않고 비즈니스가 의도한 목표 지점까지 물 흐르듯 도달하게 만듭니다.
+ 1157             textStyle: style_FQ7NZH
+ 1159       - id: 366:5141
+ 1160         name: Frame 2095587646
+ 1161         type: FRAME
+ 1164           - id: 366:5140
+ 1165             name: Frame 2095587645
+ 1166             type: FRAME
+ 1169               - id: 366:5139
+ 1170                 name: Frame 2095587644
+ 1171                 type: FRAME
+ 1174                   - id: 366:4975
+ 1175                     name: katman_1
+ 1176                     type: FRAME
+ 1180                       - id: 366:4976
+ 1181                         name: Clip path group
+ 1182                         type: IMAGE-SVG
+ 1184                       - id: 366:4983
+ 1185                         name: Clip path group
+ 1186                         type: GROUP
+ 1189                           - id: 366:4984
+ 1190                             name: clippath-2
+ 1191                             type: IMAGE-SVG
+ 1193                           - id: 366:4989
+ 1194                             name: Group
+ 1195                             type: GROUP
+ 1198                               - id: 366:4990
+ 1199                                 name: Clip path group
+ 1200                                 type: GROUP
+ 1203                                   - id: 366:4991
+ 1204                                     name: clippath-3
+ 1205                                     type: IMAGE-SVG
+ 1207                                   - id: 366:4993
+ 1208                                     name: Group
+ 1209                                     type: GROUP
+ 1212                                       - id: 366:4994
+ 1213                                         name: Rectangle
+ 1214                                         type: RECTANGLE
+ 1217                       - id: 366:4995
+ 1218                         name: Vector
+ 1219                         type: IMAGE-SVG
+ 1222                   - id: 366:4802
+ 1223                     name: Marketing
+ 1224                     type: TEXT
+ 1226                     text: Marketing
+ 1227                     textStyle: style_WI4PKI
+ 1229               - id: 366:4803
+ 1230                 name: 브랜드 자산을 키우는 가장 확실한 마케팅 솔루션
+ 1231                 type: TEXT
+ 1233                 text: 브랜드 자산을 키우는 가장 확실한 마케팅 솔루션
+ 1234                 textStyle: style_65U797
+ 1236           - id: 366:4806
+ 1237             name: 단기적인 성과를 넘어 브랜드가 시장에서 가질 수 있는 고유한 위상과 지속 가능한 가치를 설계합니다. 우리는 정교한 마케팅 전략과 차별화된 디지털 경험을 결합하여, 시간이 흐를수록 고객의 신뢰가 쌓이고 비즈니스의 무형 자산이 극대화되는 강력한 브랜드 에퀴티를 구축합니다.
+ 1238             type: TEXT
+ 1240             text: 단기적인 성과를 넘어 브랜드가 시장에서 가질 수 있는 고유한 위상과 지속 가능한 가치를 설계합니다. 우리는 정교한 마케팅 전략과 차별화된 디지털 경험을 결합하여, 시간이 흐를수록 고객의 신뢰가 쌓이고 비즈니스의 무형 자산이 극대화되는\n강력한 브랜드 에퀴티를 구축합니다.
+ 1241             textStyle: style_FQ7NZH
+ 1243       - id: 366:5178
+ 1244         name: Frame 2095587651
+ 1245         type: FRAME
+ 1248           - id: 366:5179
+ 1249             name: Frame 2095587645
+ 1250             type: FRAME
+ 1253               - id: 366:5180
+ 1254                 name: Frame 2095587644
+ 1255                 type: FRAME
+ 1258                   - id: 366:5278
+ 1259                     name: _寃⑸━_紐⑤뱶
+ 1260                     type: IMAGE-SVG
+ 1263                   - id: 366:5202
+ 1264                     name: Web Development
+ 1265                     type: TEXT
+ 1267                     text: Web Development
+ 1268                     textStyle: style_WI4PKI
+ 1270               - id: 366:5203
+ 1271                 name: 전환을 높이는 데이터 기반 UI 디벨롭
+ 1272                 type: TEXT
+ 1274                 text: 전환을 높이는 데이터 기반 UI 디벨롭
+ 1275                 textStyle: style_NK41NV
+ 1277           - id: 366:5204
+ 1278             name: 비즈니스의 급격한 성장과 트래픽 증가에도 흔들림 없는 안정성을 보장하기 위해, 보이지 않는 곳의 핵심 엔진인 백엔드 로직을 정교하게 재설계합니다. 우리는 마이크로서비스 아키텍처(MSA)와 최적화된 데이터베이스 설계를 바탕으로 시스템의 부하를 최소화하며, 향후 어떤 비즈니스 변화에도 즉각적으로 대응하고 확장할 수 있는 유연한 기술적 토대를 완성합니다.
+ 1279             type: TEXT
+ 1281             text: 비즈니스의 급격한 성장과 트래픽 증가에도 흔들림 없는 안정성을 보장하기 위해, 보이지 않는 곳의 핵심 엔진인 백엔드 로직을 정교하게 재설계합니다. 우리는 마이크로서비스 아키텍처\(MSA\)와 최적화된 데이터베이스 설계를 바탕으로 시스템의 부하를 최소화하며,\n향후 어떤 비즈니스 변화에도 즉각적으로 대응하고 확장할 수 있는 유연한 기술적 토대를 완성합니다.
+ 1282             textStyle: style_FQ7NZH
+ 1284       - id: 402:3481
+ 1285         name: shiny-chrome-megaphone-isolated-transparent-background 1
+ 1286         type: RECTANGLE
+ 1290       - id: 402:3488
+ 1291         name: Frame 2095587694
+ 1292         type: FRAME
+ 1295           - id: 402:3484
+ 1296             name: 데이터 기반의 통찰력으로 비즈니스 성장을 견인하는 풀스택 광고대행사 파트너입니다.
+ 1297             type: TEXT
+ 1299             text: 데이터 기반의 통찰력으로 비즈니스 성장을 견인하는 풀스택 광고대행사 파트너입니다.
+ 1300             textStyle: style_FU8FD6
+ 1302           - id: 402:3487
+ 1303             name: 단순한 광고 대행의 범주를 넘어, 시장과 소비자가 보내는 미세한 데이터 신호를 정교하게 분석하여 비즈니스의 핵심 가치를 도출합니다.
+ 1304             type: TEXT
+ 1306             text: 단순한 광고 대행의 범주를 넘어, 시장과 소비자가 보내는 미세한 데이터 신호를 정교하게 분석하여 비즈니스의 핵심 가치를 도출합니다.
+ 1307             textStyle: style_EVA9I6
+ 1330         imageRef: b98a706ad017aee8879119b9547b57400427e261
+ 2268         imageRef: 3723a339626cd77b73e9c7919b37f3e36f651adf
+ 2294         imageRef: d7d9e68d5f0a5e993ab2211501d2009a1f86927d
+ 2312         imageRef: 2ef5c40dfbd644a9783017239281b186cac0ed84
+ 2330         imageRef: bdf45d857c61b0b7596f6f1c235cd9f782dbd844
+ 2386         imageRef: 8d91d31cebbea41e1b2f9d6a20d4ed025ef2649e
+ 2558         imageRef: c1db935e423402dac943ba68a8a4110f3c581ace
+ 3147         imageRef: aac6d44a259629d034d96666935a6f7af0d5e48c
+ 3163         imageRef: 77b985bc8f799ef44e50b966454768b167641d97
+ 3590         imageRef: 40a570c6ff322cb7ddee54858e714023814d6a5b
+ 3763         imageRef: c42a381f1b8b82eba84673e9bb421c35dafe942c

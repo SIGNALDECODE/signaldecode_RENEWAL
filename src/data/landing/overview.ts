@@ -2,13 +2,12 @@ import type { SectionCopy } from "@/types/landing";
 
 export const overviewCopy: SectionCopy = {
   eyebrow: "OVERVIEW",
-  title: "Essential visuals, flawless performance",
+  title: "광고 비주얼의 정점, 빈틈없는 광고 퍼포먼스",
   desc: [
-    "우리는 단순히 화려한 겉모습에 치중하기보다, 브랜드가 가진 본연의 가치를 가장 선명하게 드러낼 수 있는 최적의 솔루션을 고민합니다.",
-    "시장의 흐름을 읽는 날카로운 마케팅 기획력을 바탕으로, 한 줄의 코드에도 타협 없는 정교한 개발력을 더해",
-    "비즈니스의 성공을 뒷받침하는 완벽한 디지털 환경을 구축합니다.",
+    "단순히 시선을 끄는 심미적 아름다움을 넘어, 치밀한 시장 분석과 타겟 페르소나에 최적화된 비주얼 텔링으로",
+    "브랜드의 존재감을 각인시키고 데이터 기반의 정교한 퍼포먼스로",
+    "확신할 수 있는 비즈니스 성장을 증명합니다.",
   ],
 };
 
-export const overviewMorphImage = "/images/overview.png";
-export const overviewMiniImage = "/images/overview_mini.png";
+export const overviewMorphImage = "/images/overview_raw.png";

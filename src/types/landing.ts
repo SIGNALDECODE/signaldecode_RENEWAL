@@ -26,6 +26,20 @@ export type PhoneSliderData = {
   more: string;
 };
 
+export type IntegrationCard = {
+  eyebrow: string;
+  title: string;
+  desc: string;
+  img: string;
+  href?: string;
+};
+
+export type IntegrationData = {
+  copy: SectionCopy;
+  more: string;
+  cards: IntegrationCard[];
+};
+
 export type QuoteRow = {
   left: string;
   img: string;

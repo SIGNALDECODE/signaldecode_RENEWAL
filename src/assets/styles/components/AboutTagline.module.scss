@@ -1,0 +1,48 @@
+@use "tokens" as *;
+
+.section {
+  background: $color-white;
+  padding: $sp-30 $sp-20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-12;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-4;
+}
+
+.line {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-6;
+  margin: 0;
+  font-family: $ff-en;
+  font-style: italic;
+  font-weight: $fw-bold;
+  font-size: clamp(2.25rem, 6vw, 5.5rem);
+  line-height: 1.1;
+  color: $color-text-primary;
+  letter-spacing: -0.02em;
+}
+
+.bar {
+  display: inline-block;
+  width: clamp(40px, 6vw, 96px);
+  height: clamp(28px, 4vw, 56px);
+  background: $color-primary;
+  border-radius: $r-sm;
+}
+
+.desc {
+  margin: 0;
+  text-align: center;
+  font-size: $fs-md;
+  color: $color-text-secondary;
+  line-height: 1.6;
+  max-width: 720px;
+}

@@ -3,7 +3,9 @@
     "allow": [
       "Bash(curl -sL https://erichuguenin.com/ -A \"Mozilla/5.0\" -o /tmp/eric.html)",
       "Read(//tmp/**)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "mcp__figma__get_figma_data",
+      "mcp__figma__download_figma_images"
     ]
   }
 }
