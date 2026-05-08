@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Header from "@/components/ui/Header";
 import Footer from "@/components/ui/Footer";
+import MorphImage from "@/components/landing/MorphImage";
 import AboutHero from "@/components/about/AboutHero";
 import AboutTagline from "@/components/about/AboutTagline";
 import AboutBusinessIntro from "@/components/about/AboutBusinessIntro";
+import AboutDivider from "@/components/about/AboutDivider";
 import AboutValuePillars from "@/components/about/AboutValuePillars";
 import AboutFeatureSections from "@/components/about/AboutFeatureSections";
 import AboutKeywords from "@/components/about/AboutKeywords";
@@ -22,7 +24,13 @@ export default function AboutPage() {
       <main>
         <AboutHero />
         <AboutTagline />
+        <MorphImage
+          anchorSelector="[data-morph-anchor]"
+          endSelector="[data-morph-end]"
+          src="/images/about/aboutbg.png"
+        />
         <AboutBusinessIntro />
+        <AboutDivider />
         <AboutValuePillars />
         <AboutFeatureSections />
         <AboutKeywords />

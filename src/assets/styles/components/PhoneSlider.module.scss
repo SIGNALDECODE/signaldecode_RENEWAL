@@ -140,6 +140,11 @@
   box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.3);
 }
 
+.cardDev {
+  width: calc(33rem * 420 / 580);
+  margin-left: calc(-33rem * 420 / 580 / 2);
+}
+
 .card img {
   width: 100%;
   height: 100%;
@@ -202,6 +207,10 @@
     margin-top: -12rem;
     margin-left: -9rem;
   }
+  .cardDev {
+    width: calc(24rem * 420 / 580);
+    margin-left: calc(-24rem * 420 / 580 / 2);
+  }
 }
 
 @include mobile {
@@ -230,6 +239,10 @@
     height: 18rem;
     margin-top: -9rem;
     margin-left: -6rem;
+  }
+  .cardDev {
+    width: calc(18rem * 420 / 580);
+    margin-left: calc(-18rem * 420 / 580 / 2);
   }
   .arrow {
     width: 2.25rem;

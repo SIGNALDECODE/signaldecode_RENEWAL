@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "@/assets/styles/components/PhoneSlider.module.scss";
 import { phoneSlider } from "@/data/landing/phoneSlider";
 import type { PhoneSliderModeKey } from "@/types/landing";
@@ -49,6 +50,7 @@ function cardStyle(d: number, smooth: boolean): React.CSSProperties {
 }
 
 export default function PhoneSlider() {
+  const router = useRouter();
   const { copy, toggle, slides, more } = phoneSlider;
   const [index, setIndex] = useState(2);
   const [mode, setMode] = useState<PhoneSliderModeKey>("dev");
@@ -57,7 +59,8 @@ export default function PhoneSlider() {
   const startX = useRef(0);
   const accumShift = useRef(0);
   const moved = useRef(false);
-  const len = slides.length;
+  const activeSlides = slides[mode];
+  const len = activeSlides.length;
 
   const prev = () => setIndex((i) => (i - 1 + len) % len);
   const next = () => setIndex((i) => (i + 1) % len);
@@ -154,7 +157,7 @@ export default function PhoneSlider() {
           onPointerUp={endDrag}
           onPointerCancel={endDrag}
         >
-          {slides.flatMap((src, i) => {
+          {activeSlides.flatMap((slide, i) => {
             const frac = dragX / DRAG_STEP;
             const d = offsetOf(i);
             const dBack = d > 0 ? d - len : d < 0 ? d + len : null;
@@ -164,14 +167,21 @@ export default function PhoneSlider() {
               positions.push({ d: dBack, key: `b-${i}` });
             return positions.map(({ d, key }) => {
               const dCont = d + frac;
+              const isActive = i === index;
               return (
                 <div
                   key={key}
-                  className={styles.card}
+                  className={`${styles.card} ${
+                    mode === "dev" ? styles.cardDev : ""
+                  }`}
                   style={cardStyle(dCont, !dragging)}
-                  onClick={() => !moved.current && setIndex(i)}
+                  onClick={() => {
+                    if (moved.current) return;
+                    if (isActive && slide.href) router.push(slide.href);
+                    else setIndex(i);
+                  }}
                 >
-                  <img src={src} alt="" draggable={false} />
+                  <img src={slide.src} alt="" draggable={false} />
                 </div>
               );
             });

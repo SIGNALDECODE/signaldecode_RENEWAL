@@ -1,109 +1,190 @@
 @use "tokens" as *;
 
+// Pixel-perfect mapping from Figma 1920 page coordinates.
+// Frame 396:3753: x=230, y=1806, width=1460, column gap=60.
+// Card group: 1460×540, three 540×540 circles at x=0, x=460, x=920 (80px overlap).
+//
+// Layout pattern mirrors landing/ValueCards: the <section> is just scroll
+// runway (height set in JS); a fixed `.track` is what the user actually sees.
+// The track is hidden until the section becomes "pinned" (top<=0 && bottom>0),
+// which coincides with the morph image reaching p=1 and becoming the bg.
+
 .section {
-  background: $color-primary;
-  color: $color-white;
-  padding: $sp-30 $sp-20;
+  position: relative;
+  width: 100%;
+  background: transparent;
+  margin-bottom: 7vh;
+  // Height is set imperatively in the component (typically ~200vh) so the
+  // pinned track stays on screen for a meaningful scroll distance.
+}
+
+.track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: var(--z-content);
+  will-change: opacity;
+}
+
+.section.pinned .track {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.content {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $sp-20;
+  gap: 3.125vw;                     // 60 / 1920
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.content.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Header — column, gap 24, width 742 (centered by parent)
 .header {
-  text-align: center;
+  width: 38.6458%;                  // 742 / 1920
   display: flex;
   flex-direction: column;
-  gap: $sp-4;
-  max-width: 960px;
+  gap: 1.25vw;                      // 24 / 1920
+  align-items: stretch;
+  text-align: center;
 }
 
+// Inter Medium 20 / 28 / UPPER / #FFF
 .eyebrow {
   margin: 0;
   font-family: $ff-en;
-  font-size: $fs-sm;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  font-size: 1.0417vw;              // 20 / 1920
+  line-height: 1.4;
   text-transform: uppercase;
-}
-
-.title {
-  margin: 0;
-  font-size: clamp(1.75rem, 3.5vw, 3rem);
-  font-weight: $fw-bold;
-  letter-spacing: -0.01em;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $sp-10;
-  width: 100%;
-  max-width: 1320px;
-
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-  }
-}
-
-.item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.disc {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: $r-full;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.18),
-    rgba(255, 255, 255, 0.04) 55%,
-    rgba(255, 255, 255, 0) 75%
-  );
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: $sp-12;
-  text-align: center;
-  gap: $sp-6;
-  box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.04);
-}
-
-.discInner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: $sp-2;
-}
-
-.cardTitle {
-  margin: 0;
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
-  font-weight: $fw-bold;
   color: $color-white;
 }
 
-.num {
-  font-family: $ff-en;
-  font-size: $fs-xs;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.55);
+// Pretendard Bold 46 / 56 / -2.5% / UPPER / #FFF
+.title {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 700;
+  font-size: 2.3958vw;              // 46 / 1920
+  line-height: 1.2174;
+  letter-spacing: -0.025em;
+  color: $color-white;
 }
 
+// Card group — 1460×540 fixed canvas
+.group {
+  position: relative;
+  width: 76.0417%;                  // 1460 / 1920
+  aspect-ratio: 1460 / 540;
+}
+
+// Each card — 540×540 circle absolutely positioned
+.card {
+  position: absolute;
+  top: 0;
+  width: 36.9863%;                  // 540 / 1460
+  aspect-ratio: 1 / 1;
+  background: #161616;
+  border-radius: 50%;
+
+  &[data-index="0"] { left: 0%; }
+  &[data-index="1"] { left: 31.5068%; }    // 460 / 1460
+  &[data-index="2"] { left: 63.0137%; }    // 920 / 1460
+}
+
+// Content frame — column, gap 40, positioned at (110, 205) within card, width 320
+.content_inner {
+  position: absolute;
+  left: 20.3704%;                   // 110 / 540
+  top: 37.963%;                     // 205 / 540
+  width: 59.2593%;                  // 320 / 540
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.0833vw;                    // 40 / 1920
+}
+
+// Title row — number is positioned absolute as superscript next to word
+.titleRow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2083vw;                    // 4 / 1920
+}
+
+// Inter Bold 38 / 34 / -2.5% / center / #FFF
+.word {
+  font-family: $ff-en;
+  font-weight: 700;
+  font-size: 1.9792vw;              // 38 / 1920
+  line-height: 0.8947;              // 34 / 38
+  letter-spacing: -0.025em;
+  color: $color-white;
+  white-space: nowrap;
+}
+
+// Number — Pretendard Regular 18 / 26 / -2.5% / #87C0F3
+.num {
+  position: absolute;
+  top: -0.6771vw;                   // -13 / 1920
+  left: 100%;
+  margin-left: 0.2083vw;            // 4 / 1920
+  font-family: $ff-sans;
+  font-weight: 400;
+  font-size: 0.9375vw;              // 18 / 1920
+  line-height: 1.4444;
+  letter-spacing: -0.025em;
+  color: #87c0f3;
+  white-space: nowrap;
+}
+
+// Pretendard Regular 18 / 28 / -2.5% / center / rgba(255,255,255,0.7)
 .desc {
   margin: 0;
-  font-size: $fs-sm;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.75);
+  font-family: $ff-sans;
+  font-weight: 400;
+  font-size: 0.9375vw;              // 18 / 1920
+  line-height: 1.5556;
+  letter-spacing: -0.025em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
   white-space: pre-line;
-  max-width: 320px;
+}
+
+@media (max-width: 1024px) {
+  .group {
+    width: 92%;
+    aspect-ratio: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .card {
+    position: relative;
+    width: min(420px, 90%);
+    left: 0 !important;
+  }
+  .eyebrow { font-size: clamp(13px, 1.0417vw, 20px); }
+  .title { font-size: clamp(24px, 2.3958vw, 46px); }
+  .word { font-size: clamp(22px, 1.9792vw, 38px); }
+  .num { font-size: clamp(11px, 0.9375vw, 18px); }
+  .desc { font-size: clamp(13px, 0.9375vw, 18px); }
 }

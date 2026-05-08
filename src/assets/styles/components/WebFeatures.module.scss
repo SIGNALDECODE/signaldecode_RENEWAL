@@ -1,0 +1,177 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Figma 1920 page coords. Inner content x=100..1820 (w=1720).
+// Header y=860.5; bento grid y=1086.5..~1972 (h=886).
+// Bento columns: 480 / 712 / 480 (gap 24)
+// Bento rows:    302 / 302 / 280 (using 24 gap absorbed)
+.section {
+  width: 100%;
+  padding: 8.75rem 0 7.5rem;       // 140 top (Figma: gap 140.5 from hero)
+  background: $color-white;
+}
+
+// Frame 239:515: gap 8 column. Eyebrow (Inter Medium 18 TitleCase #021526)
+// then title (48/58 SemiBold #000 center).
+.header {
+  width: min($container-xl, calc(100vw - 5rem));
+  margin: 0 auto 9rem;             // ~144px before bento (Figma 226 - inner pad)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-2;                      // 8
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  font-family: $ff-en;
+  font-weight: $fw-medium;
+  font-size: $fs-md;
+  color: $color-primary;
+  text-transform: capitalize;
+  letter-spacing: -0.025em;
+}
+
+// title 2: 48 / 58 SemiBold center #000
+.title {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: $fw-semibold;
+  font-size: 3rem;                 // 48
+  line-height: 1.2083;             // 58/48
+  letter-spacing: -0.025em;
+  color: $color-black;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.grid {
+  width: min($container-xl, calc(100vw - 5rem));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 480fr 712fr 480fr;
+  grid-template-rows: 302fr 302fr 280fr;
+  grid-template-areas:
+    "imgL  cardTop  cardTop"
+    "imgL  imgMid   imgRight"
+    "cardBot cardBot imgRight";
+  gap: 24px;
+  // Maintain proportion: total 1672 wide / 886 tall
+  aspect-ratio: 1672 / 886;
+}
+
+.cell {
+  border-radius: $r-lg;
+  overflow: hidden;
+  background: #f9fafb;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.imgLeft   { grid-area: imgL; }
+.imgMid    { grid-area: imgMid; }
+.imgRight  { grid-area: imgRight; }
+.cardTop   { grid-area: cardTop; }
+.cardBottom{ grid-area: cardBot; }
+
+.cardTop, .cardBottom {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+  padding: 56px;
+  background: #f9fafb;
+}
+
+.cardIcon {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+  min-width: 0;
+}
+
+// title 3: 24 / 34 SemiBold #021526
+.cardTitle {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: $fw-semibold;
+  font-size: $fs-2xl;             // 24
+  line-height: 1.4167;            // 34/24
+  letter-spacing: -0.025em;
+  color: $color-primary;
+}
+
+// body 6: 14 / 24 Regular #767676 — Figma fixes desc width to 820
+.cardDesc {
+  margin: 0;
+  max-width: 51.25rem;            // 820
+  font-family: $ff-sans;
+  font-weight: $fw-regular;
+  font-size: $fs-xs;              // 14
+  line-height: 1.7143;            // 24/14
+  letter-spacing: -0.025em;
+  color: $color-text-secondary;   // #767676
+  white-space: pre-line;
+}
+
+@include tablet {
+  .section { padding: 4rem 0 5rem; }
+  .title { font-size: 2.25rem; }
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "imgL    imgL"
+      "cardTop cardTop"
+      "imgMid  imgRight"
+      "cardBot cardBot";
+    aspect-ratio: auto;
+    gap: 16px;
+  }
+  .imgLeft { aspect-ratio: 16/9; }
+  .imgMid, .imgRight { aspect-ratio: 1/1; }
+  .cardTop, .cardBottom { padding: 32px; gap: 32px; }
+  .cardIcon { flex-basis: 80px; width: 80px; height: 100px; }
+}
+
+@include mobile {
+  .section { padding: 3rem 0 4rem; }
+  .header { width: calc(100vw - 2rem); }
+  .grid {
+    width: calc(100vw - 2rem);
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "imgL"
+      "cardTop"
+      "imgMid"
+      "imgRight"
+      "cardBot";
+  }
+  .title { font-size: 1.625rem; }
+  .cardTop, .cardBottom { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
+  .cardIcon { width: 60px; height: 80px; }
+  .cardTitle { font-size: $fs-xl; }
+  .cardDesc { font-size: $fs-xs; }
+  .imgLeft, .imgMid, .imgRight { aspect-ratio: 16/10; }
+}

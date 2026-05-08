@@ -115,7 +115,17 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
       const h = Math.round(rect.height + (vh - rect.height) * p);
       const tx = Math.round(cx + (vw / 2 - cx) * p - w / 2);
       const ty = Math.round(cy + (vh / 2 - cy) * p - h / 2);
-      const initialRadius = rect.width / 2;
+      // If the anchor has its own non-zero border-radius (e.g. a small 8px
+      // rounded rect), respect that as the morph's starting radius. Otherwise
+      // fall back to a circular start (rect.width / 2) — matches the original
+      // landing-page behavior for square-ish anchors.
+      const cssRadius = parseFloat(
+        window.getComputedStyle(anchor).borderTopLeftRadius,
+      );
+      const initialRadius =
+        Number.isFinite(cssRadius) && cssRadius > 0
+          ? cssRadius
+          : rect.width / 2;
       const radius = initialRadius * (1 - p);
 
       el.style.width = `${w}px`;

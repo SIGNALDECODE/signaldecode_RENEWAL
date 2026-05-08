@@ -1,0 +1,195 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Figma 1920 page coords. Container x=-285 (overflows page) w=2490.
+// Cards: 6 cards × 390×460, gap 30. Total: 6×390 + 5×30 = 2490.
+// Section eyebrow + title + desc, then horizontal carousel, then slide buttons.
+.section {
+  width: 100%;
+  padding: 8.75rem 0 7.5rem;
+  background: $color-white;
+  overflow: hidden;
+}
+
+// Header: eyebrow (Inter Medium 18 #021526), title (48/58 SemiBold center #000),
+// desc (body 4 18/28 Regular). Figma gap 8 between eyebrow & title.
+.header {
+  width: min($container-xl, calc(100vw - 5rem));
+  margin: 0 auto $sp-15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 $sp-2;
+  font-family: $ff-en;
+  font-weight: $fw-medium;
+  font-size: $fs-md;               // 18
+  color: $color-primary;
+  text-transform: capitalize;
+  letter-spacing: -0.025em;
+}
+
+// title 2: 48 / 58 SemiBold #000
+.title {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: $fw-semibold;
+  font-size: 3rem;
+  line-height: 1.2083;
+  letter-spacing: -0.025em;
+  color: $color-black;
+}
+
+// body 4: 18 / 28 Regular
+.desc {
+  margin: $sp-3 0 0;
+  font-family: $ff-sans;
+  font-weight: $fw-regular;
+  font-size: $fs-md;
+  line-height: 1.5556;
+  letter-spacing: -0.025em;
+  color: $color-text-secondary;
+}
+
+// Horizontal scroll container — overflows page edges (Figma x=-285).
+.scroller {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+}
+
+.list {
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // Sentinel spacers — flex children that hold the leading/trailing breathing
+  // room. Using padding-inline here drops the trailing space from scrollWidth
+  // in some browsers, but real flex children always count.
+  &::before,
+  &::after {
+    content: "";
+    flex: 0 0 clamp(2rem, 10vw, 10rem);
+  }
+}
+
+// Card — 390 wide, aspect 420:580 to match source JPG so the whole design
+// renders without cropping. Hover reveals dark overlay with "View More" cue.
+.card {
+  position: relative;
+  flex: 0 0 390px;
+  aspect-ratio: 420 / 580;
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: pointer;
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.04);
+}
+
+// Hover overlay — dark wash + "View More" indicator
+.hover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover .hover {
+  opacity: 1;
+}
+
+.hoverInner {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+  color: $color-white;
+  font-family: $ff-sans;
+  font-weight: $fw-medium;
+  font-size: $fs-sm;
+  letter-spacing: -0.025em;
+}
+
+// Slide buttons — 60×60 round, white + dark variants, 1px #E5E5EC border
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: $sp-4;
+  margin-top: $sp-15;
+}
+
+.navBtn {
+  width: 60px;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid #e5e5ec;
+  background: $color-white;
+  color: $color-primary;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  &:hover:not(:disabled) { transform: translateY(-2px); }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+  }
+}
+
+.navBtnDark {
+  background: #222;
+  color: $color-white;
+  border-color: #222;
+}
+
+@include tablet {
+  .section { padding: 5rem 0 5rem; }
+  .title { font-size: 2.25rem; }
+  .desc { font-size: $fs-sm; }
+  .list::before, .list::after { flex-basis: 1.5rem; }
+  .card { flex-basis: 320px; }
+  .brandName { font-size: $fs-xl; }
+}
+
+@include mobile {
+  .section { padding: 3rem 0 4rem; }
+  .header { width: calc(100vw - 2rem); }
+  .title { font-size: 1.625rem; }
+  .desc { font-size: $fs-xs; }
+  .list { gap: 16px; }
+  .list::before, .list::after { flex-basis: 1rem; }
+  .card { flex-basis: 260px; }
+  .cardInner { padding: $sp-5; }
+  .brandName { font-size: $fs-lg; }
+  .cardHighlight { transform: none; }
+  .controls { margin-top: $sp-8; }
+  .navBtn { width: 48px; height: 48px; }
+}

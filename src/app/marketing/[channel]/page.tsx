@@ -4,6 +4,7 @@ import Footer from "@/components/ui/Footer";
 import MarketingHero from "@/components/marketing/MarketingHero";
 import ServiceCards from "@/components/marketing/ServiceCards";
 import ChannelMenu from "@/components/marketing/ChannelMenu";
+import ChannelCTA from "@/components/marketing/ChannelCTA";
 import { CHANNELS } from "@/data/channels";
 import { getChannel } from "@/lib/data";
 
@@ -29,9 +30,16 @@ export default async function MarketingChannelPage({
         <ServiceCards
           kicker={data.kicker}
           title={data.title}
-          brand={data.brand}
+          cardImage={data.cardImage}
+          cardGradient={data.cardGradient}
           cards={data.cards}
-          tint={data.tint}
+        />
+        <ChannelCTA
+          kicker="마케팅 서비스"
+          brand={data.brand}
+          title={data.ctaTitle}
+          desc={data.ctaDesc}
+          link={data.ctaLink}
         />
       </main>
       <Footer />

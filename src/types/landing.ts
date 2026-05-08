@@ -19,10 +19,15 @@ export type ValueCard = {
 
 export type PhoneSliderModeKey = "marketing" | "dev";
 
+export type PhoneSliderSlide = {
+  src: string;
+  href?: string;
+};
+
 export type PhoneSliderData = {
   copy: SectionCopy;
   toggle: { marketing: string; dev: string };
-  slides: string[];
+  slides: Record<PhoneSliderModeKey, PhoneSliderSlide[]>;
   more: string;
 };
 

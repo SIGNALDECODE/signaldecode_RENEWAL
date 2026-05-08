@@ -8,6 +8,7 @@ import type {
   AboutKeywords,
   AboutMegaphone,
   AboutMarquee,
+  AboutDivider,
 } from "@/types/about";
 
 export const aboutHero: AboutHero = {
@@ -22,7 +23,7 @@ export const aboutHero: AboutHero = {
 export const aboutTagline: AboutTagline = {
   lines: [
     { left: "Unlocking", right: "the Value", bar: "/images/about/tagline-bar-1.png" },
-    { left: "Within", right: "Every Signal", bar: "/images/about/tagline-bar-2.png" },
+    { left: "Within", right: "Every Signal", bar: "/images/about/aboutbg.png" },
   ],
   desc: "모든 비즈니스 신호 속에 숨겨진 가치를 발견하여, 지속 가능한 성장의 기회로 깨우다.",
 };
@@ -125,4 +126,9 @@ export const aboutMegaphone: AboutMegaphone = {
 
 export const aboutMarquee: AboutMarquee = {
   text: "SIGNAL DECODE",
+};
+
+export const aboutDivider: AboutDivider = {
+  marqueeText: "SIGNAL DECODE SIGNAL DECODE",
+  bg: "/images/about/aboutbg.png",
 };

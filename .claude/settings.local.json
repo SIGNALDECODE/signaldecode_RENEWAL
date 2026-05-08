@@ -5,7 +5,13 @@
       "Read(//tmp/**)",
       "Bash(npm install *)",
       "mcp__figma__get_figma_data",
-      "mcp__figma__download_figma_images"
+      "mcp__figma__download_figma_images",
+      "Bash(npx next *)",
+      "Bash(grep -oE \"text: [^\\\\\\\\\\\\\\\\]{1,120}\" \"C:\\\\Users\\\\youhyun\\\\.claude\\\\projects\\\\c--Users-youhyun-Desktop-signaldecode-RENEWAL\\\\c1776732-e51d-4cda-8fe3-8835b8e93380\\\\tool-results\\\\mcp-figma-get_figma_data-1778219588352.txt\" > /tmp/texts.txt; wc -l /tmp/texts.txt)",
+      "Bash(python lookup.py layout_V8NWDZ layout_X70YDH style_ENT7LP fill_PPYU9O layout_O6B4X5 layout_S0YG2F layout_U156ZH style_ZL320M style_89Z3QF layout_Y3BBI3 layout_UR5AMY style_5H73TN layout_4HUVJC fill_KZYEMC fill_31AFTK fill_GMTVNU fill_BWVR40 fill_DTO1ZE style_QB9IPO layout_L8JBUE)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
     ]
   }
 }

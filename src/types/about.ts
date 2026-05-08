@@ -66,3 +66,8 @@ export type AboutMegaphone = {
 export type AboutMarquee = {
   text: string;
 };
+
+export type AboutDivider = {
+  marqueeText: string;
+  bg: string;
+};

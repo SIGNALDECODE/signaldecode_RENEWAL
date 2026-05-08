@@ -10,12 +10,21 @@ export const phoneSlider: PhoneSliderData = {
     marketing: "마케팅",
     dev: "웹·개발",
   },
-  slides: [
-    "/images/slider1.png",
-    "/images/slider2.jpg",
-    "/images/slider3.png",
-    "/images/slider4.jpg",
-    "/images/slider5.png",
-  ],
+  slides: {
+    marketing: [
+      { src: "/images/slider1.png" },
+      { src: "/images/slider2.jpg" },
+      { src: "/images/slider3.png" },
+      { src: "/images/slider4.jpg" },
+      { src: "/images/slider5.png" },
+    ],
+    dev: [
+      { src: "/images/portfolio/대성학원.jpg", href: "/web/daeseong-kiosk" },
+      { src: "/images/portfolio/이음푸드.jpg", href: "/web/eumfood" },
+      { src: "/images/portfolio/정성SR.jpg", href: "/web/jeongseong-sr" },
+      { src: "/images/portfolio/제로랩스.jpg", href: "/web/zerolabs" },
+      { src: "/images/portfolio/청춘만사성.jpg", href: "/web/cheongchun" },
+    ],
+  },
   more: "더 보러가기",
 };

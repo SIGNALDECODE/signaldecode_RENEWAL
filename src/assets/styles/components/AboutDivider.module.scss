@@ -1,0 +1,68 @@
+@use "tokens" as *;
+
+// Pixel-perfect mapping from Figma 1920 page coordinates.
+// Section spans y=2594→3294 (700px tall). Composes:
+//   - Vertical connector line: x=960 (center), y=2594, 1.5×220, gradient stroke
+//   - SIGNAL DECODE marquee text: x=-747, y=2894, 3770×220, Inter Bold 220px,
+//     rgba(255,255,255,0.2), letter-spacing 2%, single line extending past viewport
+// Background uses the same aboutbg image that has been the dark continuation
+// since the Business Description section.
+
+.section {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 700;
+  background: $color-black;
+  overflow: hidden;
+}
+
+.bg {
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+// Vector 1760 — vertical line at center x=960, y=0 of section, 1.5×220
+// Stroke: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 100%)
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;                            // 0 / 700
+  width: 0.0781vw;                   // 1.5 / 1920
+  min-width: 1px;
+  height: 31.4286%;                  // 220 / 700
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  z-index: 1;
+}
+
+// SIGNAL DECODE marquee — Inter Bold 220 / 220 / +2% / rgba(255,255,255,0.2) / center
+// Position: x=-747, y=2894 (relative to page) = y=300 within this 700-tall section
+.marquee {
+  position: absolute;
+  left: -38.9063%;                  // -747 / 1920
+  top: 42.8571%;                    // (2894 - 2594) / 700 = 300 / 700
+  width: 196.3542%;                 // 3770 / 1920
+  margin: 0;
+  font-family: $ff-en;
+  font-weight: 700;
+  font-size: 11.4583vw;             // 220 / 1920
+  line-height: 1;                   // 220 / 220
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+@media (max-width: 1024px) {
+  .marquee { font-size: clamp(60px, 11.4583vw, 220px); }
+}

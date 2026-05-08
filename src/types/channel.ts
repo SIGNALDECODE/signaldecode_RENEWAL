@@ -1,13 +1,8 @@
-export type CardVariant = "phone" | "search" | "map";
-
 export type Card = {
-  tag: string;
-  title: string;
+  label: string;
+  pillLabel: string;
+  subtitle: string;
   desc: string;
-  variant?: CardVariant;
-  searchTerm?: string;
-  brand?: string;
-  tint?: string;
 };
 
 export type ChannelKey =
@@ -26,6 +21,10 @@ export type Channel = {
   brand: string;
   kicker: string;
   title: string;
-  tint?: string;
+  cardImage?: string;
+  cardGradient?: string;
   cards: Card[];
+  ctaTitle: string;
+  ctaDesc: string;
+  ctaLink: { href: string; label: string };
 };
