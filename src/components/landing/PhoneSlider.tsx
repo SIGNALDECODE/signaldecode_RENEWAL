@@ -197,7 +197,7 @@ export default function PhoneSlider() {
         </button>
       </div>
 
-      <button className={styles.more}>{more}</button>
+      {/* <button className={styles.more}>{more}</button> */}
     </section>
   );
 }

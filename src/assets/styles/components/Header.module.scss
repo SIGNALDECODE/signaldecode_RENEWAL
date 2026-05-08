@@ -11,21 +11,22 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--sp-5) var(--sp-10);
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(0.3rem);
-  border-radius: var(--r-md);
+  background: transparent;
   z-index: var(--z-header);
+  color: var(--color-white);
   transition: top 0.3s ease, width 0.3s ease, max-width 0.3s ease,
-    background 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+    background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease,
+    padding 0.3s ease;
 }
 
 .header.scrolled {
   top: 0;
   width: 100%;
   max-width: 100%;
-  border-radius: 0;
-  background: rgba(255, 255, 255, 0.85);
   padding: var(--sp-5) var(--sp-10);
+  background: var(--color-white);
+  color: #1d212c;
+  box-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.06);
 }
 
 .left {
@@ -41,42 +42,48 @@
 }
 
 .logoIcon {
-  width: 1.75rem;
   height: 1.75rem;
+  width: auto;
   object-fit: contain;
+  display: block;
+  transition: filter 0.3s ease;
 }
 
-.brand {
-  font-size: var(--fs-3xl);
-  font-weight: var(--fw-bold);
-  color: #1d212c;
-  letter-spacing: -0.5px;
+.scrolled .logoIcon {
+  filter: brightness(0);
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--sp-15);
+  gap: 3.75rem;
   margin-left: var(--sp-6);
 }
 
 .nav a {
-  font-size: var(--fs-sm);
+  font-size: 1.125rem;
   font-weight: var(--fw-medium);
-  color: #1d212c;
-  letter-spacing: -0.45px;
+  color: inherit;
+  letter-spacing: -0.025em;
   white-space: nowrap;
+  transition: color 0.3s ease;
 }
 
 .cta {
   width: 6.5rem;
   padding: var(--sp-3);
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-black);
   border-radius: var(--r-sm);
   font-size: var(--fs-xs);
   font-weight: var(--fw-medium);
-  letter-spacing: -0.35px;
+  letter-spacing: -0.025em;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.scrolled .cta {
+  background: var(--color-black);
+  color: var(--color-white);
 }
 
 .right {
@@ -100,9 +107,10 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background: #1d212c;
+    background: currentColor;
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.2s ease, top 0.3s ease,
+      background 0.3s ease;
   }
   span:nth-child(1) {
     top: 0.25rem;
@@ -179,8 +187,8 @@
     gap: var(--sp-8);
     margin-left: var(--sp-4);
   }
-  .brand {
-    font-size: var(--fs-2xl);
+  .logoIcon {
+    height: 1.5rem;
   }
 }
 
@@ -200,11 +208,7 @@
     gap: var(--sp-3);
   }
   .logoIcon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-  .brand {
-    font-size: var(--fs-xl);
+    height: 1.25rem;
   }
   .cta {
     display: none;

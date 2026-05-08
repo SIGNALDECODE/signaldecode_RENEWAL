@@ -41,11 +41,31 @@ export const webPortfolio: WebPortfolio = {
   title: "시그널디코드의 엄선된 프로젝트",
   desc: "웹사이트, UI/UX, 모바일 등 세심한 디테일로 브랜드의 자부심을 극대화하여 완성된 시그널디코드의 대표 프로젝트",
   items: [
-    { brand: "정성 SR", image: "/images/portfolio/정성SR.jpg" },
-    { brand: "대성학원", image: "/images/portfolio/대성학원.jpg" },
-    { brand: "청춘만사성", image: "/images/portfolio/청춘만사성.jpg" },
-    { brand: "이음푸드", image: "/images/portfolio/이음푸드.jpg" },
-    { brand: "제로랩스", image: "/images/portfolio/제로랩스.jpg" },
+    {
+      brand: "정성 SR",
+      image: "/images/portfolio/정성SR.jpg",
+      href: "/web/jeongseong-sr",
+    },
+    {
+      brand: "대성학원",
+      image: "/images/portfolio/대성학원.jpg",
+      href: "/web/daeseong-kiosk",
+    },
+    {
+      brand: "청춘만사성",
+      image: "/images/portfolio/청춘만사성.jpg",
+      href: "/web/cheongchun",
+    },
+    {
+      brand: "이음푸드",
+      image: "/images/portfolio/이음푸드.jpg",
+      href: "/web/eumfood",
+    },
+    {
+      brand: "제로랩스",
+      image: "/images/portfolio/제로랩스.jpg",
+      href: "/web/zerolabs",
+    },
   ],
 };
 

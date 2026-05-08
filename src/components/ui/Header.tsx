@@ -31,9 +31,8 @@ export default function Header() {
     <>
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <div className={styles.left}>
-          <Link href="/" className={styles.logo}>
+          <Link href="/" className={styles.logo} aria-label={header.brand}>
             <img src={header.logo.src} alt={header.logo.alt} className={styles.logoIcon} />
-            <span className={styles.brand}>{header.brand}</span>
           </Link>
           <nav className={styles.nav}>
             {header.nav.map((item) => (

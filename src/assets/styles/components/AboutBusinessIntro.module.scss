@@ -1,56 +1,54 @@
 @use "tokens" as *;
 
 // Pixel-perfect mapping from Figma 1920 page coordinates.
-// Frame 396:3753: x=230, y=1806, width=1460, column gap=60.
-// Card group: 1460×540, three 540×540 circles at x=0, x=460, x=920 (80px overlap).
+// One continuous dark zone (Figma's Rectangle 33634, y=1626→3114) holding:
+//   - 3 dark circular cards   (Figma: y=1806–2346)
+//   - vertical connector line (Figma: y=2594–2814)
+//   - SIGNAL DECODE marquee   (Figma: y=2894–3114)
 //
-// Layout pattern mirrors landing/ValueCards: the <section> is just scroll
-// runway (height set in JS); a fixed `.track` is what the user actually sees.
-// The track is hidden until the section becomes "pinned" (top<=0 && bottom>0),
-// which coincides with the morph image reaching p=1 and becoming the bg.
+// Sequential natural scroll: cards appear as the section enters the viewport
+// (morph image is at p=1 by then), then user scrolls and the connector line
+// + giant SIGNAL DECODE text scroll into view in the same dark zone.
 
 .section {
   position: relative;
   width: 100%;
   background: transparent;
   margin-bottom: 7vh;
-  // Height is set imperatively in the component (typically ~200vh) so the
-  // pinned track stays on screen for a meaningful scroll distance.
 }
 
-.track {
-  position: fixed;
-  top: 0;
+// Visible dark background — kicks in after a 1-viewport buffer at the top so
+// it doesn't peek out around the morph image while it's still growing.
+.bg {
+  position: absolute;
+  top: 100vh;
   left: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  visibility: hidden;
-  pointer-events: none;
+  right: 0;
+  bottom: 0;
+  background: $color-black url("/images/about/aboutbg.png") center / cover no-repeat;
+  z-index: 0;
+}
+
+// Content stack — header + cards + post (line + marquee), all in flow.
+// Hidden until the section crosses the viewport-top threshold (`.show`
+// class is toggled by the component when sectionRect.top <= 0). Mirrors
+// landing/Overview→ValueCards entrance transition.
+.inner {
+  position: relative;
   z-index: var(--z-content);
-  will-change: opacity;
-}
-
-.section.pinned .track {
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.content {
-  width: 100%;
+  padding: 12vh 0 6vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.125vw;                     // 60 / 1920
+  gap: 6.25vw;                      // 120 / 1920
   opacity: 0;
-  transform: translateY(2rem);
-  transition: opacity 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
-              transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateY(2.5rem);
+  transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+              transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: opacity, transform;
 }
 
-.content.show {
+.inner.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -167,6 +165,71 @@
   white-space: pre-line;
 }
 
+// Post block — vertical connector line + giant SIGNAL DECODE marquee text.
+// Mirrors Figma 1920×700 (y=2594–3294) area beneath the cards.
+.post {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 700;
+}
+
+// Vertical line — Figma: x=960 (center), y=0 of post, 1.5×220
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.0781vw;                  // 1.5 / 1920
+  min-width: 1px;
+  height: 31.4286%;                 // 220 / 700
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
+
+// SIGNAL DECODE SIGNAL DECODE — Inter Bold 220/220, +2%, rgba(255,255,255,0.2)
+// Figma intent: y=2894 within the dark zone, height 220, full-bleed horizontally.
+// Implementation: infinite horizontal marquee — track contains the text twice
+// and translates by -50% so it loops seamlessly.
+.marquee {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 42.8571%;                    // 300 / 700
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  animation: about-business-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.marqueeText {
+  flex-shrink: 0;
+  padding-right: 2.0833vw;          // 40 / 1920 — gap between repeats
+  font-family: $ff-en;
+  font-weight: 700;
+  font-size: 11.4583vw;             // 220 / 1920
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@keyframes about-business-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
 @media (max-width: 1024px) {
   .group {
     width: 92%;
@@ -187,4 +250,5 @@
   .word { font-size: clamp(22px, 1.9792vw, 38px); }
   .num { font-size: clamp(11px, 0.9375vw, 18px); }
   .desc { font-size: clamp(13px, 0.9375vw, 18px); }
+  .marqueeText { font-size: clamp(60px, 11.4583vw, 220px); }
 }

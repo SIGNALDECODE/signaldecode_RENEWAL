@@ -70,6 +70,23 @@
   border-radius: $r-xl;
   overflow: hidden;
   background: $color-white;
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.08);
+
+    .logo {
+      transform: scale(1.06);
+    }
+
+    .cardTitle {
+      color: $color-primary;
+    }
+  }
 }
 
 .thumb {
@@ -79,12 +96,14 @@
   height: 15rem;
   background: $color-white;
   padding: $sp-6;
+  overflow: hidden;
 }
 
 .logo {
   max-width: 70%;
   max-height: 60%;
   object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .logoFallback {
@@ -109,6 +128,7 @@
   line-height: 1.4;
   letter-spacing: -0.025em;
   color: $color-text-primary;
+  transition: color 0.3s ease;
 }
 
 .cardDesc {

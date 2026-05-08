@@ -22,6 +22,7 @@ export type WebFeatures = {
 export type WebPortfolioItem = {
   brand: string;
   image: string;
+  href: string;
 };
 
 export type WebPortfolio = {

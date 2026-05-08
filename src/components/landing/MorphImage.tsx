@@ -17,7 +17,6 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
     if (!el) return;
 
     let lastP = 0;
-    let wasSettled = false;
     let isAnimating = false;
     let rafId: number | null = null;
 
@@ -69,16 +68,15 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
       if (rect.top > vh) {
         el.style.opacity = "0";
         lastP = 0;
-        wasSettled = false;
         return;
       }
       const eRect = end ? end.getBoundingClientRect() : null;
       if (eRect && eRect.bottom < 0) {
         el.style.opacity = "0";
         lastP = 1;
-        wasSettled = true;
         return;
       }
+
       const exitFadeRange = vh * 0.25;
       const exitOpacity =
         eRect && eRect.bottom < exitFadeRange
@@ -97,19 +95,14 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
         Math.min(1, (window.scrollY - startY) / (endY - startY)),
       );
 
-      if (!isAnimating) {
+      if (!isAnimating && lastP <= 0 && p > 0 && !isSettled) {
         const absAnchorCenter = window.scrollY + cy;
-        if (lastP <= 0 && p > 0 && !isSettled) {
-          const targetY = eRect
-            ? window.scrollY + eRect.top
-            : absAnchorCenter + vh * 0.25;
-          triggerAutoScroll(targetY);
-        } else if (wasSettled && !isSettled) {
-          triggerAutoScroll(absAnchorCenter - vh * 0.45);
-        }
+        const targetY = eRect
+          ? window.scrollY + eRect.top
+          : absAnchorCenter + vh * 0.25;
+        triggerAutoScroll(targetY);
       }
       lastP = p;
-      wasSettled = isSettled;
 
       const w = Math.round(rect.width + (vw - rect.width) * p);
       const h = Math.round(rect.height + (vh - rect.height) * p);

@@ -179,14 +179,9 @@ export default function BrandWave({ text }: { text: string }) {
       const widths = m.ws;
       const totalW = m.total;
       const startX = w / 2 - totalW / 2;
-      const endX = w / 2 + totalW / 2;
       const y = h / 2;
 
-      const gradient = tctx.createLinearGradient(startX, y, endX, y);
-      gradient.addColorStop(0, "rgba(134, 132, 132, 0.8)");
-      gradient.addColorStop(0.5, "rgba(191, 191, 191, 0.8)");
-      gradient.addColorStop(1, "rgba(255, 255, 255, 0.8)");
-      tctx.fillStyle = gradient;
+      tctx.fillStyle = "#ffffff";
 
       let x = startX;
       for (let i = 0; i < chars.length; i++) {

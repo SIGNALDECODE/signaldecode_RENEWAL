@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import styles from "@/assets/styles/components/WebPortfolio.module.scss";
 import { webPortfolio } from "@/data/web";
 
@@ -65,22 +66,24 @@ export default function WebPortfolio() {
         <ul className={styles.list} ref={listRef}>
           {webPortfolio.items.map((item) => (
             <li key={item.brand} className={styles.card}>
-              <img src={item.image} alt={item.brand} className={styles.cardImage} />
+              <Link href={item.href} className={styles.cardLink}>
+                <img src={item.image} alt={item.brand} className={styles.cardImage} />
 
-              <div className={styles.hover} aria-hidden>
-                <span className={styles.hoverInner}>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <path
-                      d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
-                      stroke="#fff"
-                      strokeWidth="1.6"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="12" cy="12" r="3" fill="#fff" />
-                  </svg>
-                  <span>View More</span>
-                </span>
-              </div>
+                <div className={styles.hover} aria-hidden>
+                  <span className={styles.hoverInner}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                      <path
+                        d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+                        stroke="#fff"
+                        strokeWidth="1.6"
+                        strokeLinejoin="round"
+                      />
+                      <circle cx="12" cy="12" r="3" fill="#fff" />
+                    </svg>
+                    <span>View More</span>
+                  </span>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>

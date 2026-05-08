@@ -5,7 +5,6 @@ import MorphImage from "@/components/landing/MorphImage";
 import AboutHero from "@/components/about/AboutHero";
 import AboutTagline from "@/components/about/AboutTagline";
 import AboutBusinessIntro from "@/components/about/AboutBusinessIntro";
-import AboutDivider from "@/components/about/AboutDivider";
 import AboutValuePillars from "@/components/about/AboutValuePillars";
 import AboutFeatureSections from "@/components/about/AboutFeatureSections";
 import AboutKeywords from "@/components/about/AboutKeywords";
@@ -30,7 +29,6 @@ export default function AboutPage() {
           src="/images/about/aboutbg.png"
         />
         <AboutBusinessIntro />
-        <AboutDivider />
         <AboutValuePillars />
         <AboutFeatureSections />
         <AboutKeywords />

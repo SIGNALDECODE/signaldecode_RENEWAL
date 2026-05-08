@@ -92,6 +92,14 @@
   cursor: pointer;
 }
 
+.cardLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .cardImage {
   position: absolute;
   inset: 0;
@@ -103,7 +111,7 @@
   transition: transform 0.4s ease;
 }
 
-.card:hover .cardImage {
+.cardLink:hover .cardImage {
   transform: scale(1.04);
 }
 
@@ -120,7 +128,7 @@
   transition: opacity 0.25s ease;
 }
 
-.card:hover .hover {
+.cardLink:hover .hover {
   opacity: 1;
 }
 

@@ -1,7 +1,7 @@
 import type { HeaderData } from "@/types/ui";
 
 export const header: HeaderData = {
-  logo: { src: "/icons/logo.png", alt: "" },
+  logo: { src: "/icons/logo.svg", alt: "SIGNALDECODE" },
   brand: "SIGNALDECODE",
   nav: [
     { label: "회사소개", href: "/about" },
