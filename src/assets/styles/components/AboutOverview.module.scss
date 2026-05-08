@@ -1,0 +1,100 @@
+@use "tokens" as *;
+
+// Pixel-perfect mapping from Figma 1920 page coordinates.
+// Frame 2095587653: x=360, y=3294, hug content (width = 1200 from hero rect).
+// Layout: column gap=40, alignItems center
+//   • Header block (column gap=24, fill horizontal)
+//       - Eyebrow "OVERVIEW" — Inter Medium 20/28 UPPER, #021526
+//       - Title block (column gap=12)
+//           - Title — Pretendard Bold 46/56, -2.5%, UPPER, CENTER, #000
+//           - Desc  — Pretendard Regular 18/26, -2.5%, UPPER, CENTER, #767676
+//   • Hero rectangle 1200×600, border-radius 20
+
+.section {
+  position: relative;
+  width: 100%;
+  background: $color-white;
+  padding: 8.3333vw 0;              // 160 / 1920 — vertical breathing room
+  display: flex;
+  justify-content: center;
+}
+
+.inner {
+  width: 62.5%;                     // 1200 / 1920
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.0833vw;                    // 40 / 1920
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.25vw;                      // 24 / 1920
+  text-align: center;
+}
+
+// Inter Medium 20 / 28 / UPPER / #021526
+.eyebrow {
+  margin: 0;
+  font-family: $ff-en;
+  font-weight: 500;
+  font-size: 1.0417vw;              // 20 / 1920
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: $color-primary;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625vw;                     // 12 / 1920
+  align-items: stretch;
+}
+
+// Pretendard Bold 46 / 56 / -2.5% / center / #000
+.title {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 700;
+  font-size: 2.3958vw;              // 46 / 1920
+  line-height: 1.2174;              // 56 / 46
+  letter-spacing: -0.025em;
+  color: $color-black;
+}
+
+// Pretendard Regular 18 / 26 / -2.5% / center / #767676
+.desc {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 400;
+  font-size: 0.9375vw;              // 18 / 1920
+  line-height: 1.4444;              // 26 / 18
+  letter-spacing: -0.025em;
+  color: $color-text-secondary;
+}
+
+// Hero rect — 1200 × 600, border-radius 20
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1200 / 600;
+  border-radius: 1.0417vw;          // 20 / 1920
+  overflow: hidden;
+}
+
+.heroImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1024px) {
+  .section { padding: 6vh 0; }
+  .inner { width: 92%; }
+  .eyebrow { font-size: clamp(13px, 1.0417vw, 20px); }
+  .title { font-size: clamp(22px, 2.3958vw, 46px); }
+  .desc { font-size: clamp(13px, 0.9375vw, 18px); }
+  .hero { border-radius: clamp(8px, 1.0417vw, 20px); }
+}

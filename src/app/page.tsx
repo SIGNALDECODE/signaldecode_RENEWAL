@@ -25,6 +25,7 @@ export default function Home() {
           anchorSelector="[data-morph-anchor]"
           endSelector="[data-morph-end]"
           src={overviewMorphImage}
+          disableAutoScroll
         />
         <ValueCards />
         <Integration />

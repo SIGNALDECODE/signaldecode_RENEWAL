@@ -65,8 +65,8 @@
 }
 
 .dim .imgBox {
-  width: 5.625rem;
-  height: 5.625rem;
+  width: 8rem;
+  height: 8rem;
 }
 
 .dim .imgBox img {
@@ -79,8 +79,8 @@
 }
 
 .bright .imgBox {
-  width: 7.5rem;
-  height: 7.5625rem;
+  width: 11rem;
+  height: 11rem;
 }
 
 .bright .imgBox img {
@@ -104,12 +104,12 @@
     font-size: var(--fs-5xl);
   }
   .dim .imgBox {
-    width: 4rem;
-    height: 4rem;
+    width: 5.5rem;
+    height: 5.5rem;
   }
   .bright .imgBox {
-    width: 5.25rem;
-    height: 5.25rem;
+    width: 7.5rem;
+    height: 7.5rem;
   }
 }
 
@@ -131,11 +131,11 @@
     font-size: var(--fs-3xl);
   }
   .dim .imgBox {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  .bright .imgBox {
     width: 3.5rem;
     height: 3.5rem;
+  }
+  .bright .imgBox {
+    width: 5rem;
+    height: 5rem;
   }
 }

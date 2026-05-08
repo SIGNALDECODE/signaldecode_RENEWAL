@@ -5,9 +5,10 @@ import MorphImage from "@/components/landing/MorphImage";
 import AboutHero from "@/components/about/AboutHero";
 import AboutTagline from "@/components/about/AboutTagline";
 import AboutBusinessIntro from "@/components/about/AboutBusinessIntro";
-import AboutValuePillars from "@/components/about/AboutValuePillars";
-import AboutFeatureSections from "@/components/about/AboutFeatureSections";
+import AboutOverview from "@/components/about/AboutOverview";
 import AboutKeywords from "@/components/about/AboutKeywords";
+import AboutFeatureSections from "@/components/about/AboutFeatureSections";
+import AboutValuePillars from "@/components/about/AboutValuePillars";
 import AboutMarquee from "@/components/about/AboutMarquee";
 
 export const metadata: Metadata = {
@@ -27,11 +28,15 @@ export default function AboutPage() {
           anchorSelector="[data-morph-anchor]"
           endSelector="[data-morph-end]"
           src="/images/about/aboutbg.png"
+          disableExitFade
+          stickyMode
+          disableAutoScroll
         />
         <AboutBusinessIntro />
-        <AboutValuePillars />
-        <AboutFeatureSections />
+        <AboutOverview />
         <AboutKeywords />
+        <AboutFeatureSections />
+        <AboutValuePillars />
         <AboutMarquee />
       </main>
       <Footer />

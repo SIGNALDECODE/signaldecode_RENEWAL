@@ -27,6 +27,7 @@ export type AboutOverview = {
   eyebrow: string;
   title: string;
   desc: string;
+  image: string;
 };
 
 export type AboutValuePillar = {

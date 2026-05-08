@@ -9,10 +9,27 @@
   position: relative;
   width: 100%;
   background: $color-white;
-  padding-top: 4.1667vw;       // 80 / 1920
-  padding-bottom: 6.25vw;      // 120 / 1920
+}
+
+// Outer scroll room — defines how long the tagline stays pinned in viewport
+// before the morph reaches the next section. Total pin time = stickyTrack
+// height − 100vh (pinned height). Shorter value means morph triggers sooner.
+.stickyTrack {
+  width: 100%;
+  min-height: 110vh;
+  position: relative;
+}
+
+// The pinned wrapper fills the viewport and sticks at top:0, so the entire
+// tagline (both lines + desc) stays visually fixed while scroll accumulates.
+.pinned {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 // Inner container — width=1266 / 1920 = 65.9375%, centered

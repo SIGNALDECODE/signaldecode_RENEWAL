@@ -42,8 +42,9 @@
 }
 
 .logoIcon {
-  height: 1.75rem;
-  width: auto;
+  width: 12.125rem;
+  height: 2.875rem;
+  aspect-ratio: 97 / 23;
   object-fit: contain;
   display: block;
   transition: filter 0.3s ease;
@@ -188,7 +189,8 @@
     margin-left: var(--sp-4);
   }
   .logoIcon {
-    height: 1.5rem;
+    width: 10rem;
+    height: auto;
   }
 }
 
@@ -208,7 +210,8 @@
     gap: var(--sp-3);
   }
   .logoIcon {
-    height: 1.25rem;
+    width: 8rem;
+    height: auto;
   }
   .cta {
     display: none;

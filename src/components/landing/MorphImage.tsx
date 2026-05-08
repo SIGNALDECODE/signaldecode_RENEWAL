@@ -7,14 +7,43 @@ interface Props {
   anchorSelector: string;
   endSelector: string;
   src: string;
+  /**
+   * When true, the morph stays at full opacity for the entire time the end
+   * element is in the viewport (no gradual 25vh exit fade) and snaps to
+   * invisible the instant it leaves — no CSS transition.
+   */
+  disableExitFade?: boolean;
+  // When true, morph progress is driven by the end-section approaching the
+  // viewport top instead of the anchor's own scroll position. Use this when
+  // the anchor element is pinned via position:sticky and therefore cannot
+  // serve as a moving threshold.
+  stickyMode?: boolean;
+  /**
+   * When true, the component will not hijack the scroll to auto-advance to
+   * the end element when the user crosses the anchor entry threshold.
+   * Use on pages where you want pure user-driven scrolling.
+   */
+  disableAutoScroll?: boolean;
 }
 
-export default function MorphImage({ anchorSelector, endSelector, src }: Props) {
+export default function MorphImage({
+  anchorSelector,
+  endSelector,
+  src,
+  disableExitFade = false,
+  stickyMode = false,
+  disableAutoScroll = false,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (disableExitFade) {
+      // Skip the default 0.3s opacity transition so on/off is a hard cut.
+      el.style.transition = "none";
+    }
 
     let lastP = 0;
     let isAnimating = false;
@@ -78,24 +107,39 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
       }
 
       const exitFadeRange = vh * 0.25;
-      const exitOpacity =
-        eRect && eRect.bottom < exitFadeRange
+      const exitOpacity = disableExitFade
+        ? 1
+        : eRect && eRect.bottom < exitFadeRange
           ? Math.max(0, eRect.bottom / exitFadeRange)
           : 1;
       el.style.opacity = `${exitOpacity}`;
 
       const isSettled = eRect ? eRect.top <= 0 : false;
-      const ENTRY_BUFFER = vh * 0.2;
-      const startY = window.scrollY + cy - vh * 0.45 + ENTRY_BUFFER;
-      const endY = eRect
-        ? window.scrollY + eRect.top
-        : window.scrollY + cy + vh * 0.25;
-      const p = Math.max(
-        0,
-        Math.min(1, (window.scrollY - startY) / (endY - startY)),
-      );
+      let p: number;
+      if (stickyMode && eRect) {
+        // Sticky anchor stays fixed in viewport, so derive progress from the
+        // end-section approaching the viewport top: p=0 when its top is one
+        // viewport away, p=1 when it reaches the top.
+        p = Math.max(0, Math.min(1, (vh - eRect.top) / vh));
+      } else {
+        const ENTRY_BUFFER = vh * 0.2;
+        const startY = window.scrollY + cy - vh * 0.45 + ENTRY_BUFFER;
+        const endY = eRect
+          ? window.scrollY + eRect.top
+          : window.scrollY + cy + vh * 0.25;
+        p = Math.max(
+          0,
+          Math.min(1, (window.scrollY - startY) / (endY - startY)),
+        );
+      }
 
-      if (!isAnimating && lastP <= 0 && p > 0 && !isSettled) {
+      if (
+        !disableAutoScroll &&
+        !isAnimating &&
+        lastP <= 0 &&
+        p > 0 &&
+        !isSettled
+      ) {
         const absAnchorCenter = window.scrollY + cy;
         const targetY = eRect
           ? window.scrollY + eRect.top
@@ -105,9 +149,17 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
       lastP = p;
 
       const w = Math.round(rect.width + (vw - rect.width) * p);
-      const h = Math.round(rect.height + (vh - rect.height) * p);
+      let h = Math.round(rect.height + (vh - rect.height) * p);
       const tx = Math.round(cx + (vw / 2 - cx) * p - w / 2);
-      const ty = Math.round(cy + (vh / 2 - cy) * p - h / 2);
+      let ty = Math.round(cy + (vh / 2 - cy) * p - h / 2);
+
+      // With disableExitFade, once the morph has settled (p>=1) clamp its
+      // bottom to the end element's bottom so the dark band cuts off cleanly
+      // with the section instead of painting full-viewport past the section.
+      if (disableExitFade && eRect && p >= 1) {
+        h = Math.max(0, Math.min(h, Math.round(eRect.bottom)));
+        ty = 0;
+      }
       // If the anchor has its own non-zero border-radius (e.g. a small 8px
       // rounded rect), respect that as the morph's starting radius. Otherwise
       // fall back to a circular start (rect.width / 2) — matches the original
@@ -145,7 +197,7 @@ export default function MorphImage({ anchorSelector, endSelector, src }: Props) 
       window.removeEventListener("resize", update);
       cancelAnim();
     };
-  }, [anchorSelector, endSelector]);
+  }, [anchorSelector, endSelector, disableExitFade, stickyMode, disableAutoScroll]);
 
   return (
     <div ref={ref} className={styles.morph}>

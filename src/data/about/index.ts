@@ -54,6 +54,7 @@ export const aboutOverview: AboutOverview = {
   eyebrow: "OVERVIEW",
   title: "광고부터 웹 개발까지, 끊김 없는 최적의 브랜드 경험을 설계",
   desc: "각 분야 전문가들의 기획과 기술력을 결합하여, 단순한 제작을 넘어 비즈니스의 실질적인 성과를 만듭니다.",
+  image: "/images/about/overview-hero-29cf94.png",
 };
 
 export const aboutValuePillars: AboutValuePillar[] = [
