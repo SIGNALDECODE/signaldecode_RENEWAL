@@ -1,40 +1,42 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .footer {
-  background: var(--color-bg-dark);
-  padding: var(--sp-20) 0 var(--sp-10);
-  color: var(--color-white);
+  background: $color-bg-dark;
+  padding: $sp-20 0 $sp-10;
+  color: $color-white;
   overflow: hidden;
 }
 
 .inner {
-  max-width: var(--container-lg);
+  max-width: $container-lg;
   margin: 0 auto;
-  padding: 0 var(--sp-6);
+  padding: 0 $sp-6;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-45);
+  gap: $sp-45;
 }
 
 .cols {
   display: flex;
-  gap: var(--sp-20);
+  gap: $sp-20;
   flex-wrap: wrap;
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-7);
+  gap: $sp-7;
   min-width: 20rem;
 }
 
 .colTitle {
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-medium);
+  font-size: $fs-lg;
+  font-weight: $fw-medium;
   line-height: 1.5;
   letter-spacing: -0.025em;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .row {
@@ -45,44 +47,44 @@
 .field {
   display: flex;
   flex-direction: column;
-  gap: var(--sp-1);
+  gap: $sp-1;
   min-width: 10rem;
-  margin-bottom: var(--sp-4);
+  margin-bottom: $sp-4;
 }
 
 .fieldLabel {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-regular);
+  font-size: $fs-sm;
+  font-weight: $fw-regular;
   line-height: 1.625;
   letter-spacing: -0.025em;
   color: rgba(255, 255, 255, 0.6);
 }
 
 .fieldValue {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
   line-height: 1.625;
   letter-spacing: -0.025em;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-4);
+  gap: $sp-4;
   width: 100vw;
   margin-left: calc(50% - 50vw);
 }
 
 .copyright {
   align-self: flex-end;
-  margin-right: var(--sp-6);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-regular);
+  margin-right: $sp-6;
+  font-size: $fs-md;
+  font-weight: $fw-regular;
   line-height: 1.555;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
 }
 
 .marquee {
@@ -107,9 +109,9 @@
 
 .bigText {
   font-size: clamp(5rem, 15vw, 13.75rem);
-  font-weight: var(--fw-bold);
+  font-weight: $fw-bold;
   line-height: 1;
-  color: var(--color-white);
+  color: $color-white;
   text-transform: uppercase;
   letter-spacing: -0.025em;
   white-space: nowrap;
@@ -118,13 +120,13 @@
 
 @include tablet {
   .footer {
-    padding: var(--sp-16) 0 var(--sp-8);
+    padding: $sp-16 0 $sp-8;
   }
   .inner {
-    gap: var(--sp-25);
+    gap: $sp-25;
   }
   .cols {
-    gap: var(--sp-12);
+    gap: $sp-12;
   }
   .col {
     min-width: 16rem;
@@ -133,35 +135,35 @@
 
 @include mobile {
   .footer {
-    padding: var(--sp-12) 0 var(--sp-6);
+    padding: $sp-12 0 $sp-6;
   }
   .inner {
-    padding: 0 var(--sp-5);
-    gap: var(--sp-16);
+    padding: 0 $sp-5;
+    gap: $sp-16;
   }
   .cols {
-    gap: var(--sp-8);
+    gap: $sp-8;
   }
   .col {
     min-width: 0;
     width: 100%;
-    gap: var(--sp-5);
+    gap: $sp-5;
   }
   .colTitle {
-    font-size: var(--fs-md);
+    font-size: $fs-md;
   }
   .row {
     flex-wrap: wrap;
-    gap: var(--sp-4);
+    gap: $sp-4;
   }
   .field {
     min-width: 8rem;
-    margin-bottom: var(--sp-2);
+    margin-bottom: $sp-2;
   }
   .copyright {
     align-self: center;
     margin-right: 0;
-    font-size: var(--fs-sm);
+    font-size: $fs-sm;
     text-align: center;
   }
 }

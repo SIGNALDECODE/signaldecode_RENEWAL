@@ -1,11 +1,13 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--sp-60) var(--sp-6);
-  background: var(--color-black);
+  padding: $sp-60 $sp-6;
+  background: $color-black;
 }
 
 .noTransition,
@@ -31,14 +33,14 @@
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: var(--sp-4);
+  gap: $sp-4;
   justify-content: center;
   flex-wrap: nowrap;
   transition: color 0.6s ease, font-size 0.6s ease, transform 0.6s ease;
 }
 
 .text {
-  font-weight: var(--fw-bold);
+  font-weight: $fw-bold;
   line-height: 1;
   letter-spacing: -0.025em;
   white-space: nowrap;
@@ -60,7 +62,7 @@
 }
 
 .dim .text {
-  font-size: var(--fs-4xl);
+  font-size: $fs-4xl;
   color: rgba(255, 255, 255, 0.2);
 }
 
@@ -74,8 +76,8 @@
 }
 
 .bright .text {
-  font-size: var(--fs-6xl);
-  color: var(--color-white);
+  font-size: $fs-6xl;
+  color: $color-white;
 }
 
 .bright .imgBox {
@@ -89,7 +91,7 @@
 
 @include tablet {
   .section {
-    padding: 8rem var(--sp-6);
+    padding: 8rem $sp-6;
   }
   .viewport {
     height: 24rem;
@@ -98,10 +100,10 @@
     height: 8rem;
   }
   .dim .text {
-    font-size: var(--fs-3xl);
+    font-size: $fs-3xl;
   }
   .bright .text {
-    font-size: var(--fs-5xl);
+    font-size: $fs-5xl;
   }
   .dim .imgBox {
     width: 5.5rem;
@@ -115,20 +117,20 @@
 
 @include mobile {
   .section {
-    padding: 5rem var(--sp-4);
+    padding: 5rem $sp-4;
   }
   .viewport {
     height: 18rem;
   }
   .row {
     height: 6rem;
-    gap: var(--sp-3);
+    gap: $sp-3;
   }
   .dim .text {
-    font-size: var(--fs-xl);
+    font-size: $fs-xl;
   }
   .bright .text {
-    font-size: var(--fs-3xl);
+    font-size: $fs-3xl;
   }
   .dim .imgBox {
     width: 3.5rem;

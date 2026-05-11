@@ -1,3 +1,5 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .section {
@@ -35,23 +37,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--sp-6);
-  padding: var(--sp-10);
+  gap: $sp-6;
+  padding: $sp-10;
   text-align: center;
 }
 
 .tags {
   display: flex;
   align-items: center;
-  gap: var(--sp-2);
-  font-size: var(--fs-md);
-  font-weight: var(--fw-medium);
+  gap: $sp-2;
+  font-size: $fs-md;
+  font-weight: $fw-medium;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: -0.5px;
 }
 
 .tag {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
 }
 
 .tagDot {
@@ -64,15 +66,15 @@
 
 .title {
   font-size: 2.5rem;
-  font-weight: var(--fw-medium);
-  color: var(--color-white);
+  font-weight: $fw-medium;
+  color: $color-white;
   letter-spacing: -1px;
   line-height: 1.25;
 }
 
 .desc {
   font-size: 1.25rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: -0.5px;
   line-height: 1.5;
@@ -81,13 +83,13 @@
 .cta {
   display: inline-flex;
   align-items: center;
-  gap: var(--sp-2);
+  gap: $sp-2;
   padding: 0.25rem 0.25rem 0.25rem 1.5rem;
-  background: var(--color-white);
+  background: $color-white;
   color: #1d212c;
   border-radius: 999px;
-  font-size: var(--fs-md);
-  font-weight: var(--fw-medium);
+  font-size: $fs-md;
+  font-weight: $fw-medium;
   letter-spacing: -0.4px;
   text-decoration: none;
   transition: transform 0.2s ease;
@@ -109,7 +111,7 @@
   height: 2.5rem;
   border-radius: 50%;
   background: #1d212c;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 @include tablet {
@@ -120,7 +122,7 @@
     font-size: 2rem;
   }
   .desc {
-    font-size: var(--fs-md);
+    font-size: $fs-md;
   }
 }
 
@@ -130,13 +132,13 @@
     min-height: 22rem;
   }
   .inner {
-    gap: var(--sp-4);
-    padding: var(--sp-12) var(--sp-5);
+    gap: $sp-4;
+    padding: $sp-12 $sp-5;
   }
   .title {
     font-size: 1.625rem;
   }
   .desc {
-    font-size: var(--fs-sm);
+    font-size: $fs-sm;
   }
 }

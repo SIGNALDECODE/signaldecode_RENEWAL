@@ -1,12 +1,14 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .hero {
-  --hero-h: 100dvh; // viewport-relative — fits one screen on any device
+  --hero-h: 100dvh; // viewport-relative ??fits one screen on any device
 
   position: relative;
   width: 100%;
   height: var(--hero-h);
-  background: var(--color-black);
+  background: $color-black;
   overflow: hidden;
 }
 
@@ -30,15 +32,15 @@
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 0 var(--sp-12) var(--sp-8);
+  padding: 0 $sp-12 $sp-8;
   list-style: none;
 }
 
 .metaItem {
-  font-family: var(--ff-en);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--color-white);
+  font-family: $ff-en;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $color-white;
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
@@ -46,7 +48,7 @@
 .brand {
   position: relative;
   width: 100%;
-  height: 14.375rem; // 230 — matches FONT_PX in BrandWave.tsx
+  height: 14.375rem; // 230 ??matches FONT_PX in BrandWave.tsx
   pointer-events: auto;
   cursor: default;
 }
@@ -59,7 +61,7 @@
 
 @include tablet {
   .meta {
-    padding: 0 var(--sp-8) var(--sp-6);
+    padding: 0 $sp-8 $sp-6;
   }
   .brand {
     height: 9rem;
@@ -69,11 +71,11 @@
 @include mobile {
   .meta {
     flex-wrap: wrap;
-    gap: var(--sp-2);
-    padding: 0 var(--sp-5) var(--sp-5);
+    gap: $sp-2;
+    padding: 0 $sp-5 $sp-5;
   }
   .metaItem {
-    font-size: var(--fs-xs);
+    font-size: $fs-xs;
   }
   .brand {
     height: 5rem;

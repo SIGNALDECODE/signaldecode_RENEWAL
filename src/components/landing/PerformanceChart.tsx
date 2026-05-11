@@ -30,6 +30,14 @@ export default function PerformanceChart() {
       ref={sectionRef}
       className={`${styles.section} ${active ? styles.play : ""}`}
     >
+      <div className={styles.copy}>
+        <p className={styles.eyebrow}>{copy.eyebrow}</p>
+        <div className={styles.copyBody}>
+          <h2 className={styles.title}>{copy.title}</h2>
+          <p className={styles.desc}>{copy.desc}</p>
+        </div>
+      </div>
+
       <div className={styles.panel}>
         <div className={styles.chart}>
           <div className={styles.barCol}>
@@ -69,14 +77,6 @@ export default function PerformanceChart() {
             />
             <p className={styles.label}>{bars.industry.label}</p>
           </div>
-        </div>
-      </div>
-
-      <div className={styles.copy}>
-        <p className={styles.eyebrow}>{copy.eyebrow}</p>
-        <div className={styles.copyBody}>
-          <h2 className={styles.title}>{copy.title}</h2>
-          <p className={styles.desc}>{copy.desc}</p>
         </div>
       </div>
     </section>

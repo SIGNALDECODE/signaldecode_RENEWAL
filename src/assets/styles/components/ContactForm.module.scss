@@ -1,0 +1,410 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+.section {
+  width: 100%;
+  background: $color-white;
+  padding: 5rem $sp-45 $sp-45;
+}
+
+.inner {
+  max-width: 97.5rem;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $sp-12;
+}
+
+.aside {
+  flex: 0 0 auto;
+  width: 34.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-12;
+  padding-top: $sp-3;
+}
+
+.displayWrap {
+  position: relative;
+  align-self: flex-start;
+  isolation: isolate;
+}
+
+.display {
+  font-size: $fs-6xl;
+  font-weight: $fw-bold;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #1d212c;
+  display: flex;
+  flex-direction: column;
+}
+
+.displayBadge {
+  position: absolute;
+  top: -1.3125rem;
+  left: 12.75rem;
+  width: 7.5rem;
+  height: 3.625rem;
+  border-radius: 9999px;
+  background: rgba(2, 21, 38, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 4px 4px 4px -1px rgba(34, 34, 34, 0.14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  pointer-events: none;
+  user-select: none;
+}
+
+.displayBadgeIcon {
+  width: 2.0625rem;
+  height: 1.625rem;
+  display: block;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-5;
+  list-style: none;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.infoLabel {
+  font-size: $fs-md;
+  font-weight: $fw-regular;
+  line-height: 1.555;
+  letter-spacing: -0.025em;
+  color: #808791;
+}
+
+.infoValue {
+  font-size: $fs-md;
+  font-weight: $fw-medium;
+  line-height: 1.555;
+  letter-spacing: -0.025em;
+  color: #1d212c;
+}
+
+.form {
+  flex: 0 0 auto;
+  width: 49rem;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-10;
+  min-width: 0;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: $sp-6;
+  row-gap: $sp-10;
+}
+
+.fieldCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.fieldCellEmpty {
+  display: block;
+}
+
+@include mobile {
+  .fieldCellEmpty {
+    display: none;
+  }
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  line-height: 1.625;
+  letter-spacing: -0.025em;
+  color: $color-black;
+  padding: 0;
+}
+
+.required {
+  color: #021526;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  line-height: 1.428;
+  margin-left: 0.125rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: $sp-4 0;
+  background: $color-white;
+  border: 0;
+  border-bottom: 1px solid #e5e5ec;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: $fs-xs;
+  font-weight: $fw-regular;
+  line-height: 1.428;
+  letter-spacing: -0.025em;
+  color: $color-black;
+  outline: none;
+  transition: border-color 0.2s ease;
+  resize: none;
+
+  &::placeholder {
+    color: #767676;
+  }
+
+  &:focus {
+    border-bottom-color: #021526;
+  }
+}
+
+.textarea {
+  min-height: 15rem;
+  height: 15rem;
+  resize: none;
+  overflow: hidden;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.checkboxColumns {
+  display: flex;
+  align-items: flex-start;
+  gap: 3.5rem;
+}
+
+.checkboxColumn {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-3;
+}
+
+.checkRow {
+  display: inline-flex;
+  align-items: center;
+  gap: $sp-2;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.checkBox {
+  width: 1.375rem;
+  height: 1.375rem;
+  flex-shrink: 0;
+  background: $color-white;
+  border: 1px solid #e5e5ec;
+  border-radius: $r-sm;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.checkbox:checked + .checkBox {
+  background: #021526;
+  border-color: #021526;
+  color: $color-white;
+}
+
+.checkbox:focus-visible + .checkBox {
+  outline: 2px solid #021526;
+  outline-offset: 2px;
+}
+
+.checkIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.checkLabel {
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  line-height: 1.714;
+  letter-spacing: -0.025em;
+  color: $color-black;
+}
+
+.consentRow {
+  margin-top: $sp-2;
+}
+
+.consentText {
+  font-size: $fs-sm;
+  font-weight: $fw-regular;
+  line-height: 1.625;
+  letter-spacing: -0.025em;
+  color: #021526;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.consentBadge {
+  font-weight: $fw-semibold;
+  color: #021526;
+}
+
+.submit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 11.25rem;
+  padding: $sp-4 $sp-6;
+  background: #021526;
+  color: $color-white;
+  border-radius: $r-sm;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  line-height: 1.75;
+  letter-spacing: -0.025em;
+  transition: background 0.2s ease, transform 0.2s ease;
+  margin-top: $sp-2;
+
+  &:hover {
+    background: #0a2540;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+@media (max-width: 120rem) {
+  .section {
+    padding-left: $sp-12;
+    padding-right: $sp-12;
+  }
+}
+
+@media (max-width: 78.75rem) {
+  .section {
+    padding-left: $sp-10;
+    padding-right: $sp-10;
+  }
+  .inner {
+    gap: $sp-10;
+  }
+  .aside {
+    width: 28rem;
+  }
+  .form {
+    width: auto;
+    flex: 1;
+  }
+  .displayBadge {
+    left: 11rem;
+  }
+}
+
+@include tablet {
+  .section {
+    padding: $sp-15 $sp-8 $sp-30;
+  }
+  .inner {
+    flex-direction: column;
+    gap: $sp-12;
+  }
+  .aside {
+    width: 100%;
+    gap: $sp-10;
+    padding-top: 0;
+  }
+  .form {
+    width: 100%;
+  }
+  .display {
+    font-size: 2.75rem;
+  }
+  .displayBadge {
+    width: 6rem;
+    height: 3rem;
+    left: 9.5rem;
+    top: -1rem;
+  }
+  .checkboxColumns {
+    gap: $sp-6;
+  }
+}
+
+@include mobile {
+  .section {
+    padding: $sp-10 $sp-5 $sp-25;
+  }
+  .inner {
+    gap: $sp-8;
+  }
+  .aside {
+    gap: $sp-7;
+  }
+  .display {
+    font-size: $fs-3xl;
+  }
+  .displayBadge {
+    width: 4.5rem;
+    height: 2.5rem;
+    left: 6.5rem;
+    top: -0.75rem;
+  }
+  .infoLabel {
+    font-size: $fs-sm;
+  }
+  .infoValue {
+    font-size: $fs-sm;
+  }
+  .form {
+    gap: $sp-7;
+  }
+  .fieldGrid {
+    grid-template-columns: 1fr;
+    row-gap: $sp-5;
+  }
+  .checkboxColumns {
+    flex-direction: column;
+    gap: $sp-3;
+  }
+  .submit {
+    width: 100%;
+    min-width: 0;
+  }
+}

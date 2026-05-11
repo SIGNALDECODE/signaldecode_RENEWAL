@@ -1,3 +1,5 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .wrap {
@@ -6,7 +8,7 @@
   display: flex;
   justify-content: center;
   margin-top: -2rem;
-  margin-bottom: var(--sp-12);
+  margin-bottom: $sp-12;
   pointer-events: none;
 }
 
@@ -15,17 +17,17 @@
   pointer-events: auto;
   display: inline-flex;
   align-items: center;
-  gap: var(--sp-6);
+  gap: $sp-6;
   background: #111;
-  color: var(--color-white);
-  padding: var(--sp-4) var(--sp-8);
-  border-radius: var(--r-full);
+  color: $color-white;
+  padding: $sp-4 $sp-8;
+  border-radius: $r-full;
   box-shadow: 2px 6px 12px rgba(35, 48, 59, 0.25);
 }
 
 .label {
-  font-size: var(--fs-md);
-  font-weight: var(--fw-regular);
+  font-size: $fs-md;
+  font-weight: $fw-regular;
   letter-spacing: -0.5px;
   width: 15rem;
   text-align: center;
@@ -49,7 +51,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp-3);
+  gap: $sp-3;
   width: 15rem;
   background: none;
   padding: 0;
@@ -58,10 +60,10 @@
 
 .currentLabel {
   flex: 1;
-  font-size: var(--fs-md);
-  font-weight: var(--fw-regular);
+  font-size: $fs-md;
+  font-weight: $fw-regular;
   letter-spacing: -0.5px;
-  color: var(--color-white);
+  color: $color-white;
   text-align: center;
   white-space: nowrap;
 }
@@ -74,7 +76,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--color-white);
+  background: $color-white;
   color: #111;
   transition: transform 0.2s ease;
 }
@@ -107,7 +109,7 @@
 }
 
 .menuInner {
-  padding: 2rem var(--sp-2) var(--sp-2);
+  padding: 2rem $sp-2 $sp-2;
   display: flex;
   flex-direction: column;
 }
@@ -123,9 +125,9 @@
 
 .item {
   display: block;
-  padding: var(--sp-3) var(--sp-5);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
+  padding: $sp-3 $sp-5;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: -0.4px;
   border-radius: 0.5rem;
@@ -134,18 +136,18 @@
 
 .item:hover {
   background: rgba(255, 255, 255, 0.08);
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .itemActive {
-  color: var(--color-white);
+  color: $color-white;
   background: rgba(255, 255, 255, 0.06);
 }
 
 @include tablet {
   .pill {
-    gap: var(--sp-4);
-    padding: var(--sp-3) var(--sp-6);
+    gap: $sp-4;
+    padding: $sp-3 $sp-6;
   }
   .label,
   .current {
@@ -158,18 +160,18 @@
 
 @include mobile {
   .wrap {
-    padding: 0 var(--sp-4);
+    padding: 0 $sp-4;
   }
   .pill {
-    gap: var(--sp-3);
-    padding: var(--sp-3) var(--sp-5);
+    gap: $sp-3;
+    padding: $sp-3 $sp-5;
     width: 100%;
     justify-content: space-between;
   }
   .label,
   .current,
   .currentLabel {
-    font-size: var(--fs-sm);
+    font-size: $fs-sm;
   }
   .label,
   .current {

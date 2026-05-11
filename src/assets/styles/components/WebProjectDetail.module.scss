@@ -1,10 +1,12 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .page {
   --brand: #ff5d27;
   position: relative;
-  background: var(--color-white);
-  color: var(--color-text-primary);
+  background: $color-white;
+  color: $color-text-primary;
   overflow: hidden;
 }
 
@@ -32,9 +34,9 @@
 }
 
 .heroTitle {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 4rem;
-  font-weight: var(--fw-bold);
+  font-weight: $fw-bold;
   line-height: 4.5rem;
   letter-spacing: -0.025em;
   color: #222;
@@ -57,12 +59,12 @@
 }
 
 .heroParagraph {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.625rem;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
 }
 
 .heroMeta {
@@ -81,9 +83,9 @@
 }
 
 .heroMetaLabel {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 0.875rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.375rem;
   color: #222;
   width: 11.25rem;
@@ -92,7 +94,7 @@
 }
 
 .heroMetaValue {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 0.875rem;
   font-weight: 300;
   line-height: 1.375rem;
@@ -129,38 +131,38 @@
   align-items: center;
   align-self: flex-start;
   padding: 1.125rem 2rem;
-  border: 1px solid var(--color-black);
+  border: 1px solid $color-black;
   border-radius: 999px;
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1.125rem;
-  font-weight: var(--fw-semibold);
+  font-weight: $fw-semibold;
   line-height: 1rem;
   letter-spacing: 0;
-  color: var(--color-black);
+  color: $color-black;
   text-transform: uppercase;
   background: transparent;
 }
 
 .headline {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 2.5rem;
   font-weight: 100;
   line-height: 3.25rem;
   letter-spacing: -0.025em;
-  color: var(--color-black);
+  color: $color-black;
 
   strong {
-    font-weight: var(--fw-bold);
+    font-weight: $fw-bold;
   }
 }
 
 .headlineLg {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 3.25rem;
   font-weight: 100;
   line-height: 3.25rem;
   letter-spacing: -0.025em;
-  color: var(--color-black);
+  color: $color-black;
 
   strong {
     font-weight: 800;
@@ -169,12 +171,12 @@
 
 .subParagraph {
   width: 53.4375rem;
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5rem;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
   white-space: pre-line;
   flex-shrink: 0;
 }
@@ -190,7 +192,7 @@
   flex-direction: column;
   gap: 1.25rem;
   padding: 2.5rem 1.875rem;
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid $color-border;
 }
 
 .coreCardFirst {
@@ -206,7 +208,7 @@
   width: 11rem;
   height: 11rem;
   background: #f4f5f9;
-  border-radius: var(--r-md);
+  border-radius: $r-md;
 }
 
 .coreText {
@@ -217,31 +219,31 @@
 }
 
 .coreNum {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5rem;
-  color: var(--color-black);
+  color: $color-black;
   margin-bottom: 0.875rem;
 }
 
 .coreTitle {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1.5rem;
-  font-weight: var(--fw-semibold);
+  font-weight: $fw-semibold;
   line-height: 2.125rem;
   letter-spacing: -0.025em;
-  color: var(--color-black);
+  color: $color-black;
   margin: 0;
 }
 
 .coreDesc {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5rem;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
   margin: 0;
   white-space: pre-line;
 }
@@ -269,21 +271,21 @@
 }
 
 .typoDisplay {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 1.5rem;
-  font-weight: var(--fw-bold);
+  font-weight: $fw-bold;
   line-height: 1.875rem;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: $color-black;
   margin: 0;
 }
 
 .typoSample {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 0.875rem;
-  font-weight: var(--fw-bold);
+  font-weight: $fw-bold;
   line-height: 1.5rem;
-  color: var(--color-black);
+  color: $color-black;
   margin: 0;
 }
 
@@ -306,23 +308,23 @@
   width: 27.8125rem;
   padding: 1rem 0.625rem 1rem 1.125rem;
   background: #f4f5f9;
-  border-radius: var(--r-md);
+  border-radius: $r-md;
 }
 
 .typoSpecValue {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 1.125rem;
-  font-weight: var(--fw-medium);
+  font-weight: $fw-medium;
   line-height: 1.625rem;
   color: #222;
 }
 
 .typoSpecLabel {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 0.875rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.375rem;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
 }
 
 .swatchStrip {
@@ -361,16 +363,16 @@
 }
 
 .swatchKey {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5rem;
 }
 
 .swatchHex {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 1rem;
-  font-weight: var(--fw-semibold);
+  font-weight: $fw-semibold;
   line-height: 1.5rem;
   color: inherit;
 }
@@ -385,23 +387,23 @@
 }
 
 .introEyebrow {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 3.25rem;
-  font-weight: var(--fw-bold);
+  font-weight: $fw-bold;
   line-height: 3.25rem;
-  color: var(--color-black);
+  color: $color-black;
   margin: 0;
   text-transform: uppercase;
   flex-shrink: 0;
 }
 
 .introParagraph {
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5rem;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
   margin: 0;
   white-space: pre-line;
   text-align: right;
@@ -419,8 +421,8 @@
 .mockCard {
   width: 100%;
   max-width: 81.75rem;
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
+  background: $color-white;
+  border: 1px solid $color-border;
   border-radius: 1rem;
   box-shadow: 0.125rem 0.125rem 2rem rgba(0, 0, 0, 0.05);
   overflow: hidden;
@@ -436,9 +438,9 @@
   position: absolute;
   bottom: 5rem;
   right: 9.75rem;
-  font-family: var(--ff-sans);
+  font-family: $ff-sans;
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5rem;
   letter-spacing: -0.025em;
   color: #222;
@@ -491,14 +493,14 @@
     grid-template-columns: repeat(2, 1fr);
   }
   .coreCard {
-    border-right: 1px solid var(--color-border);
+    border-right: 1px solid $color-border;
     padding: 2rem 1.25rem;
   }
   .coreCard:nth-child(2n) {
     border-right: none;
   }
   .coreCard:nth-child(n + 3) {
-    border-top: 1px solid var(--color-border);
+    border-top: 1px solid $color-border;
   }
   .coreCardFirst,
   .coreCardLast {
@@ -587,7 +589,7 @@
   .coreCard {
     border-right: none;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid $color-border;
   }
   .coreCard:last-child {
     border-bottom: none;

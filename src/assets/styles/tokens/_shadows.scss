@@ -1,6 +1,6 @@
 // Shadow tokens
 
-$shadow-card: var(--shadow-card);
-$shadow-soft: var(--shadow-soft);
-$shadow-phone: var(--shadow-phone);
-$shadow-bar: var(--shadow-bar);
+$shadow-card: 10px 10px 6px rgba(34, 34, 34, 0.12);
+$shadow-soft: 6px 6px 2px rgba(35, 48, 59, 0.12);
+$shadow-phone: 10px 10px 10px 0 rgba(34, 34, 34, 0.2);
+$shadow-bar: 6px 4px 10px -1px rgba(114, 163, 255, 0.4);

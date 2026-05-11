@@ -1,8 +1,37 @@
+"use client";
+
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import styles from "@/assets/styles/components/Professional.module.scss";
 import { professional } from "@/data/landing/professional";
 
 export default function Professional() {
   const { copy, items } = professional;
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [revealed, setRevealed] = useState(false);
+  const [settled, setSettled] = useState(false);
+
+  useEffect(() => {
+    const el = panelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setRevealed(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!revealed) return;
+    const total = (items.length - 1) * 600 + 600;
+    const t = setTimeout(() => setSettled(true), total + 50);
+    return () => clearTimeout(t);
+  }, [revealed, items.length]);
 
   return (
     <section className={styles.section}>
@@ -14,11 +43,16 @@ export default function Professional() {
         </div>
       </div>
 
-      <div className={styles.panel}>
-        <ul className={styles.stack}>
+      <div className={styles.panel} ref={panelRef}>
+        <ul
+          className={`${styles.stack} ${revealed ? styles.stackIn : ""} ${
+            settled ? styles.stackSettled : ""
+          }`}
+        >
           {items.map((item, i) => (
             <li
               key={i}
+              style={{ "--i": i } as CSSProperties}
               className={`${styles.itemCard} ${
                 item.highlighted ? styles.itemCardActive : ""
               }`}

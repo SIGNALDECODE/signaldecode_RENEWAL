@@ -36,7 +36,7 @@ export default function Home() {
         <PhoneSlider />
         <SalesNumbers />
         <Reveal>
-          <Professional />
+          <Professional /> 
         </Reveal>
         <PerformanceChart />
       </main>

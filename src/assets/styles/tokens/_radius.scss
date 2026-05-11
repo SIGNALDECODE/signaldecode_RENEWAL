@@ -1,9 +1,9 @@
 // Radius tokens
 
-$r-sm: var(--r-sm);     // 4
-$r-md: var(--r-md);     // 10
-$r-lg: var(--r-lg);     // 12
-$r-xl: var(--r-xl);     // 20
-$r-pill: var(--r-pill); // 50
-$r-circle: var(--r-circle);
-$r-full: var(--r-full); // 9999
+$r-sm: 0.25rem;    // 4
+$r-md: 0.625rem;   // 10
+$r-lg: 0.75rem;    // 12
+$r-xl: 1.25rem;    // 20
+$r-pill: 3.125rem; // 50
+$r-circle: 100px;
+$r-full: 9999px;

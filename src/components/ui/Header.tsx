@@ -35,15 +35,31 @@ export default function Header() {
             <img src={header.logo.src} alt={header.logo.alt} className={styles.logoIcon} />
           </Link>
           <nav className={styles.nav}>
-            {header.nav.map((item) => (
-              <Link key={item.label} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
+            {header.nav.map((item) =>
+              item.comingSoon ? (
+                <span
+                  key={item.label}
+                  className={`${styles.navItem} ${styles.navDisabled}`}
+                  aria-disabled="true"
+                  tabIndex={0}
+                >
+                  {item.label}
+                  <span className={styles.tooltip} role="tooltip">
+                    {header.comingSoonLabel}
+                  </span>
+                </span>
+              ) : (
+                <Link key={item.label} href={item.href} className={styles.navItem}>
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
         <div className={styles.right}>
-          <button className={styles.cta}>{header.cta.label}</button>
+          <Link href={header.cta.href} className={styles.cta}>
+            {header.cta.label}
+          </Link>
           <button
             type="button"
             className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
@@ -62,16 +78,29 @@ export default function Header() {
         aria-hidden={!menuOpen}
       >
         <nav className={styles.overlayNav}>
-          {header.nav.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={styles.overlayLink}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {header.nav.map((item) =>
+            item.comingSoon ? (
+              <span
+                key={item.label}
+                className={`${styles.overlayLink} ${styles.overlayDisabled}`}
+                aria-disabled="true"
+              >
+                {item.label}
+                <span className={styles.overlayBadge}>
+                  {header.comingSoonLabel}
+                </span>
+              </span>
+            ) : (
+              <Link
+                key={item.label}
+                href={item.href}
+                className={styles.overlayLink}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </nav>
       </div>
     </>

@@ -1,23 +1,22 @@
-// Color tokens — map to CSS variables defined in globals.scss :root
-// Edit values in globals.scss to retheme; variable names here stay stable.
+// Color tokens
 
-$color-primary: var(--color-primary);
-$color-primary-blue: var(--color-primary-blue);
+$color-primary: #021526;
+$color-primary-blue: #0b2f9f;
 
-$color-text-primary: var(--color-text-primary);
-$color-text-secondary: var(--color-text-secondary);
-$color-text-disabled: var(--color-text-disabled);
+$color-text-primary: #000;
+$color-text-secondary: #767676;
+$color-text-disabled: #999;
 
-$color-bg-soft: var(--color-bg-soft);
-$color-bg-dark: var(--color-bg-dark);
+$color-bg-soft: #f6f7fb;
+$color-bg-dark: #1e1e1e;
 
-$color-border: var(--color-border);
+$color-border: #e5e5ec;
 
-$color-white: var(--color-white);
-$color-black: var(--color-black);
+$color-white: #ffffff;
+$color-black: #000;
 
-$color-tag-bg: var(--color-tag-bg);
-$color-bar-gray: var(--color-bar-gray);
+$color-tag-bg: #dde7ff;
+$color-bar-gray: #dde1ec;
 
-$color-down: var(--color-down);
-$color-up: var(--color-up);
+$color-down: #175ae4;
+$color-up: #ec444b;

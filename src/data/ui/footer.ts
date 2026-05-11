@@ -6,7 +6,7 @@ export const footer: FooterData = {
     fields: [
       {
         label: "Adress",
-        value: "서울특별시 마포구 잔다리로 44, 6층(서교동, 센터원빌딩)",
+        value: "서울특별시 마포구 잔다리로 44, 9층(서교동, 센터원빌딩)",
       },
       { label: "E-mail", value: "signaldecode@signal-decode.com" },
     ],

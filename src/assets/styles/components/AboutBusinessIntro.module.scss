@@ -1,10 +1,10 @@
-@use "tokens" as *;
+﻿@use "tokens" as *;
 
 // Pixel-perfect mapping from Figma 1920 page coordinates.
-// One continuous dark zone (Figma's Rectangle 33634, y=1626→3114) holding:
-//   - 3 dark circular cards   (Figma: y=1806–2346)
-//   - vertical connector line (Figma: y=2594–2814)
-//   - SIGNAL DECODE marquee   (Figma: y=2894–3114)
+// One continuous dark zone (Figma's Rectangle 33634, y=1626??114) holding:
+//   - 3 dark circular cards   (Figma: y=1806??346)
+//   - vertical connector line (Figma: y=2594??814)
+//   - SIGNAL DECODE marquee   (Figma: y=2894??114)
 //
 // Sequential natural scroll: cards appear as the section enters the viewport
 // (morph image is at p=1 by then), then user scrolls and the connector line
@@ -17,7 +17,7 @@
   margin-bottom: 7vh;
 }
 
-// Visible dark background — kicks in after a 1-viewport buffer at the top so
+// Visible dark background ??kicks in after a 1-viewport buffer at the top so
 // it doesn't peek out around the morph image while it's still growing.
 .bg {
   position: absolute;
@@ -29,13 +29,13 @@
   z-index: 0;
 }
 
-// Content stack — header + cards + post (line + marquee), all in flow.
+// Content stack ??header + cards + post (line + marquee), all in flow.
 // Hidden until the section crosses the viewport-top threshold (`.show`
 // class is toggled by the component when sectionRect.top <= 0). Mirrors
-// landing/Overview→ValueCards entrance transition.
+// landing/Overview?뭋alueCards entrance transition.
 .inner {
   position: relative;
-  z-index: var(--z-content);
+  z-index: $z-content;
   // No bottom padding: the section ends exactly at the marquee bottom so
   // the dark background cuts cleanly into the next section (the morph
   // image is configured with `disableExitFade` for a hard cut, no fade).
@@ -56,7 +56,7 @@
   transform: translateY(0);
 }
 
-// Header — column, gap 24, width 742 (centered by parent)
+// Header ??column, gap 24, width 742 (centered by parent)
 .header {
   width: 38.6458%;                  // 742 / 1920
   display: flex;
@@ -88,14 +88,14 @@
   color: $color-white;
 }
 
-// Card group — 1460×540 fixed canvas
+// Card group ??1460횞540 fixed canvas
 .group {
   position: relative;
   width: 76.0417%;                  // 1460 / 1920
   aspect-ratio: 1460 / 540;
 }
 
-// Each card — 540×540 circle absolutely positioned
+// Each card ??540횞540 circle absolutely positioned
 .card {
   position: absolute;
   top: 0;
@@ -109,7 +109,7 @@
   &[data-index="2"] { left: 63.0137%; }    // 920 / 1460
 }
 
-// Content frame — column, gap 40, positioned at (110, 205) within card, width 320
+// Content frame ??column, gap 40, positioned at (110, 205) within card, width 320
 .content_inner {
   position: absolute;
   left: 20.3704%;                   // 110 / 540
@@ -121,7 +121,7 @@
   gap: 2.0833vw;                    // 40 / 1920
 }
 
-// Title row — number is positioned absolute as superscript next to word
+// Title row ??number is positioned absolute as superscript next to word
 .titleRow {
   position: relative;
   display: inline-flex;
@@ -140,7 +140,7 @@
   white-space: nowrap;
 }
 
-// Number — Pretendard Regular 18 / 26 / -2.5% / #87C0F3
+// Number ??Pretendard Regular 18 / 26 / -2.5% / #87C0F3
 .num {
   position: absolute;
   top: -0.6771vw;                   // -13 / 1920
@@ -168,7 +168,7 @@
   white-space: pre-line;
 }
 
-// Post block — vertical connector line + giant SIGNAL DECODE marquee text.
+// Post block ??vertical connector line + giant SIGNAL DECODE marquee text.
 // Tight flex layout (no trailing empty space inside the block) so the scroll
 // between marquee and next section stays short.
 .post {
@@ -177,10 +177,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4.1667vw;                    // 80 / 1920 — Figma gap between line & marquee
+  gap: 4.1667vw;                    // 80 / 1920 ??Figma gap between line & marquee
 }
 
-// Vertical line — Figma: x=960 (center), 1.5×220
+// Vertical line ??Figma: x=960 (center), 1.5횞220
 .line {
   width: 0.0781vw;                  // 1.5 / 1920
   min-width: 1px;
@@ -193,13 +193,13 @@
   );
 }
 
-// SIGNAL DECODE SIGNAL DECODE — Inter Bold 220/220, +2%, rgba(255,255,255,0.2)
-// Implementation: infinite horizontal marquee — track contains the text twice
+// SIGNAL DECODE SIGNAL DECODE ??Inter Bold 220/220, +2%, rgba(255,255,255,0.2)
+// Implementation: infinite horizontal marquee ??track contains the text twice
 // and translates by -50% so it loops seamlessly.
 .marquee {
   position: relative;
   width: 100%;
-  height: 11.4583vw;                // 220 / 1920 — matches font line-height
+  height: 11.4583vw;                // 220 / 1920 ??matches font line-height
   overflow: hidden;
   pointer-events: none;
   user-select: none;
@@ -214,7 +214,7 @@
 
 .marqueeText {
   flex-shrink: 0;
-  padding-right: 2.0833vw;          // 40 / 1920 — gap between repeats
+  padding-right: 2.0833vw;          // 40 / 1920 ??gap between repeats
   font-family: $ff-en;
   font-weight: 700;
   font-size: 11.4583vw;             // 220 / 1920

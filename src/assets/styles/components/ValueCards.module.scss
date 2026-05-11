@@ -1,8 +1,10 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .section {
   position: relative;
-  z-index: var(--z-content);
+  z-index: $z-content;
   width: 100%;
   margin-bottom: 10rem;
 }
@@ -18,7 +20,7 @@
   align-items: center;
   visibility: hidden;
   pointer-events: none;
-  z-index: var(--z-content);
+  z-index: $z-content;
 }
 
 .section.pinned .track {
@@ -29,7 +31,7 @@
 .cards {
   display: flex;
   gap: 2.5rem;
-  padding: 0 var(--sp-10);
+  padding: 0 $sp-10;
   will-change: transform;
 }
 
@@ -95,12 +97,12 @@
 }
 
 .num {
-  font-family: var(--ff-en);
+  font-family: $ff-en;
   font-size: 1.125rem;
-  font-weight: var(--fw-medium);
+  font-weight: $fw-medium;
   line-height: 1.444;
   text-transform: uppercase;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .body {
@@ -133,15 +135,15 @@
 
 .cardTitle {
   font-size: 1.5rem;
-  font-weight: var(--fw-semibold);
+  font-weight: $fw-semibold;
   line-height: 1.417;
   letter-spacing: -0.025em;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .cardDesc {
   font-size: 1rem;
-  font-weight: var(--fw-regular);
+  font-weight: $fw-regular;
   line-height: 1.5;
   letter-spacing: -0.025em;
   color: rgba(255, 255, 255, 0.6);
@@ -154,11 +156,11 @@
   }
   .cards {
     flex-wrap: wrap;
-    gap: var(--sp-5);
-    padding: 0 var(--sp-6);
+    gap: $sp-5;
+    padding: 0 $sp-6;
   }
   .card {
-    width: calc(50% - var(--sp-5));
+    width: calc(50% - $sp-5);
     height: 20rem;
   }
 }
@@ -176,8 +178,8 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    gap: var(--sp-4);
-    padding: 0 var(--sp-5);
+    gap: $sp-4;
+    padding: 0 $sp-5;
 
     &::-webkit-scrollbar {
       display: none;

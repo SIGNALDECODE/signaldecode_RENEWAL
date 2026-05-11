@@ -1,12 +1,14 @@
+﻿@use "tokens" as *;
+
 @use "mixins" as *;
 
 .section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-10);
-  padding: 12rem var(--sp-6);
-  background: var(--color-white);
+  gap: $sp-10;
+  padding: 12rem $sp-6;
+  background: $color-white;
   overflow: clip;
   width: 100%;
 }
@@ -15,60 +17,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--sp-6);
+  gap: $sp-6;
   text-align: center;
   text-transform: uppercase;
-  max-width: var(--content-md);
+  max-width: $content-md;
 }
 
 .eyebrow {
-  font-family: var(--ff-en);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-medium);
+  font-family: $ff-en;
+  font-size: $fs-lg;
+  font-weight: $fw-medium;
   line-height: 1.4;
-  color: var(--color-primary);
+  color: $color-primary;
 }
 
 .title {
-  font-size: var(--fs-4xl);
-  font-weight: var(--fw-bold);
+  font-size: $fs-4xl;
+  font-weight: $fw-bold;
   line-height: 1.217;
   letter-spacing: -0.025em;
-  color: var(--color-text-primary);
+  color: $color-text-primary;
 }
 
 .desc {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-regular);
+  font-size: $fs-sm;
+  font-weight: $fw-regular;
   line-height: 1.444;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
   text-transform: none;
 }
 
 .toggle {
   display: flex;
   align-items: center;
-  gap: var(--sp-2);
-  padding: var(--sp-5) var(--sp-10);
-  background: var(--color-white);
-  border-radius: var(--r-full);
-  filter: drop-shadow(var(--shadow-soft));
-  font-size: var(--fs-md);
-  font-weight: var(--fw-medium);
+  gap: $sp-2;
+  padding: $sp-5 $sp-10;
+  background: $color-white;
+  border-radius: $r-full;
+  filter: drop-shadow($shadow-soft);
+  font-size: $fs-md;
+  font-weight: $fw-medium;
   letter-spacing: -0.025em;
 }
 
 .toggleInactive {
-  color: var(--color-text-disabled);
-  font-weight: var(--fw-regular);
+  color: $color-text-disabled;
+  font-weight: $fw-regular;
   cursor: pointer;
   transition: color 0.2s, font-weight 0.2s;
 }
 
 .toggleActive {
-  color: var(--color-primary);
-  font-weight: var(--fw-bold);
+  color: $color-primary;
+  font-weight: $fw-bold;
   cursor: pointer;
   transition: color 0.2s, font-weight 0.2s;
 }
@@ -80,8 +82,8 @@
   width: 2.5rem;
   height: 1.375rem;
   padding: 1px;
-  background: var(--color-primary);
-  border-radius: var(--r-circle);
+  background: $color-primary;
+  border-radius: $r-circle;
   cursor: pointer;
 }
 
@@ -92,14 +94,14 @@
 .knob {
   width: 1.125rem;
   height: 1.125rem;
-  background: var(--color-white);
-  border-radius: var(--r-circle);
+  background: $color-white;
+  border-radius: $r-circle;
 }
 
 .slider {
   display: flex;
   align-items: center;
-  gap: var(--sp-12);
+  gap: $sp-12;
   width: 100%;
   max-width: 80rem;
   justify-content: center;
@@ -130,7 +132,7 @@
   height: 33rem;
   margin-top: -16.5rem;
   margin-left: -13rem;
-  border-radius: var(--r-lg);
+  border-radius: $r-lg;
   overflow: hidden;
   background: #d9d9d9;
   cursor: pointer;
@@ -149,7 +151,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--r-lg);
+  border-radius: $r-lg;
 }
 
 .arrow {
@@ -158,45 +160,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--r-full);
-  border: 1px solid var(--color-border);
+  border-radius: $r-full;
+  border: 1px solid $color-border;
   flex-shrink: 0;
   font-size: 1.3rem;
   line-height: 1;
 }
 
 .arrowLight {
-  background: var(--color-white);
+  background: $color-white;
   color: #222;
 }
 
 .arrowDark {
   background: #222;
-  color: var(--color-white);
+  color: $color-white;
 }
 
 .more {
-  margin-top: var(--sp-8);
-  padding: var(--sp-4) var(--sp-10);
+  margin-top: $sp-8;
+  padding: $sp-4 $sp-10;
   width: 11.25rem;
-  background: var(--color-bg-soft);
-  border-radius: var(--r-sm);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
+  background: $color-bg-soft;
+  border-radius: $r-sm;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
   line-height: 1.5;
   letter-spacing: -0.025em;
-  color: var(--color-text-secondary);
+  color: $color-text-secondary;
 }
 
 @include tablet {
   .section {
-    padding: 8rem var(--sp-6);
+    padding: 8rem $sp-6;
   }
   .title {
-    font-size: var(--fs-3xl);
+    font-size: $fs-3xl;
   }
   .slider {
-    gap: var(--sp-6);
+    gap: $sp-6;
   }
   .stage {
     height: 28rem;
@@ -215,21 +217,21 @@
 
 @include mobile {
   .section {
-    padding: 5rem var(--sp-5);
-    gap: var(--sp-6);
+    padding: 5rem $sp-5;
+    gap: $sp-6;
   }
   .title {
-    font-size: var(--fs-2xl);
+    font-size: $fs-2xl;
   }
   .eyebrow {
-    font-size: var(--fs-md);
+    font-size: $fs-md;
   }
   .toggle {
-    font-size: var(--fs-sm);
-    padding: var(--sp-3) var(--sp-6);
+    font-size: $fs-sm;
+    padding: $sp-3 $sp-6;
   }
   .slider {
-    gap: var(--sp-3);
+    gap: $sp-3;
   }
   .stage {
     height: 22rem;
@@ -250,8 +252,8 @@
     font-size: 1rem;
   }
   .more {
-    margin-top: var(--sp-5);
-    padding: var(--sp-3) var(--sp-7);
+    margin-top: $sp-5;
+    padding: $sp-3 $sp-7;
     width: auto;
   }
 }

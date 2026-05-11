@@ -88,7 +88,40 @@
   border-radius: $r-lg;
   box-shadow: 0 8px 24px -8px rgba(34, 34, 34, 0.08);
   filter: blur(4px);
-  opacity: 0.85;
+  opacity: 0;
+  transform: translateY(3rem);
+  will-change: opacity, transform;
+}
+
+@keyframes professional-rise {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 0.85;
+    transform: translateY(0);
+  }
+}
+
+@keyframes professional-rise-active {
+  from {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stackIn .itemCard {
+  animation: professional-rise 0.6s cubic-bezier(0.22, 0.61, 0.36, 1)
+    calc((3 - var(--i, 0)) * 0.6s) forwards;
+}
+
+.stackIn .itemCardActive {
+  animation-name: professional-rise-active;
 }
 
 .itemCardActive {
@@ -97,7 +130,24 @@
   position: relative;
   z-index: 2;
   filter: none;
+}
+
+.stackSettled .itemCard {
+  animation: none;
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.stackSettled .itemCardActive {
   opacity: 1;
+  cursor: pointer;
+  transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.stackSettled .itemCardActive:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 14px 16px 24px 0 rgba(34, 34, 34, 0.18);
 }
 
 .itemHead {
