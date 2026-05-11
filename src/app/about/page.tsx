@@ -9,7 +9,6 @@ import AboutOverview from "@/components/about/AboutOverview";
 import AboutKeywords from "@/components/about/AboutKeywords";
 import AboutFeatureSections from "@/components/about/AboutFeatureSections";
 import AboutValuePillars from "@/components/about/AboutValuePillars";
-import AboutMarquee from "@/components/about/AboutMarquee";
 
 export const metadata: Metadata = {
   title: "회사소개 | SIGNALDECODE",
@@ -32,12 +31,11 @@ export default function AboutPage() {
           stickyMode
           disableAutoScroll
         />
-        <AboutBusinessIntro />
+        <AboutBusinessIntro />  
         <AboutOverview />
         <AboutKeywords />
         <AboutFeatureSections />
         <AboutValuePillars />
-        <AboutMarquee />
       </main>
       <Footer />
     </>

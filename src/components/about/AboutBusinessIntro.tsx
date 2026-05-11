@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "@/assets/styles/components/AboutBusinessIntro.module.scss";
+import styles from "@/assets/styles/components/about/AboutBusinessIntro.module.scss";
 import { aboutBusinessIntro, aboutDivider } from "@/data/about";
 
 export default function AboutBusinessIntro() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
-import styles from "@/assets/styles/components/Reveal.module.scss";
+import styles from "@/assets/styles/components/ui/Reveal.module.scss";
 
 export default function Reveal({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);

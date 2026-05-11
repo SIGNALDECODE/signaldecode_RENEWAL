@@ -5,9 +5,11 @@ export const eumfood: WebProjectDetail = {
   brand: "이음푸드시스템",
   brandAccent: "#FF5D27",
   pageNumber: "3",
-  heroBg: "/images/web/hero/eumfood.png",
+  heroBg: "/images/web/eumfood/hero-bg-3c0ee2.png",
   hero: {
     title: "이음푸드시스템",
+    subtitle:
+      "식자재 소싱과 안정적인 유통 시스템을 기반으로 외식 브랜드의 성장을 만드는 프리미엄 식자재 전문 기업",
     paragraphs: [
       "레이아웃은 명확한 시각적 위계를 기반으로 설계하여 정보의 흐름이 직관적으로 이어지도록 구성하며, 브랜드가 전달하고자 하는 메시지가 효과적으로 인지될 수 있도록 구조화합니다.",
       "과도하게 무거운 인상을 지양하고 적절한 Border Radius를 활용하여 부드러운 인상을 부여함으로써, 브랜드에 대한 심리적 거리감을 낮추고 친근하고 편안한 사용자 경험을 유도합니다.",
@@ -31,21 +33,25 @@ export const eumfood: WebProjectDetail = {
         num: "01",
         title: "직관적인 구조",
         desc: "필요한 정보가 한눈에 들어오는 경험을 제공",
+        icon: "/images/web/eumfood/core/icon-01.svg",
       },
       {
         num: "02",
         title: "전문성 중심 콘텐츠",
         desc: "기업의 경험과 운영 노하우를 신뢰감 있게 전달",
+        icon: "/images/web/eumfood/core/icon-02.svg",
       },
       {
         num: "03",
         title: "높은 정보 전달력",
         desc: "핵심 정보를 명확히 전달하도록 설계",
+        icon: "/images/web/eumfood/core/icon-03.svg",
       },
       {
         num: "04",
         title: "인터렉션 요소",
         desc: "부드러운 움직임과 반응형 효과로 높은 몰입도 제공",
+        icon: "/images/web/eumfood/core/icon-04.svg",
       },
     ],
   },
@@ -109,7 +115,7 @@ export const eumfood: WebProjectDetail = {
       "기업 정보를 보다 손쉽게 확인할 수 있도록 정보의 흐름과 우선순위를 먼저 정리하고, 사용자가 화면을 보는 순간 필요한 내용을\n직관적으로 파악할 수 있도록 UI를 구성했습니다.",
   },
   mockPreview: {
-    src: "/images/web/preview/eumfood.png",
+    src: "/images/web/eumfood/showcase.png",
     alt: "이음푸드시스템 메인 페이지 미리보기",
   },
 };

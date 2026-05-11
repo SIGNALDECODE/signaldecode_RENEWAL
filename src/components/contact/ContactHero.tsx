@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "@/assets/styles/components/ContactHero.module.scss";
+import styles from "@/assets/styles/components/contact/ContactHero.module.scss";
 import { contact } from "@/data/contact";
 
 export default function ContactHero() {
@@ -16,14 +16,7 @@ export default function ContactHero() {
         <p className={styles.desc}>{hero.desc}</p>
         <nav className={styles.breadcrumb} aria-label="breadcrumb">
           <Link href="/" className={styles.crumbHome} aria-label="home">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-              <path
-                d="M3 8l6-5 6 5v7a1 1 0 0 1-1 1h-3v-4H7v4H4a1 1 0 0 1-1-1V8Z"
-                stroke="currentColor"
-                strokeWidth="1.4"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <img src="/icons/Home.svg" alt="" />
           </Link>
           {hero.breadcrumb.map((c) => (
             <span key={c.label} className={styles.crumb}>

@@ -1,4 +1,4 @@
-import styles from "@/assets/styles/components/ServiceCards.module.scss";
+import styles from "@/assets/styles/components/marketing/ServiceCards.module.scss";
 import type { Card } from "@/types/channel";
 
 type Props = {

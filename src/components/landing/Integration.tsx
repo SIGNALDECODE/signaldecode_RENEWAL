@@ -1,4 +1,4 @@
-import styles from "@/assets/styles/components/Integration.module.scss";
+import styles from "@/assets/styles/components/landing/Integration.module.scss";
 import { integration } from "@/data/landing/integration";
 
 export default function Integration() {

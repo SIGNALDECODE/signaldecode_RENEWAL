@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "@/assets/styles/components/Header.module.scss";
+import styles from "@/assets/styles/components/ui/Header.module.scss";
 import { header } from "@/data/ui/header";
 
 export default function Header() {
@@ -35,25 +35,64 @@ export default function Header() {
             <img src={header.logo.src} alt={header.logo.alt} className={styles.logoIcon} />
           </Link>
           <nav className={styles.nav}>
-            {header.nav.map((item) =>
-              item.comingSoon ? (
-                <span
-                  key={item.label}
-                  className={`${styles.navItem} ${styles.navDisabled}`}
-                  aria-disabled="true"
-                  tabIndex={0}
-                >
-                  {item.label}
-                  <span className={styles.tooltip} role="tooltip">
-                    {header.comingSoonLabel}
+            {header.nav.map((item) => {
+              if (item.comingSoon) {
+                return (
+                  <span
+                    key={item.label}
+                    className={`${styles.navItem} ${styles.navDisabled}`}
+                    aria-disabled="true"
+                    tabIndex={0}
+                  >
+                    {item.label}
+                    <span className={styles.tooltip} role="tooltip">
+                      {header.comingSoonLabel}
+                    </span>
                   </span>
-                </span>
-              ) : (
+                );
+              }
+              if (item.dropdown && item.dropdown.length > 0) {
+                return (
+                  <div key={item.label} className={styles.navDropdownWrap}>
+                    <Link
+                      href={item.href}
+                      className={`${styles.navItem} ${styles.navItemDropdown}`}
+                      aria-haspopup="menu"
+                    >
+                      {item.label}
+                      <span className={styles.caret} aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="M6 9l6 6 6-6"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
+                    </Link>
+                    <div className={styles.dropdown} role="menu">
+                      {item.dropdown.map((d) => (
+                        <Link
+                          key={d.href}
+                          href={d.href}
+                          className={styles.dropdownItem}
+                          role="menuitem"
+                        >
+                          {d.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
                 <Link key={item.label} href={item.href} className={styles.navItem}>
                   {item.label}
                 </Link>
-              )
-            )}
+              );
+            })}
           </nav>
         </div>
         <div className={styles.right}>

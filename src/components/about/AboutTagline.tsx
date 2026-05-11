@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/assets/styles/components/AboutTagline.module.scss";
+import styles from "@/assets/styles/components/about/AboutTagline.module.scss";
 import { aboutTagline } from "@/data/about";
 
 export default function AboutTagline() {

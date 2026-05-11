@@ -4,8 +4,7 @@ import Footer from "@/components/ui/Footer";
 import WebHero from "@/components/web/WebHero";
 import WebFeatures from "@/components/web/WebFeatures";
 import WebPortfolio from "@/components/web/WebPortfolio";
-import WebCTA from "@/components/web/WebCTA";
-import WebFloatingBar from "@/components/web/WebFloatingBar";
+import ContactPromptBar from "@/components/ui/ContactPromptBar";
 
 export const metadata: Metadata = {
   title: "웹·개발 | SIGNALDECODE",
@@ -21,9 +20,8 @@ export default function WebPage() {
         <WebHero />
         <WebFeatures />
         <WebPortfolio />
-        <WebCTA />
       </main>
-      <WebFloatingBar />
+      <ContactPromptBar />
       <Footer />
     </>
   );

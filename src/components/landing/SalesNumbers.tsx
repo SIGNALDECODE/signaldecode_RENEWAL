@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "@/assets/styles/components/SalesNumbers.module.scss";
+import styles from "@/assets/styles/components/landing/SalesNumbers.module.scss";
 import { salesNumbers } from "@/data/landing/salesNumbers";
 
 const FINAL = salesNumbers.finalNumber.split("");

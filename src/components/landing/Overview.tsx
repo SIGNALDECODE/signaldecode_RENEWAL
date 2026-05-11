@@ -1,4 +1,4 @@
-import styles from "@/assets/styles/components/Overview.module.scss";
+import styles from "@/assets/styles/components/landing/Overview.module.scss";
 import { overviewCopy } from "@/data/landing/overview";
 
 export default function Overview() {

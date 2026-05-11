@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/assets/styles/components/AboutHero.module.scss";
+import styles from "@/assets/styles/components/about/AboutHero.module.scss";
 import { aboutHero } from "@/data/about";
 
 export default function AboutHero() {

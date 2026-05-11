@@ -1,0 +1,160 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "SIGNALDECODE" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "SIGNALDECODE" [ref=e5]
+      - navigation [ref=e6]:
+        - link "회사소개" [ref=e7] [cursor=pointer]:
+          - /url: /about
+        - link "마케팅서비스" [ref=e8] [cursor=pointer]:
+          - /url: /marketing/naver
+        - link "웹·개발" [ref=e9] [cursor=pointer]:
+          - /url: /web
+        - generic [ref=e10] [cursor=pointer]: 이벤트
+        - generic [ref=e11] [cursor=pointer]: 고객지원
+    - link "문의하기" [ref=e13] [cursor=pointer]:
+      - /url: /contact
+  - generic:
+    - navigation:
+      - link:
+        - /url: /about
+        - text: 회사소개
+      - link:
+        - /url: /marketing/naver
+        - text: 마케팅서비스
+      - link:
+        - /url: /web
+        - text: 웹·개발
+      - generic:
+        - text: 이벤트
+        - generic: 준비중입니다
+      - generic:
+        - text: 고객지원
+        - generic: 준비중입니다
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "마케팅 서비스" [level=1] [ref=e18]
+        - paragraph [ref=e19]: 데이터 기반으로 유입부터 전환까지 설계합니다.
+      - navigation "breadcrumb" [ref=e20]:
+        - img [ref=e22]
+        - generic [ref=e25]: 마케팅 서비스
+        - generic [ref=e27]: 네이버
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: Advertising Media
+        - heading "네이버" [level=2] [ref=e31]
+      - list [ref=e32]:
+        - listitem [ref=e33]:
+          - generic [ref=e34]:
+            - generic [ref=e36]: 홈판 노출
+            - generic [ref=e37]: NAVER
+          - generic [ref=e38]:
+            - heading "방문자 유입" [level=3] [ref=e39]
+            - paragraph [ref=e40]: 검색 상위에 노출될 수 있도록 구조를 설계합니다. 지속적인 방문자 유입과 브랜드 노출을 확보합니다.
+        - listitem [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e44]: 검색 키워드
+            - generic [ref=e45]: NAVER
+          - generic [ref=e46]:
+            - heading "검색 키워드 최적화" [level=3] [ref=e47]
+            - paragraph [ref=e48]: 구매 가능성이 높은 핵심 키워드를 선별하고 최적화 합니다. 전환 가능성이 높은 유입을 만듭니다.
+        - listitem [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e52]: 플레이스
+            - generic [ref=e53]: NAVER
+          - generic [ref=e54]:
+            - heading "지역 검색 최적화" [level=3] [ref=e55]
+            - paragraph [ref=e56]: 지역 검색에 최적화된 정보와 콘텐츠를 구성하고 실제 방문으로 이어지는 고객 유입을 증가시킵니다.
+        - listitem [ref=e57]:
+          - generic [ref=e58]:
+            - generic [ref=e60]: 블로그
+            - generic [ref=e61]: NAVER
+          - generic [ref=e62]:
+            - heading "콘텐츠 기획 및 발행" [level=3] [ref=e63]
+            - paragraph [ref=e64]: 검색 중심의 콘텐츠 기획 및 체계적 발행을 합니다. 지속적으로 유입이 발생하는 구조를 만듭니다.
+        - listitem [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e68]: 지식인
+            - generic [ref=e69]: NAVER
+          - generic [ref=e70]:
+            - heading "질문 및 답변 콘텐츠" [level=3] [ref=e71]
+            - paragraph [ref=e72]: 질문에 맞는 답변 콘텐츠를 전략적으로 작성합니다. 신뢰도를 높여 자연스럽게 고객 유입을 유도합니다.
+        - listitem [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e76]: 카페
+            - generic [ref=e77]: NAVER
+          - generic [ref=e78]:
+            - heading "커뮤니티 활성화, 댓글 작업" [level=3] [ref=e79]
+            - paragraph [ref=e80]: 커뮤니티 내 자연스러운 참여와 노출을 설계합니다. 광고 느낌 없이 신뢰 기반의 유입을 확보합니다.
+        - listitem [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e84]: 클립 제작/노출
+            - generic [ref=e85]: NAVER
+          - generic [ref=e86]:
+            - heading "집중도 높은 콘텐츠" [level=3] [ref=e87]
+            - paragraph [ref=e88]: 짧고 집중도 높은 영상 콘텐츠를 제작합니다. 빠른 확산을 통해 신규 유입과 관심도를 높입니다.
+        - listitem [ref=e89]:
+          - generic [ref=e90]:
+            - generic [ref=e92]: 스마트스토어
+            - generic [ref=e93]: NAVER
+          - generic [ref=e94]:
+            - heading "상품 구매 전환율 개선" [level=3] [ref=e95]
+            - paragraph [ref=e96]: 상품 상세와 노출 구조를 전환 중심으로 개선합니다. 클릭률과 구매 전환율을 동시에 높입니다.
+        - listitem [ref=e97]:
+          - generic [ref=e98]:
+            - generic [ref=e100]: 리뷰 체험단
+            - generic [ref=e101]: NAVER
+          - generic [ref=e102]:
+            - heading "리뷰 콘텐츠" [level=3] [ref=e103]
+            - paragraph [ref=e104]: 실제 사용 기반 리뷰 콘텐츠를 기획 및 운영합니다. 신뢰도를 높여 구매에 직접적인 영향을 줍니다.
+        - listitem [ref=e105]:
+          - generic [ref=e106]:
+            - generic [ref=e108]: 후기 업로드
+            - generic [ref=e109]: NAVER
+          - generic [ref=e110]:
+            - heading "고객 후기 콘텐츠" [level=3] [ref=e111]
+            - paragraph [ref=e112]: 고객 후기를 전략적으로 수집하고 콘텐츠화합니다. 브랜드 신뢰를 강화하고 전환율을 끌어올립니다.
+  - complementary "문의 안내" [ref=e113]:
+    - paragraph [ref=e114]: 지금 웹사이트는 제대로 설계되어 있나요?
+    - link "문의하러 가기" [ref=e115] [cursor=pointer]:
+      - /url: /contact
+      - img [ref=e117]
+      - generic [ref=e120]: 문의하러 가기
+  - contentinfo [ref=e121]:
+    - generic [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - heading "New Source" [level=3] [ref=e125]
+          - generic [ref=e126]:
+            - paragraph [ref=e127]: Adress
+            - paragraph [ref=e128]: 서울특별시 마포구 잔다리로 44, 9층(서교동, 센터원빌딩)
+          - generic [ref=e129]:
+            - paragraph [ref=e130]: E-mail
+            - paragraph [ref=e131]: signaldecode@signal-decode.com
+        - generic [ref=e132]:
+          - heading "Info" [level=3] [ref=e133]
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - paragraph [ref=e136]: 대표
+              - paragraph [ref=e137]: 손재현
+            - generic [ref=e138]:
+              - paragraph [ref=e139]: Phone
+              - paragraph [ref=e140]: 02-322-7779
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - paragraph [ref=e143]: 사업자번호
+              - paragraph [ref=e144]: 397-88-03608
+            - generic [ref=e145]:
+              - paragraph [ref=e146]: 업무시간
+              - paragraph [ref=e147]: 10:00 - 19:00
+      - generic [ref=e148]:
+        - paragraph [ref=e149]: COPYRIGHT © 2020 SIGNALDECODE. ALL RIGHTS RESERVED.
+        - generic [ref=e151]:
+          - generic [ref=e152]: SIGNAL DECODE
+          - generic [ref=e153]: SIGNAL DECODE
+          - generic [ref=e154]: SIGNAL DECODE
+          - generic [ref=e155]: SIGNAL DECODE
+  - button "Open Next.js Dev Tools" [ref=e161] [cursor=pointer]:
+    - img [ref=e162]

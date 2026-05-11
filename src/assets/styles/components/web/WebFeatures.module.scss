@@ -1,0 +1,147 @@
+@use "tokens" as *;
+@use "mixins" as *;
+
+// Figma 1920 page: section width 1720 @ x=100. Header centered (eyebrow + title),
+// then 2×2 card grid: 848 × 240 cards, gap 24×28 (row × column).
+.section {
+  width: 100%;
+  padding: 8.75rem 0 7.5rem;
+  background: $color-white;
+}
+
+// Header — gap 8 between eyebrow & title, gap 12 between heading rows
+.header {
+  width: min($container-xl, calc(100vw - 5rem));
+  margin: 0 auto $sp-15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-2;
+  text-align: center;
+}
+
+// Inter Medium 18 TitleCase #021526
+.eyebrow {
+  margin: 0;
+  font-family: $ff-en;
+  font-weight: $fw-medium;
+  font-size: $fs-md;
+  color: $color-primary;
+  text-transform: capitalize;
+  letter-spacing: -0.025em;
+}
+
+// title 2: 48 / 58 SemiBold center #000, preserves \n
+.title {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: $fw-semibold;
+  font-size: 3rem;
+  line-height: 1.2083;
+  letter-spacing: -0.025em;
+  color: $color-black;
+  white-space: pre-line;
+}
+
+// 2 × 2 grid; Figma gap 28 row / 24 column → use 24px column 28px row
+.grid {
+  width: min($container-xl, calc(100vw - 5rem));
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 24px;
+  row-gap: 28px;
+}
+
+// Card: 848 × 240, radius 16, bg #F9FAFB. Title block at (32,32) w=366,
+// illustration at (660,76) 140×140.
+.card {
+  position: relative;
+  border-radius: 16px;
+  background: #f9fafb;
+  aspect-ratio: 848 / 240;
+  overflow: hidden;
+}
+
+.cardBody {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  right: 13rem;               // 140 image + 48 right + 20 buffer = 208 ≈ 13rem
+  display: flex;
+  flex-direction: column;
+  gap: $sp-2;
+}
+
+// Pretendard SemiBold 28 / 38, -2.5%, #000
+.cardTitle {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: $fw-semibold;
+  font-size: 1.75rem;
+  line-height: 1.357;          // 38 / 28
+  letter-spacing: -0.025em;
+  color: $color-black;
+}
+
+// body 5: Pretendard Regular 16 / 26, -2.5%, #767676 — single line, no wrap
+.cardDesc {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: $fw-regular;
+  font-size: $fs-sm;
+  line-height: 1.625;          // 26 / 16
+  letter-spacing: -0.025em;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+// Illustration container — anchored to the right at (660,76) with 140×140 box.
+// Image inside is positioned within that box with object-fit: contain.
+.cardArt {
+  position: absolute;
+  top: 76px;
+  right: 48px;                 // 848 - 660 - 140 = 48
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+  }
+}
+
+@include tablet {
+  .section { padding: 5rem 0 5rem; }
+  .title { font-size: 2.25rem; }
+  .grid {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+  .card {
+    aspect-ratio: auto;
+    min-height: 200px;
+  }
+  .cardBody { right: 9rem; top: 24px; left: 24px; }
+  .cardDesc { white-space: normal; }
+  .cardArt { width: 100px; height: 100px; top: 50%; right: 24px; transform: translateY(-50%); }
+}
+
+@include mobile {
+  .section { padding: 3rem 0 4rem; }
+  .header { width: calc(100vw - 2rem); }
+  .grid { width: calc(100vw - 2rem); }
+  .card { min-height: 180px; }
+  .title { font-size: 1.625rem; }
+  .cardTitle { font-size: 1.25rem; line-height: 1.4; }
+  .cardDesc { font-size: $fs-xs; }
+  .cardBody { right: 6.5rem; top: 20px; left: 20px; }
+  .cardArt { width: 80px; height: 80px; right: 16px; }
+}

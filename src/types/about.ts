@@ -43,12 +43,13 @@ export type AboutFeatureSection = {
   title: string;
   desc: string;
   bg: string;
-  align: "left" | "right";
+  icon: string;
 };
 
 export type AboutKeyword = {
   title: string;
   desc: string;
+  icon: string;
 };
 
 export type AboutKeywords = {
@@ -62,10 +63,6 @@ export type AboutMegaphone = {
   image: string;
   title: string;
   desc: string;
-};
-
-export type AboutMarquee = {
-  text: string;
 };
 
 export type AboutDivider = {

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/assets/styles/components/AboutDivider.module.scss";
+import styles from "@/assets/styles/components/about/AboutDivider.module.scss";
 import { aboutDivider } from "@/data/about";
 
 export default function AboutDivider() {

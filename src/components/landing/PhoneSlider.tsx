@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "@/assets/styles/components/PhoneSlider.module.scss";
+import styles from "@/assets/styles/components/landing/PhoneSlider.module.scss";
 import { phoneSlider } from "@/data/landing/phoneSlider";
 import type { PhoneSliderModeKey } from "@/types/landing";
 
@@ -66,18 +66,29 @@ export default function PhoneSlider() {
   const next = () => setIndex((i) => (i + 1) % len);
 
   const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    e.currentTarget.setPointerCapture(e.pointerId);
     startX.current = e.clientX;
     accumShift.current = 0;
     moved.current = false;
     setDragging(true);
     setDragX(0);
+    // Don't capture the pointer yet — capturing on pointerdown causes the
+    // stage to swallow click events on the inner card so links never fire.
+    // We promote to a real drag (and capture) only once the pointer travels
+    // past the 4px threshold below.
   };
 
   const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging) return;
     const dx = e.clientX - startX.current;
-    if (Math.abs(dx) > 4) moved.current = true;
+    if (!moved.current && Math.abs(dx) > 4) {
+      moved.current = true;
+      try {
+        e.currentTarget.setPointerCapture(e.pointerId);
+      } catch {
+        // Pointer may already be released / unsupported — safe to ignore.
+      }
+    }
+    if (!moved.current) return;
     const total = Math.round(dx / DRAG_STEP);
     const delta = total - accumShift.current;
     if (delta !== 0) {
@@ -89,7 +100,7 @@ export default function PhoneSlider() {
 
   const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
     if (!dragging) return;
-    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+    if (moved.current && e.currentTarget.hasPointerCapture(e.pointerId)) {
       e.currentTarget.releasePointerCapture(e.pointerId);
     }
     setDragging(false);

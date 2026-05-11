@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "@/assets/styles/components/PerformanceChart.module.scss";
+import styles from "@/assets/styles/components/landing/PerformanceChart.module.scss";
 import { performanceChart } from "@/data/landing/performanceChart";
 
 export default function PerformanceChart() {

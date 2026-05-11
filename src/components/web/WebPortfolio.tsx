@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import styles from "@/assets/styles/components/WebPortfolio.module.scss";
+import styles from "@/assets/styles/components/web/WebPortfolio.module.scss";
 import { webPortfolio } from "@/data/web";
 
 export default function WebPortfolio() {
@@ -11,8 +11,6 @@ export default function WebPortfolio() {
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
 
-  // Bounds = full scrollable range (0 → scrollWidth - clientWidth) so the
-  // leading and trailing padding gutters are part of the slide.
   const getBounds = () => {
     const scroller = scrollerRef.current;
     const list = listRef.current;
@@ -68,17 +66,27 @@ export default function WebPortfolio() {
             <li key={item.brand} className={styles.card}>
               <Link href={item.href} className={styles.cardLink}>
                 <img src={item.image} alt={item.brand} className={styles.cardImage} />
+                <span className={styles.cardGradient} aria-hidden />
+
+                <div className={styles.cardInfo}>
+                  <div className={styles.cardText}>
+                    <strong className={styles.cardBrand}>{item.brand}</strong>
+                    <span className={styles.cardSubtitle}>{item.subtitle}</span>
+                  </div>
+                  <span className={styles.cardTag}>{item.tag}</span>
+                </div>
 
                 <div className={styles.hover} aria-hidden>
                   <span className={styles.hoverInner}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden>
+                      <circle cx="16" cy="16" r="15" stroke="#fff" strokeWidth="1.4" />
                       <path
-                        d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+                        d="m13 11 5 5-5 5"
                         stroke="#fff"
-                        strokeWidth="1.6"
+                        strokeWidth="1.4"
+                        strokeLinecap="round"
                         strokeLinejoin="round"
                       />
-                      <circle cx="12" cy="12" r="3" fill="#fff" />
                     </svg>
                     <span>View More</span>
                   </span>

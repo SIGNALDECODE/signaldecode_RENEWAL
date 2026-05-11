@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import styles from "@/assets/styles/components/Professional.module.scss";
+import styles from "@/assets/styles/components/landing/Professional.module.scss";
 import { professional } from "@/data/landing/professional";
 
 export default function Professional() {

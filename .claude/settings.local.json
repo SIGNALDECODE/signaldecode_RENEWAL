@@ -9,7 +9,21 @@
       "Bash(npx next *)",
       "Bash(grep -oE \"text: [^\\\\\\\\\\\\\\\\]{1,120}\" \"C:\\\\Users\\\\youhyun\\\\.claude\\\\projects\\\\c--Users-youhyun-Desktop-signaldecode-RENEWAL\\\\c1776732-e51d-4cda-8fe3-8835b8e93380\\\\tool-results\\\\mcp-figma-get_figma_data-1778219588352.txt\" > /tmp/texts.txt; wc -l /tmp/texts.txt)",
       "Bash(python lookup.py layout_V8NWDZ layout_X70YDH style_ENT7LP fill_PPYU9O layout_O6B4X5 layout_S0YG2F layout_U156ZH style_ZL320M style_89Z3QF layout_Y3BBI3 layout_UR5AMY style_5H73TN layout_4HUVJC fill_KZYEMC fill_31AFTK fill_GMTVNU fill_BWVR40 fill_DTO1ZE style_QB9IPO layout_L8JBUE)",
-      "Bash(npx --no-install tsc --noEmit)"
+      "Bash(npx --no-install tsc --noEmit)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('c:/tmp/figma.txt','utf8'\\);process.stdout.write\\(s.slice\\(0,12000\\)\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('c:/tmp/figma.txt','utf8'\\);process.stdout.write\\(s.slice\\(60000,72000\\)\\);\")",
+      "Bash(node -e \"const fs=require\\('fs'\\);const s=fs.readFileSync\\('c:/tmp/figma.txt','utf8'\\);process.stdout.write\\(s.slice\\(72000,84000\\)\\);\")",
+      "Bash(npx tsc *)",
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(grep -o \"text: [^\\\\\\\\\\\\\\\\]*\" \"C:\\\\Users\\\\youhyun\\\\.claude\\\\projects\\\\c--Users-youhyun-Desktop-signaldecode-RENEWAL\\\\18273669-a560-435c-a0f0-a3caf6887811\\\\tool-results\\\\mcp-figma-get_figma_data-1778486768352.txt\")",
+      "Bash(node -e ' *)",
+      "Bash(npm run *)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_resize",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(data[0]['text'][:200]\\)\")",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); t=data[0]['text']; open\\('c:/tmp/figma.yaml','wb'\\).write\\(t.encode\\('utf-8','replace'\\)\\); print\\(len\\(t\\)\\)\")",
+      "Bash(grep -n '\\\\$r-md\\\\|\\\\$r-sm\\\\|\\\\$sp-1\\\\b\\\\|\\\\$sp-2\\\\b\\\\|\\\\$sp-3\\\\b\\\\|\\\\$sp-4\\\\b\\\\|\\\\$fw-medium' c:/Users/youhyun/Desktop/signaldecode_RENEWAL/src/assets/styles/tokens/_radius.scss c:/Users/youhyun/Desktop/signaldecode_RENEWAL/src/assets/styles/tokens/_spacing.scss c:/Users/youhyun/Desktop/signaldecode_RENEWAL/src/assets/styles/tokens/_typography.scss)"
     ],
     "additionalDirectories": [
       "\\tmp"

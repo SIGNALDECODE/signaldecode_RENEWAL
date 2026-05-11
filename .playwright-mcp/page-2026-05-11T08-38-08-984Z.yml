@@ -1,0 +1,202 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "SIGNALDECODE" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "SIGNALDECODE" [ref=e5]
+      - navigation [ref=e6]:
+        - link "회사소개" [ref=e7] [cursor=pointer]:
+          - /url: /about
+        - link "마케팅서비스" [ref=e8] [cursor=pointer]:
+          - /url: /marketing/naver
+        - link "웹·개발" [ref=e9] [cursor=pointer]:
+          - /url: /web
+        - generic [ref=e10] [cursor=pointer]: 이벤트
+        - generic [ref=e11] [cursor=pointer]: 고객지원
+    - link "문의하기" [ref=e13] [cursor=pointer]:
+      - /url: /contact
+  - generic:
+    - navigation:
+      - link:
+        - /url: /about
+        - text: 회사소개
+      - link:
+        - /url: /marketing/naver
+        - text: 마케팅서비스
+      - link:
+        - /url: /web
+        - text: 웹·개발
+      - generic:
+        - text: 이벤트
+        - generic: 준비중입니다
+      - generic:
+        - text: 고객지원
+        - generic: 준비중입니다
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "웹·개발" [level=1] [ref=e18]
+        - paragraph [ref=e19]: 기획부터 개발까지 하나의 흐름으로 브랜드의 방향성과 비즈니스 구조에 맞춰 맞춤형으로 설계합니다.
+      - navigation "breadcrumb" [ref=e20]:
+        - img [ref=e22]
+        - generic [ref=e25]: 웹·개발
+    - generic [ref=e26]:
+      - paragraph [ref=e27]: 지금 웹사이트는 제대로 설계되어 있나요?
+      - link "문의하러 가기" [ref=e28] [cursor=pointer]:
+        - /url: /contact
+        - img [ref=e30]
+        - generic [ref=e35]: 문의하러 가기
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: Custom Web & Software
+        - heading "홈페이지부터 프로그램까지 고객이 필요로 하는 모든 웹·프로그램 개발" [level=2] [ref=e39]
+      - list [ref=e40]:
+        - listitem [ref=e41]:
+          - generic [ref=e42]:
+            - heading "전환을 고려한 UX 설계" [level=3] [ref=e43]
+            - paragraph [ref=e44]: 예쁜 디자인보다 고객의 사용 동선을 고려한 웹을 설계합니다.
+        - listitem [ref=e46]:
+          - generic [ref=e47]:
+            - heading "맞춤형 커스텀 개발" [level=3] [ref=e48]
+            - paragraph [ref=e49]: 브랜드의 비즈니스 구조에 맞게 맞춤형 솔루션을 제공합니다.
+        - listitem [ref=e51]:
+          - generic [ref=e52]:
+            - heading "운영을 반영한 시스템 구축" [level=3] [ref=e53]
+            - paragraph [ref=e54]: 관리자가 편한 구조로 웹 시스템을 직접 개발합니다.
+        - listitem [ref=e56]:
+          - generic [ref=e57]:
+            - heading "확장 가능한 기술 구조" [level=3] [ref=e58]
+            - paragraph [ref=e59]: 목적 도달까지 자연스러운 흐름과 확장 구조를 설계합니다.
+    - generic [ref=e61]:
+      - generic [ref=e62]:
+        - paragraph [ref=e63]: Signature Portfolio
+        - heading "시그널디코드의 엄선된 프로젝트" [level=2] [ref=e64]
+        - paragraph [ref=e65]: 웹사이트, UI/UX, 모바일 등 세심한 디테일로 브랜드의 자부심을 극대화하여 완성된 시그널디코드의 대표 프로젝트
+      - list [ref=e67]:
+        - listitem [ref=e68] [cursor=pointer]:
+          - link "정성 SR 정성 SR 브랜드 소개 문구 텍스트 UIUX 디자인" [ref=e69]:
+            - /url: /web/jeongseong-sr
+            - img "정성 SR" [ref=e70]
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - strong [ref=e73]: 정성 SR
+                - generic [ref=e74]: 브랜드 소개 문구 텍스트
+              - generic [ref=e75]: UIUX 디자인
+            - generic [ref=e77]:
+              - img [ref=e78]
+              - generic [ref=e81]: View More
+        - listitem [ref=e82] [cursor=pointer]:
+          - link "대성학원 매출프로그램 대성학원 매출프로그램 대학 입시 재수학원 프로그램 개발" [ref=e83]:
+            - /url: /web/daeseong-sales
+            - img "대성학원 매출프로그램" [ref=e84]
+            - generic [ref=e85]:
+              - generic [ref=e86]:
+                - strong [ref=e87]: 대성학원 매출프로그램
+                - generic [ref=e88]: 대학 입시 재수학원
+              - generic [ref=e89]: 프로그램 개발
+            - generic [ref=e91]:
+              - img [ref=e92]
+              - generic [ref=e95]: View More
+        - listitem [ref=e96] [cursor=pointer]:
+          - link "청춘만사성 청춘만사성 시니어 정비 전문 업체 UIUX 디자인" [ref=e97]:
+            - /url: /web/cheongchun
+            - img "청춘만사성" [ref=e98]
+            - generic [ref=e99]:
+              - generic [ref=e100]:
+                - strong [ref=e101]: 청춘만사성
+                - generic [ref=e102]: 시니어 정비 전문 업체
+              - generic [ref=e103]: UIUX 디자인
+            - generic [ref=e105]:
+              - img [ref=e106]
+              - generic [ref=e109]: View More
+        - listitem [ref=e110] [cursor=pointer]:
+          - link "이음푸드 이음푸드 단체급식·케이터링 공급 전문 기업 UIUX 디자인" [ref=e111]:
+            - /url: /web/eumfood
+            - img "이음푸드" [ref=e112]
+            - generic [ref=e113]:
+              - generic [ref=e114]:
+                - strong [ref=e115]: 이음푸드
+                - generic [ref=e116]: 단체급식·케이터링 공급 전문 기업
+              - generic [ref=e117]: UIUX 디자인
+            - generic [ref=e119]:
+              - img [ref=e120]
+              - generic [ref=e123]: View More
+        - listitem [ref=e124] [cursor=pointer]:
+          - link "제로랩스 제로랩스 애견 간식 브랜드 UIUX 디자인 및 웹 개발" [ref=e125]:
+            - /url: /web/zerolabs
+            - img "제로랩스" [ref=e126]
+            - generic [ref=e127]:
+              - generic [ref=e128]:
+                - strong [ref=e129]: 제로랩스
+                - generic [ref=e130]: 애견 간식 브랜드
+              - generic [ref=e131]: UIUX 디자인 및 웹 개발
+            - generic [ref=e133]:
+              - img [ref=e134]
+              - generic [ref=e137]: View More
+        - listitem [ref=e138] [cursor=pointer]:
+          - link "대성학원 키오스크 대성학원 키오스크 대학 입시 재수학원 프로그램 개발" [ref=e139]:
+            - /url: /web/daeseong-kiosk
+            - img "대성학원 키오스크" [ref=e140]
+            - generic [ref=e141]:
+              - generic [ref=e142]:
+                - strong [ref=e143]: 대성학원 키오스크
+                - generic [ref=e144]: 대학 입시 재수학원
+              - generic [ref=e145]: 프로그램 개발
+            - generic [ref=e147]:
+              - img [ref=e148]
+              - generic [ref=e151]: View More
+      - generic [ref=e152]:
+        - button "이전" [disabled] [ref=e153]:
+          - img [ref=e154]
+        - button "다음" [ref=e156] [cursor=pointer]:
+          - img [ref=e157]
+    - generic [ref=e161]:
+      - generic [ref=e162]:
+        - heading "광고는 하고 있는데, 성과가 잘 안 나오고 계신가요?" [level=2] [ref=e163]
+        - paragraph [ref=e164]: 단순 노출 중심 광고가 아닌, 실제 전환과 성과로 이어질 수 있는 마케팅 구조를 설계합니다.
+      - link "마케팅 서비스 알아보기" [ref=e165] [cursor=pointer]:
+        - /url: /marketing
+        - generic [ref=e166]: 마케팅 서비스 알아보기
+        - img [ref=e168]
+  - complementary "문의 안내" [ref=e170]:
+    - paragraph [ref=e171]: 지금 웹사이트는 제대로 설계되어 있나요?
+    - link "문의하러 가기" [ref=e172] [cursor=pointer]:
+      - /url: /contact
+      - img [ref=e174]
+      - generic [ref=e177]: 문의하러 가기
+  - contentinfo [ref=e178]:
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - heading "New Source" [level=3] [ref=e182]
+          - generic [ref=e183]:
+            - paragraph [ref=e184]: Adress
+            - paragraph [ref=e185]: 서울특별시 마포구 잔다리로 44, 9층(서교동, 센터원빌딩)
+          - generic [ref=e186]:
+            - paragraph [ref=e187]: E-mail
+            - paragraph [ref=e188]: signaldecode@signal-decode.com
+        - generic [ref=e189]:
+          - heading "Info" [level=3] [ref=e190]
+          - generic [ref=e191]:
+            - generic [ref=e192]:
+              - paragraph [ref=e193]: 대표
+              - paragraph [ref=e194]: 손재현
+            - generic [ref=e195]:
+              - paragraph [ref=e196]: Phone
+              - paragraph [ref=e197]: 02-322-7779
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - paragraph [ref=e200]: 사업자번호
+              - paragraph [ref=e201]: 397-88-03608
+            - generic [ref=e202]:
+              - paragraph [ref=e203]: 업무시간
+              - paragraph [ref=e204]: 10:00 - 19:00
+      - generic [ref=e205]:
+        - paragraph [ref=e206]: COPYRIGHT © 2020 SIGNALDECODE. ALL RIGHTS RESERVED.
+        - generic [ref=e208]:
+          - generic [ref=e209]: SIGNAL DECODE
+          - generic [ref=e210]: SIGNAL DECODE
+          - generic [ref=e211]: SIGNAL DECODE
+          - generic [ref=e212]: SIGNAL DECODE
+  - button "Open Next.js Dev Tools" [ref=e218] [cursor=pointer]:
+    - img [ref=e219]

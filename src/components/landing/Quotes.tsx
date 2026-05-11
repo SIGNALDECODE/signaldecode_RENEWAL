@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import styles from "@/assets/styles/components/Quotes.module.scss";
+import styles from "@/assets/styles/components/landing/Quotes.module.scss";
 import { quotes } from "@/data/landing/quotes";
 
 const N = quotes.length;

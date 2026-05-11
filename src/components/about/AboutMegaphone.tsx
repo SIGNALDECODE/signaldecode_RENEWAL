@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/assets/styles/components/AboutMegaphone.module.scss";
+import styles from "@/assets/styles/components/about/AboutMegaphone.module.scss";
 import { aboutMegaphone } from "@/data/about";
 
 export default function AboutMegaphone() {

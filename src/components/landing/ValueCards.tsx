@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "@/assets/styles/components/ValueCards.module.scss";
+import styles from "@/assets/styles/components/landing/ValueCards.module.scss";
 import { valueCards } from "@/data/landing/valueCards";
 
 export default function ValueCards() {

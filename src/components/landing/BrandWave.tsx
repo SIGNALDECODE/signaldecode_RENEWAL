@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Renderer, Program, Mesh, Triangle, Texture } from "ogl";
-import styles from "@/assets/styles/components/Hero.module.scss";
+import styles from "@/assets/styles/components/landing/Hero.module.scss";
 
 const FONT_PX_RATIO = 1.087; // text height ≈ container height × this ratio
 const FONT_FAMILY = '"Inter", "Pretendard", sans-serif';

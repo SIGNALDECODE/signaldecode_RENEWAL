@@ -1,4 +1,4 @@
-import styles from "@/assets/styles/components/Hero.module.scss";
+import styles from "@/assets/styles/components/landing/Hero.module.scss";
 import { hero } from "@/data/landing/hero";
 import BrandWave from "./BrandWave";
 

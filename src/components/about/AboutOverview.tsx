@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from "@/assets/styles/components/AboutOverview.module.scss";
+import styles from "@/assets/styles/components/about/AboutOverview.module.scss";
 import { aboutOverview } from "@/data/about";
 
 export default function AboutOverview() {

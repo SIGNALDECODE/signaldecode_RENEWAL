@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useRef, useState, type FormEvent } from "react";
-import styles from "@/assets/styles/components/ContactForm.module.scss";
+import styles from "@/assets/styles/components/contact/ContactForm.module.scss";
 import { contact } from "@/data/contact";
 
 export default function ContactForm() {

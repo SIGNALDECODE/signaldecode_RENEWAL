@@ -19,11 +19,12 @@ export const phoneSlider: PhoneSliderData = {
       { src: "/images/slider5.png" },
     ],
     dev: [
-      { src: "/images/portfolio/대성학원.jpg", href: "/web/daeseong-kiosk" },
+      { src: "/images/portfolio/대성학원_키오스크.jpg", href: "/web/daeseong-kiosk" },
       { src: "/images/portfolio/이음푸드.jpg", href: "/web/eumfood" },
       { src: "/images/portfolio/정성SR.jpg", href: "/web/jeongseong-sr" },
       { src: "/images/portfolio/제로랩스.jpg", href: "/web/zerolabs" },
       { src: "/images/portfolio/청춘만사성.jpg", href: "/web/cheongchun" },
+      { src: "/images/portfolio/대성학원.jpg", href: "/web/daeseong-sales" },
     ],
   },
   more: "더 보러가기",

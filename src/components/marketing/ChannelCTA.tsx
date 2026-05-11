@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "@/assets/styles/components/ChannelCTA.module.scss";
+import styles from "@/assets/styles/components/marketing/ChannelCTA.module.scss";
 
 type Props = {
   kicker: string;

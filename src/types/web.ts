@@ -6,21 +6,21 @@ export type WebHero = {
 };
 
 export type WebFeatureCard = {
-  eyebrow: string;
   title: string;
   desc: string;
-  icon: string;
+  image: string;
 };
 
 export type WebFeatures = {
   eyebrow: string;
   title: string;
-  images: { src: string; alt: string }[];
   cards: WebFeatureCard[];
 };
 
 export type WebPortfolioItem = {
   brand: string;
+  subtitle: string;
+  tag: string;
   image: string;
   href: string;
 };
@@ -32,19 +32,13 @@ export type WebPortfolio = {
   items: WebPortfolioItem[];
 };
 
-export type WebCTA = {
-  title: string;
-  desc: string;
-  bg: string;
-  link: { href: string; label: string };
-};
-
 export type WebMetaItem = { label: string; value: string };
 
 export type WebCoreValueCard = {
   num: string;
   title: string;
   desc: string;
+  icon?: string;
 };
 
 export type WebTypoSpecimen = {
@@ -73,6 +67,7 @@ export type WebProjectDetail = {
   heroBg: string;
   hero: {
     title: string;
+    subtitle?: string;
     paragraphs: string[];
     meta: WebMetaItem[];
   };
@@ -87,6 +82,11 @@ export type WebProjectDetail = {
     title: string;
     subParagraph: string;
     specimens: WebTypoSpecimen[];
+    // When present, render a single specimen row with this large decorative
+    // text on the right side (replacing the spec-chip grid). Used by pages
+    // whose Figma typography section showcases the Korean alphabet (e.g.
+    // "가나다") at huge ExtraBold size instead of detailed spec chips.
+    decoration?: string;
   };
   color: {
     eyebrow: string;
@@ -98,5 +98,12 @@ export type WebProjectDetail = {
     eyebrow: string;
     paragraph: string;
   };
-  mockPreview: { src: string; alt: string };
+  mockPreview: {
+    src: string;
+    alt: string;
+    // When true, render the showcase image full-bleed (no rounded card / no
+    // container max-width) — used for project mocks designed as wide hero
+    // photos rather than the standard rounded mockup card.
+    bleed?: boolean;
+  };
 };

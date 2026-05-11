@@ -1,0 +1,112 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "SIGNALDECODE" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img "SIGNALDECODE" [ref=e5]
+      - navigation [ref=e6]:
+        - link "회사소개" [ref=e7] [cursor=pointer]:
+          - /url: /about
+        - link "마케팅서비스" [ref=e8] [cursor=pointer]:
+          - /url: /marketing/naver
+        - link "웹·개발" [ref=e9] [cursor=pointer]:
+          - /url: /web
+        - generic [ref=e10] [cursor=pointer]: 이벤트
+        - generic [ref=e11] [cursor=pointer]: 고객지원
+    - link "문의하기" [ref=e13] [cursor=pointer]:
+      - /url: /contact
+  - generic:
+    - navigation:
+      - link:
+        - /url: /about
+        - text: 회사소개
+      - link:
+        - /url: /marketing/naver
+        - text: 마케팅서비스
+      - link:
+        - /url: /web
+        - text: 웹·개발
+      - generic:
+        - text: 이벤트
+        - generic: 준비중입니다
+      - generic:
+        - text: 고객지원
+        - generic: 준비중입니다
+  - main [ref=e14]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - heading "마케팅 서비스" [level=1] [ref=e18]
+        - paragraph [ref=e19]: 데이터 기반으로 유입부터 전환까지 설계합니다.
+      - generic [ref=e20]:
+        - navigation "breadcrumb" [ref=e21]:
+          - img [ref=e23]
+          - generic [ref=e26]: 마케팅 서비스
+          - generic [ref=e28]: 구글
+        - generic [ref=e29]:
+          - paragraph [ref=e30]: 지금 웹사이트는 제대로 설계되어 있나요?
+          - link "문의하러 가기" [ref=e31] [cursor=pointer]:
+            - /url: /contact
+            - img [ref=e33]
+            - generic [ref=e36]: 문의하러 가기
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - paragraph [ref=e39]: Advertising Media
+        - heading "구글" [level=2] [ref=e40]
+      - list [ref=e41]:
+        - listitem [ref=e42]:
+          - generic [ref=e43]:
+            - generic [ref=e46]: SEO 최적화
+            - generic [ref=e47]: Google
+          - generic [ref=e48]:
+            - heading "검색 알고리즘 상위 노출" [level=3] [ref=e49]
+            - paragraph [ref=e50]: 검색 알고리즘에 맞춰 콘텐츠와 구조를 최적화합니다. 지속적인 상위 노출과 자연 유입을 확보합니다.
+        - listitem [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e55]: 구글 지도 노출
+            - generic [ref=e56]: Google
+          - generic [ref=e57]:
+            - heading "로컬 검색 최적화" [level=3] [ref=e58]
+            - paragraph [ref=e59]: 구글 지도와 로컬 검색에 최적화된 정보를 구성합니다. 지역 기반 고객 유입과 방문 전환을 높입니다.
+        - listitem [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e64]: 앱 & 배너 노출
+            - generic [ref=e65]: Google
+          - generic [ref=e66]:
+            - heading "타겟 고객 대상 광고 노출" [level=3] [ref=e67]
+            - paragraph [ref=e68]: 타겟 고객에게 맞는 광고를 전략적으로 운영합니다. 브랜드 노출을 확대하고 유입을 빠르게 확보합니다.
+  - contentinfo [ref=e69]:
+    - generic [ref=e70]:
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - heading "New Source" [level=3] [ref=e73]
+          - generic [ref=e74]:
+            - paragraph [ref=e75]: Adress
+            - paragraph [ref=e76]: 서울특별시 마포구 잔다리로 44, 9층(서교동, 센터원빌딩)
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: E-mail
+            - paragraph [ref=e79]: signaldecode@signal-decode.com
+        - generic [ref=e80]:
+          - heading "Info" [level=3] [ref=e81]
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - paragraph [ref=e84]: 대표
+              - paragraph [ref=e85]: 손재현
+            - generic [ref=e86]:
+              - paragraph [ref=e87]: Phone
+              - paragraph [ref=e88]: 02-322-7779
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - paragraph [ref=e91]: 사업자번호
+              - paragraph [ref=e92]: 397-88-03608
+            - generic [ref=e93]:
+              - paragraph [ref=e94]: 업무시간
+              - paragraph [ref=e95]: 10:00 - 19:00
+      - generic [ref=e96]:
+        - paragraph [ref=e97]: COPYRIGHT © 2020 SIGNALDECODE. ALL RIGHTS RESERVED.
+        - generic [ref=e99]:
+          - generic [ref=e100]: SIGNAL DECODE
+          - generic [ref=e101]: SIGNAL DECODE
+          - generic [ref=e102]: SIGNAL DECODE
+          - generic [ref=e103]: SIGNAL DECODE
+  - button "Open Next.js Dev Tools" [ref=e109] [cursor=pointer]:
+    - img [ref=e110]

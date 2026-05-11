@@ -1,0 +1,187 @@
+@use "tokens" as *;
+
+// Figma 1920 기준 픽셀 정합 매핑.
+// Frame 2095587695: x=275, y=8384, width=1370, column gap=60, alignItems stretch.
+//   • 각 행 (Frame 2095587655 / 2681 / 2682): row gap=30, fill horizontal, alignItems center.
+//   • 카드 (Frame 1707487853): 670 wide, column gap=24, padding=60, border-radius=16,
+//     box-shadow: 10px 10px 16px rgba(34,34,34,0.2).
+//     - 1행: bg #021526 (다크 네이비)
+//     - 2행: bg #384957 (미드 그레이-블루)
+//     - 3행: bg #8F959A (라이트 그레이)
+//   • 카드 내부:
+//     - 아이콘 wrap (row justify flex-end): 144×138 3D 아이콘
+//     - 라벨 wrap (column gap=16, width=368):
+//       - 라벨 — Inter Bold 44/48, #FFFFFF
+//       - 캡션 — Pretendard Medium 20/26, rgba(255,255,255,0.7)
+//   • 설명 블록 (Frame 1707487588, column gap=16, padding=60, justify center, fill vertical):
+//     - 서브타이틀 — Pretendard Bold 32/40, #1D212C
+//     - 본문 — Pretendard Regular 18/26, -2.5%, #767676
+
+.section {
+  position: relative;
+  // AboutFeatureSections wrap.bottom 직전에 시작하도록 음수 margin.
+  // wrap 의 z-index:1 이 compress 진행 중에는 이 섹션을 가려줌.
+  margin-top: -60vh;
+  padding: 5vh 0 8vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.125vw;                        // 60 / 1920
+
+  // 한글 본문이 단어 중간에서 끊기지 않고 공백/구두점에서만 끊기도록.
+  word-break: keep-all;
+}
+
+.row {
+  width: 71.354%;                      // 1370 / 1920
+  max-width: 1370px;
+  display: flex;
+  flex-direction: row;
+  // 카드와 설명 블록 모두 row 높이에 맞춰 stretch — Figma 의
+  // desc.alignSelf:stretch + card 가 더 큰 콘텐츠를 가진 결과와 같음.
+  align-items: stretch;
+  gap: 1.5625vw;                       // 30 / 1920
+
+  // 2행만 카드 위치를 우측으로 — 지그재그.
+  &:nth-child(even) { flex-direction: row-reverse; }
+
+  // 카드 배경색을 nth-child 로 매핑.
+  &:nth-child(1) { --card-bg: #021526; }
+  &:nth-child(2) { --card-bg: #384957; }
+  &:nth-child(3) { --card-bg: #8F959A; }
+}
+
+// 카드는 row 높이를 채우면서, 안의 콘텐츠는 위(아이콘) / 아래(라벨)로
+// 분리 → 가운데 자연스러운 공백이 생겨 Figma 의 느낌과 일치.
+// (Figma 는 column gap 24 이지만 row 가 desc 보다 살짝 더 커서 결과적으로
+//  중앙 공백이 보임. 우리는 space-between 으로 명시적으로 만든다.)
+.card {
+  flex: 0 0 auto;
+  width: 48.905%;                      // 670 / 1370
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25vw;                         // 24 / 1920 (최소 간격)
+  padding: 3.125vw;                    // 60 / 1920
+  background: var(--card-bg);
+  border-radius: 0.8333vw;             // 16 / 1920
+  box-shadow: 0.5208vw 0.5208vw 0.8333vw rgba(34, 34, 34, 0.2);
+  color: $color-white;
+}
+
+.iconWrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  // 아이콘 영역이 자라지 않도록 — 카드의 나머지 공간은 빈 중앙으로.
+  flex: 0 0 auto;
+}
+
+// Figma 아이콘 박스 비율 144 : 138 (가로 약간 더 넓음). 원본 PNG 가
+// 2000×2000 정사각형이지만 Figma 가 STRETCH/fill 로 박스에 채우므로
+// `object-fit: fill` 로 박스 비율 그대로 사용.
+.icon {
+  width: 7.5vw;                        // 144 / 1920
+  aspect-ratio: 144 / 138;
+  height: auto;
+  object-fit: fill;
+}
+
+.labelWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8333vw;                       // 16 / 1920
+  width: 100%;
+  max-width: 19.1667vw;                // 368 / 1920
+}
+
+// Inter Bold 44 / 48 / #FFFFFF
+.label {
+  margin: 0;
+  font-family: $ff-en;
+  font-weight: 700;
+  font-size: 2.2917vw;                 // 44 / 1920
+  line-height: 1.0909;                 // 48 / 44
+  color: $color-white;
+}
+
+// Pretendard Medium 20 / 26 / -2.5% / rgba(255,255,255,0.7)
+.caption {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 500;
+  font-size: 1.0417vw;                 // 20 / 1920
+  line-height: 1.3;                    // 26 / 20
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// 설명 블록 — 카드와 같은 너비 비율, 세로 중앙 정렬.
+.desc {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8333vw;                       // 16 / 1920
+  padding: 3.125vw;                    // 60 / 1920
+}
+
+// Pretendard Bold 32 / 40 / -2.5% / #1D212C
+.subtitle {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 700;
+  font-size: 1.6667vw;                 // 32 / 1920
+  line-height: 1.25;                   // 40 / 32
+  letter-spacing: -0.025em;
+  color: #1d212c;
+}
+
+// Pretendard Regular 18 / 26 / -2.5% / #767676
+.body {
+  margin: 0;
+  font-family: $ff-sans;
+  font-weight: 400;
+  font-size: 0.9375vw;                 // 18 / 1920
+  line-height: 1.4444;                 // 26 / 18
+  letter-spacing: -0.025em;
+  color: #767676;
+}
+
+// ----- 반응형 -----
+
+@media (max-width: 1280px) {
+  .row { width: 88%; }
+  .label { font-size: clamp(28px, 2.8vw, 44px); }
+  .caption { font-size: clamp(14px, 1.4vw, 20px); }
+  .subtitle { font-size: clamp(22px, 2.3vw, 32px); }
+  .body { font-size: clamp(14px, 1.2vw, 18px); }
+  .card, .desc { padding: clamp(28px, 3vw, 60px); }
+  .icon { width: clamp(80px, 7.5vw, 144px); }
+  .labelWrap { max-width: 100%; }
+}
+
+@media (max-width: 1024px) {
+  .row,
+  .row:nth-child(even) {
+    flex-direction: column;
+    width: 92%;
+  }
+  .card, .desc {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .section { gap: 24px; padding: 24px 0 48px; }
+  .card { padding: 24px; gap: 16px; border-radius: 12px; }
+  .desc { padding: 8px 0 0; gap: 10px; }
+  .icon { width: 72px; }       // aspect-ratio 가 height 를 자동 계산
+  .label { font-size: 28px; line-height: 1.1; }
+  .caption { font-size: 14px; }
+  .subtitle { font-size: 20px; line-height: 1.3; }
+  .body { font-size: 14px; line-height: 1.6; }
+}

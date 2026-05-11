@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "@/assets/styles/components/Partners.module.scss";
+import styles from "@/assets/styles/components/landing/Partners.module.scss";
 import { partners } from "@/data/landing/partners";
 
 const PER_PAGE = 8;

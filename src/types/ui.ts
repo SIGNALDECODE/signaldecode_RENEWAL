@@ -1,7 +1,13 @@
+export type NavDropdownItem = {
+  label: string;
+  href: string;
+};
+
 export type NavLink = {
   label: string;
   href: string;
   comingSoon?: boolean;
+  dropdown?: NavDropdownItem[];
 };
 
 export type HeaderData = {
